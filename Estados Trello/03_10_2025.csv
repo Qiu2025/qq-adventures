@@ -1,0 +1,90 @@
+Card ID,Card Name,Card URL,Card Description,Labels,Members,Due Date,Attachment Count,Attachment Links,Checklist Item Total Count,Checklist Item Completed Count,Vote Count,Comment Count,Last Activity Date,List ID,List Name,Board ID,Board Name,Archived,Start Date,Due Complete,Due Reminder
+68d69831b29825c05a57cd32,Backlog,https://trello.com/c/XbpyG3XH/1-backlog,"A list of the things we think we want to do, maybe not quite ready for work, but high likelihood of being worked on.
+
+This is the staging area where specs should get fleshed out.
+
+No limit on the list size, but we should reconsider if it gets long.",,,,1,https://trello.com/1/cards/68d69831b29825c05a57cd32/attachments/68d69831b29825c05a57cf27/download/Backlog.png,0,0,0,0,2025-10-03T19:05:05.414Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68dfeba55787c9f558df3134,Buscar assets,https://trello.com/c/fJiGwezl/15-buscar-assets,Buscar assets,,,,0,,0,0,0,0,2025-10-03T19:07:39.229Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd48,Diseñar el personaje.,https://trello.com/c/FOmtyETh/12-dise%C3%B1ar-el-personaje,Sustituir los cubos de la iteración 1 por assets adecuados y crear las animaciones con la herramienta “Animator” de Unity.,,,,0,,0,0,0,0,2025-10-03T16:16:32.977Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69d51c34e4b8bc2a044c2,Programar la pistola de agua,https://trello.com/c/OAqEDjkc/2-programar-la-pistola-de-agua,"Cuando llegue el momento, separar esta tarea en versiones tipo desierto, playa, ártico, etc",,,,0,,0,0,0,0,2025-10-03T19:07:32.662Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68e01eea87d4d3049b8d5a99,Programar los cubos de hielo,https://trello.com/c/reVuCX9G/16-programar-los-cubos-de-hielo,Programar los cubos de hielo,,,,0,,0,0,0,0,2025-10-03T19:09:06.094Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69fdddff26a41d01c4266,Diseñar los niveles principales.,https://trello.com/c/1mTaIa0I/3-dise%C3%B1ar-los-niveles-principales,"1. Nivel desierto (pistola de agua → evapora)
+2. Nivel playa (pistola de agua → agua)
+3. ???
+4. Nivel ártico antes de llegar al iglú (pistola de agua → plataformas, muros de hielo)",,,,0,,0,0,0,0,2025-10-03T19:06:50.817Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69bd2a9f1831ea1a4e679,Hacer las cinemáticas.,https://trello.com/c/LQAFiNuc/1-hacer-las-cinem%C3%A1ticas,"Realizar las cinemáticas de:
+
+- inicio del juego, pingüino dormido siendo arrastrado por la marea hacia un desierto.
+- encuentro con el BOSS.
+- entrando al iglú al final del juego.
+
+Opciones: dibujos a mano, capturas del juego estilo manga (transiciones), IA, etc",,,,0,,0,0,0,0,2025-10-03T19:07:47.551Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd46,Crear UI del juego.,https://trello.com/c/Y7QOp3Q5/11-crear-ui-del-juego,"Crear menús del juego, algunas posibles:
+
+- Menú principal: el que se sale al ejecutar el juego
+- Menú para elegir nivel: para permitir la elección de niveles una vez el usuario ha logrado pasar los anteriores.
+- Menú de pausa: al presionar esc
+- …
+
+‌
+
+Y crear los elementos de UI sobre pantalla que se considere oportunos, como podría ser:
+
+- Puntos de vida
+- Tiempo transcurrido en el nivel actual
+- Iconos (botones) de exit, de reiniciar el nivel actual, etc",,,,0,,0,0,0,0,2025-10-03T19:07:36.682Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68d6a2dc45481619c5993229,Listado de ideas secundarias.,https://trello.com/c/WX19nTz0/4-listado-de-ideas-secundarias,"1. Opción de elegir dificultad, de forma que en función de la dificultad los cubos de hielo recargan más o menos munición.
+2. Una batalla de BOSS antes de llegar al iglú.
+3. Lanzar cubos de hielo para activar algún interruptor y poder avanzar al siguiente nivel.",,,,0,,0,0,0,0,2025-10-03T19:07:49.349Z,68d69831b29825c05a57ccfb,Backlog,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd36,To Do,https://trello.com/c/4SA4PHNa/3-to-do,"This is a list of things that are good to pull off to work on, prioritized.
+
+If there are too few items here, we should swarm against getting tasks ready for work.",,,,1,https://trello.com/1/cards/68d69831b29825c05a57cd36/attachments/68d69831b29825c05a57cf39/download/To-Do.png,0,0,0,0,2025-10-01T16:02:35.995Z,68d69831b29825c05a57ccfd,To Do,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd40,#001 Programar el movimiento principal del personaje.,https://trello.com/c/gEk3rx0r/8-001-programar-el-movimiento-principal-del-personaje,"Añadirle al personaje principal los movimientos de:
+
+- Movimiento lateral
+
+- Salto
+- Doble salto
+- Caída Lenta",,,,0,,0,0,0,0,2025-10-03T20:09:07.099Z,68d69831b29825c05a57ccfd,To Do,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd42,#002 Diseñar el nivel tutorial del movimiento principal del jugador.,https://trello.com/c/dMU1SwIp/9-002-dise%C3%B1ar-el-nivel-tutorial-del-movimiento-principal-del-jugador,Desarrollo de un espacio encerrado con plataformas y paredes para que el usuario experimente las mecánicas de movimiento principal del juego.,,,,0,,0,0,0,0,2025-10-03T20:16:32.205Z,68d69831b29825c05a57ccfd,To Do,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd44,Escribir GDD de la primera iteración.,https://trello.com/c/CmiOwrif/10-escribir-gdd-de-la-primera-iteraci%C3%B3n,"Estructura GDD:
+
+- Descripción principal del videojuego y objetivos.
+- Narrativa y personajes.
+- Jugadores objetivo.
+- Mecánica principal de juego.
+- Storyboard.
+- Género y referencias a juegos previos.
+- Organización del equipo",,,,0,,0,0,0,0,2025-10-03T16:11:39.418Z,68d69831b29825c05a57ccfd,To Do,68d69831b29825c05a57cd02,FdV,false,,false,
+68dd4f62ae1742aa2bdffedc,Rellenar el Excel de flujo acumulado de la primera iteración.,https://trello.com/c/1B2XBle9/5-rellenar-el-excel-de-flujo-acumulado-de-la-primera-iteraci%C3%B3n,Rellenar el Excel de flujo acumulado de la primera iteración.,,,,0,,0,0,0,0,2025-10-03T19:05:41.958Z,68d69831b29825c05a57ccfd,To Do,68d69831b29825c05a57cd02,FdV,false,,false,
+68dd502125956b8497f6a3fa,Realizar la planificación de la segunda iteración,https://trello.com/c/ap9iFhm5/7-realizar-la-planificaci%C3%B3n-de-la-segunda-iteraci%C3%B3n,Realizar la planificación de la segunda iteración,,,,0,,0,0,0,0,2025-10-03T19:05:37.222Z,68d69831b29825c05a57ccfd,To Do,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd38,Doing,https://trello.com/c/AybUCOzB/4-doing,"These are the things that folks are working on.
+
+All our engineers should have at least one item in this state.
+
+If there are too few things here, they should be pulled off Todo.
+
+When doing is done, cards move to Code Review.",,,,1,https://trello.com/1/cards/68d69831b29825c05a57cd38/attachments/68d69831b29825c05a57cf42/download/Doing.png,0,0,0,0,2025-09-26T13:42:09.828Z,68d69831b29825c05a57ccfe,Doing,68d69831b29825c05a57cd02,FdV,false,,false,
+68dfe8d1d1362b15064de15f,Diseñar el StoryBoard para la primera iteración,https://trello.com/c/kdUtX8d5/11-dise%C3%B1ar-el-storyboard-para-la-primera-iteraci%C3%B3n,Diseñar el StoryBoard para la primera iteración,,shuhangpan,,0,,0,0,0,0,2025-10-03T19:04:06.095Z,68d69831b29825c05a57ccfe,Doing,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd3c,Code Review,https://trello.com/c/KjHkTfr3/6-code-review,"This list is for items in code review. 
+
+When a task has gotten approval, it moves off to Testing.
+
+If there are too many cards here, we should break off from other tasks to get code review done.",,,,1,https://trello.com/1/cards/68d69831b29825c05a57cd3c/attachments/68d69831b29825c05a57cf59/download/Code_Review.png,0,0,0,0,2025-09-26T13:42:09.914Z,68d69831b29825c05a57cd00,Code Review,68d69831b29825c05a57cd02,FdV,false,,false,
+68d69831b29825c05a57cd3a,Done,https://trello.com/c/Q1FWzxnK/5-done,We shipped it to production! ,,,,2,"https://trello.com/1/cards/68d69831b29825c05a57cd3a/attachments/68d69831b29825c05a57cf4b/download/done.png, https://trello.com/1/cards/68d69831b29825c05a57cd3a/attachments/68d69831b29825c05a57cf50/download/Done.png",0,0,0,0,2025-09-26T13:42:09.909Z,68d69831b29825c05a57ccff,Done 🎉,68d69831b29825c05a57cd02,FdV,false,,false,
+68dfe9a5d688e85ef7568459,Crear repositorio Github,https://trello.com/c/hLuCS99z/13-crear-repositorio-github,Crear repositorio Github,,sqiu4,,0,,0,0,0,2,2025-10-03T19:04:36.861Z,68d69831b29825c05a57ccff,Done 🎉,68d69831b29825c05a57cd02,FdV,false,,false,
+68dfea8d8304e8e64f58665f,Crear el proyecto de Unity y la configuración de carpetas,https://trello.com/c/t3Mnw2CK/14-crear-el-proyecto-de-unity-y-la-configuraci%C3%B3n-de-carpetas,Crear el proyecto de Unity y la configuración de carpetas,,sqiu4,,0,,0,0,0,2,2025-10-03T19:04:59.929Z,68d69831b29825c05a57ccff,Done 🎉,68d69831b29825c05a57cd02,FdV,false,,false,
+68dd57417756fe054411ca21,Documentar la propuesta y planificación inicial del proyecto,https://trello.com/c/djZ2IbVz/8-documentar-la-propuesta-y-planificaci%C3%B3n-inicial-del-proyecto,"'- Contenido Product Backlog:
+  - Macro-tareas (big issues)
+  - Cronograma en escala de semanas.
+  - Entregables (1 por iteración).
+  - Roles y responsabilidades de cada miembro
+  - Lista de recursos necesarios (herramientas software).
+- Contenido primera iteración:
+  - Estructura Kanban (Herramienta Planner en Microsoft Teams/Trello).
+  - Tareas en formato tarjeta:
+    - Titulo
+    - Descripción/Pasos
+    - Validación
+- Formato: PDF/WORD y Planner/Trello",,"jiadezheng, shuhangpan, sqiu4, xiaoleizhu2, yixiaoyao1",,0,,0,0,0,4,2025-10-03T16:31:51.065Z,68d69831b29825c05a57ccff,Done 🎉,68d69831b29825c05a57cd02,FdV,false,,false,
+68dd4fcc3a6e62423bb7140e,Exportar el estado del trello para la primera iteración,https://trello.com/c/7nqjRaQk/6-exportar-el-estado-del-trello-para-la-primera-iteraci%C3%B3n,Exportar el estado del Trello para la primera Iteración,,sqiu4,,0,,0,0,0,0,2025-10-03T20:27:12.472Z,68d69831b29825c05a57ccff,Done 🎉,68d69831b29825c05a57cd02,FdV,false,,false,
