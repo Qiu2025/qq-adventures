@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingLeft = true;
     private int jumpsLeft;
     private bool wasGrounded; // Para detectar cuando acaba de tocar el suelo
+    private bool isRolling;
+    private float rollDuration = 0.3f; // Duración del roll en segundos
+    private float rollTimer = 0f;
 
     void Start()
     {
@@ -63,12 +66,36 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = normalGravity;
         }
+
+        // --- Roll ---
+        if (Input.GetKeyDown(KeyCode.S) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && grounded && !isRolling)
+        {
+            isRolling = true;
+            rollTimer = rollDuration; // Inicia el temporizador
+            float rollDirection = Input.GetKey(KeyCode.A) ? -1f : 1f;
+            rb.linearVelocity = new Vector2(rollDirection * speed, rb.linearVelocity.y);
+            Debug.Log("Roll!");
+            sr.flipY = true;
+        }
+        if (isRolling)
+        {
+            rollTimer -= Time.deltaTime;
+            if (rollTimer <= 0f)
+            {
+                isRolling = false;
+                sr.flipY = false;
+                Debug.Log("End Roll");
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
-        CheckFlip();
+        if (!isRolling)
+        {
+            rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+            CheckFlip();
+        }
     }
 
     private void CheckFlip()
