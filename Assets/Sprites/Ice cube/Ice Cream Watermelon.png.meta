@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: ca816580129f8b94a82db4d2720499cd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8431641089975755478
+    second: Ice Cream Watermelon_0
+  - first:
+      213: -734146580454291754
+    second: Ice Cream Watermelon_1
+  - first:
+      213: -466790943712377639
+    second: Ice Cream Watermelon_2
+  - first:
+      213: -4739239433068189693
+    second: Ice Cream Watermelon_3
+  - first:
+      213: -1927615773935953030
+    second: Ice Cream Watermelon_4
+  - first:
+      213: -8396744918190653402
+    second: Ice Cream Watermelon_5
+  - first:
+      213: -7158358960299018890
+    second: Ice Cream Watermelon_6
+  - first:
+      213: -3944839829994648085
+    second: Ice Cream Watermelon_7
+  - first:
+      213: 4461346007841683425
+    second: Ice Cream Watermelon_8
+  - first:
+      213: 5330326612483385450
+    second: Ice Cream Watermelon_9
+  - first:
+      213: -1083033137549964690
+    second: Ice Cream Watermelon_10
+  - first:
+      213: 5522505725916770589
+    second: Ice Cream Watermelon_11
+  - first:
+      213: 5454817354277511637
+    second: Ice Cream Watermelon_12
+  - first:
+      213: -1582188233045211303
+    second: Ice Cream Watermelon_13
+  - first:
+      213: -2732282033007084762
+    second: Ice Cream Watermelon_14
+  - first:
+      213: -392562094398287759
+    second: Ice Cream Watermelon_15
+  - first:
+      213: 7816952949537304713
+    second: Ice Cream Watermelon_16
+  - first:
+      213: 2583416625442460994
+    second: Ice Cream Watermelon_17
+  - first:
+      213: 5380296726302330089
+    second: Ice Cream Watermelon_18
+  - first:
+      213: -7941625334325778032
+    second: Ice Cream Watermelon_19
+  - first:
+      213: 1317881421237316373
+    second: Ice Cream Watermelon_20
+  - first:
+      213: -8312559237884752693
+    second: Ice Cream Watermelon_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_0
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 2143
+        width: 226
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2d5866f91bccfa80800000000000000
+      internalID: -8431641089975755478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_1
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 2143
+        width: 226
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d644f22399cfc5f0800000000000000
+      internalID: -734146580454291754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_2
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 2143
+        width: 226
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d487af1c10a589f0800000000000000
+      internalID: -466790943712377639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_3
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 2143
+        width: 226
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 308627e58d6da3eb0800000000000000
+      internalID: -4739239433068189693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_4
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 2143
+        width: 226
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b9b13aaabbf35e0800000000000000
+      internalID: -1927615773935953030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1631
+        width: 226
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6200ea91cf4c87b80800000000000000
+      internalID: -8396744918190653402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_6
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1631
+        width: 226
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67574a4c37668ac90800000000000000
+      internalID: -7158358960299018890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_7
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1631
+        width: 210
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed4b55431d1149c0800000000000000
+      internalID: -3944839829994648085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_8
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 1631
+        width: 210
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7b2819e82e9ed30800000000000000
+      internalID: 4461346007841683425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_9
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 1631
+        width: 210
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6822e110df19f940800000000000000
+      internalID: 5330326612483385450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1119
+        width: 194
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a8b5c791b48f0f0800000000000000
+      internalID: -1083033137549964690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_11
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 1119
+        width: 194
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11745fb2b1e3ac40800000000000000
+      internalID: 5522505725916770589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_12
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1119
+        width: 194
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d1e85c9b7763bb40800000000000000
+      internalID: 5454817354277511637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_13
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 1119
+        width: 130
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95789815f20fa0ae0800000000000000
+      internalID: -1582188233045211303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_14
+      rect:
+        serializedVersion: 2
+        x: 2239
+        y: 1119
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b3e6c97fbf41ad0800000000000000
+      internalID: -2732282033007084762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_15
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 607
+        width: 114
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1705b13ead65d8af0800000000000000
+      internalID: -392562094398287759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_16
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 607
+        width: 114
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 980fc17aa456b7c60800000000000000
+      internalID: 7816952949537304713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_17
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 607
+        width: 114
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 245165abbb32ad320800000000000000
+      internalID: 2583416625442460994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_18
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 607
+        width: 114
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec8275dd57aaaa40800000000000000
+      internalID: 5380296726302330089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_19
+      rect:
+        serializedVersion: 2
+        x: 2255
+        y: 607
+        width: 98
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 099e440c5dda9c190800000000000000
+      internalID: -7941625334325778032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_20
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 95
+        width: 82
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51befe09b2e0a4210800000000000000
+      internalID: 1317881421237316373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice Cream Watermelon_21
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 95
+        width: 66
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcccc7b3a6bd3ac80800000000000000
+      internalID: -8312559237884752693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ice Cream Watermelon_0: -8431641089975755478
+      Ice Cream Watermelon_1: -734146580454291754
+      Ice Cream Watermelon_10: -1083033137549964690
+      Ice Cream Watermelon_11: 5522505725916770589
+      Ice Cream Watermelon_12: 5454817354277511637
+      Ice Cream Watermelon_13: -1582188233045211303
+      Ice Cream Watermelon_14: -2732282033007084762
+      Ice Cream Watermelon_15: -392562094398287759
+      Ice Cream Watermelon_16: 7816952949537304713
+      Ice Cream Watermelon_17: 2583416625442460994
+      Ice Cream Watermelon_18: 5380296726302330089
+      Ice Cream Watermelon_19: -7941625334325778032
+      Ice Cream Watermelon_2: -466790943712377639
+      Ice Cream Watermelon_20: 1317881421237316373
+      Ice Cream Watermelon_21: -8312559237884752693
+      Ice Cream Watermelon_3: -4739239433068189693
+      Ice Cream Watermelon_4: -1927615773935953030
+      Ice Cream Watermelon_5: -8396744918190653402
+      Ice Cream Watermelon_6: -7158358960299018890
+      Ice Cream Watermelon_7: -3944839829994648085
+      Ice Cream Watermelon_8: 4461346007841683425
+      Ice Cream Watermelon_9: 5330326612483385450
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

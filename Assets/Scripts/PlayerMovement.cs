@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float normalGravity = 3f;
     [SerializeField] private float slowFallGravity = 0.5f;
 
+    [Header("Temporizador")]
+    [SerializeField] private Temporizador temporizador;
+
     private float horizontal;
     private bool isFacingLeft = true;
     private int jumpsLeft;
@@ -106,7 +109,25 @@ public class PlayerMovement : MonoBehaviour
             sr.flipX = !sr.flipX;
         }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Opción A: por Tag (pon al helado el tag "IceCream")
+        if (other.CompareTag("IceCream"))
+        {
+            if (temporizador != null)
+            {
+                temporizador.AumentarTiempo(5f);
+            }
 
+            // 🔹 1. Desactivar el sprite (ocultar el helado)
+            var sr = other.GetComponent<SpriteRenderer>();
+            if (sr) sr.enabled = false;
+
+            // 🔹 2. Desactivar su collider para que no se pueda volver a tocar
+            var col = other.GetComponent<Collider2D>();
+            if (col) col.enabled = false;
+        }
+    }
     private bool IsGrounded()
     {
         return Physics2D.Raycast(groundCheck.position, Vector2.down, 0.1f, groundLayer) ||
