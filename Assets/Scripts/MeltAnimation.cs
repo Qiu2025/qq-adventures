@@ -7,7 +7,7 @@ public class MeltAnimation : MonoBehaviour
     public float meltDuration = 10f;
     public AnimationCurve curve = AnimationCurve.Linear(0, 0, 1, 1);
 
-        float t;
+    float t;
     bool playing;
     int lastIdx = -1;
 

@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [Header("Used by TimerTrigger")]
+    public static int playerLastFacing = 0;
+
     [Header("Movimiento")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer sr;
@@ -23,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Temporizador temporizador;
 
     private float horizontal;
-    private bool isFacingLeft = true;
+    private static bool isFacingLeft = true;
     private int jumpsLeft;
     private bool wasGrounded; // Para detectar cuando acaba de tocar el suelo
     private bool isRolling;
@@ -132,5 +136,10 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.Raycast(groundCheck.position, Vector2.down, 0.1f, groundLayer) ||
                Physics2D.Raycast(groundCheck2.position, Vector2.down, 0.1f, groundLayer);
+    }
+
+    public static bool getIsFacingLeft()
+    {
+        return isFacingLeft;
     }
 }
