@@ -23,7 +23,7 @@ public class Temporizador : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0f;
+            GameManager.SetGameOver(true);
         }
     }
 

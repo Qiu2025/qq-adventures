@@ -45,15 +45,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator animator;
 
     // --------------------------------------------- //
-    [Header("Dashing")]
+
+    [Header("Dash")]
     [SerializeField] private bool canDash = true;
     [SerializeField] private bool isDashing = false;
     [SerializeField] private float dashingPower = 20;
     [SerializeField] private float dashingTime = 0.15f;
     [SerializeField] private float dashingCoolDown = 1f;
     [SerializeField] private TrailRenderer tr;
-
-
 
     // --------------------------------------------- //
 
@@ -111,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
         // Reinicia saltos solo cuando acaba de tocar el suelo
         if (grounded && !wasGrounded)
         {
+            animator.SetBool("isFalling", false);
             jumpsLeft = maxJumps;
         }
 
