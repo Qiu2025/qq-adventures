@@ -48,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private bool canDash = true;
     [SerializeField] private bool isDashing = false;
-    [SerializeField] private float dashingPower = 25;
-    [SerializeField] private float dashingTime = 0.1f;
+    [SerializeField] private float dashingPower = 20;
+    [SerializeField] private float dashingTime = 0.15f;
     [SerializeField] private float dashingCoolDown = 1f;
     [SerializeField] private TrailRenderer tr;
 
@@ -169,11 +169,14 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
+        Quaternion originalRotation = transform.rotation;
+        transform.rotation = Quaternion.Euler(0, 0, isFacingLeft ? 30f : -30f);
         rb.linearVelocity = new Vector2((isFacingLeft? -1:1) * dashingPower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
+        transform.rotation = originalRotation;
         isDashing = false;
         yield return new WaitForSeconds(dashingCoolDown);
         canDash = true;
