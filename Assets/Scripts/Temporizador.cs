@@ -24,6 +24,7 @@ public class Temporizador : MonoBehaviour
         else
         {
             GameManager.SetGameOver(true);
+            Debug.Log("You died!");
         }
     }
 
@@ -40,7 +41,6 @@ public class Temporizador : MonoBehaviour
         if (tiempoActual <= 0)
         {
             temporizadorActivo = false;
-            Debug.Log("¡Tiempo terminado!");
         }
     }
 

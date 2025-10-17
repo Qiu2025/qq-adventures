@@ -5,23 +5,29 @@ public class GameManager : MonoBehaviour
 {
     private static bool gameOver = false;
 
+    void Awake()
+    {
+        gameOver = false;
+        Time.timeScale = 1f;
+    }
+
     void Update()
     {
         if (gameOver && Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("DesertSampleScene");
             ChangeGameOverStatus();
+            SceneManager.LoadScene("DesertSampleScene");
         }
     }
 
-    public static void ChangeGameOverStatus()
+    private static void ChangeGameOverStatus()
     {
         gameOver = !gameOver;
         Time.timeScale = gameOver ? 0f : 1f;
     }
 
     public static void SetGameOver(bool cond) {
-        Time.timeScale = cond ? 0f : 1f;
         gameOver = cond;
+        Time.timeScale = 0f;
     }
 }

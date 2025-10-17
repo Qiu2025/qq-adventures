@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.U2D.IK;
@@ -95,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckJump()
     {
-        if (Input.GetKeyDown(KeyCode.W) && jumpsLeft > 0)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && jumpsLeft > 0)
         {
             if (!grounded) jumpsLeft = Math.Min(jumpsLeft, 1);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
