@@ -5,8 +5,10 @@ Este archivo contiene información sobre los autores y licencias de los assets u
 ---
 
 ## 🎮 Proyecto
-**Nombre del juego:** QQ
+**Nombre del juego:** QQ 
+
 **Repositorio:** https://github.com/Qiu2025/FdV  
+
 **Desarrolladores principales:**  
 - Zhiwei Zhang (@javizhangg)
 - Xiaolei Zhu (@MiiNeLoC0)
@@ -62,11 +64,11 @@ Este archivo contiene información sobre los autores y licencias de los assets u
 ---
 
 ## 🔊 Sonidos y música
-**Actualmente no implementados**
+*Actualmente no implementados*
 ---
 
 ## 🧩 Fuentes tipográficas
-**Actualmente no implementados**
+*Actualmente no implementados*
 ---
 
 
@@ -75,3 +77,4 @@ Este archivo contiene información sobre los autores y licencias de los assets u
 Todos los assets pertenecen a sus respectivos autores y se utilizan conforme a sus licencias.  
 En caso de distribuir el juego, incluye este archivo y los avisos/licencias correspondientes.  
 Si algún autor solicita un cambio en la atribución, actualizaremos este documento.
+
