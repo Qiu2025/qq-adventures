@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +18,16 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;  // GroundCheck del frame actual
     public static bool isFacingLeft;    // Controla direccion del sprite
     
+    // --------------------------------------------- //
+
+    [Header("Pistola de Agua")]
+    [SerializeField] private Transform gun;              // Transform del sprite de la pistola
+    [SerializeField] private float resetRotationSpeed = 5f; 
+    private Quaternion gunInitialRotation; 
+    private SpriteRenderer gunSR;
+    private Vector3 gunOriginalLocalPosition;
+    private bool isAiming = false;
+
     // --------------------------------------------- //
 
     [Header("Ground Check")]
@@ -63,6 +72,13 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = normalGravity;
         wasGrounded = IsGrounded();
         isFacingLeft = true;
+
+        // Inicializar pistola de agua
+            gunSR = gun.GetComponent<SpriteRenderer>();
+            gunInitialRotation = gun.localRotation;
+            gunOriginalLocalPosition = gun.localPosition;
+            UpdateGunPosition();
+        
     }
 
     void Update()
@@ -72,10 +88,12 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         grounded = IsGrounded();
         if (grounded) animator.SetBool("grounded", true); else animator.SetBool("grounded", false);
+        
         CheckJump();
         CheckGroundStatus();
         CheckDoubleJump();
         CheckDash();
+        CheckWaterGun();
     }
 
     void FixedUpdate()
@@ -91,6 +109,94 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("isWalking", false);
+        }
+    }
+
+    private void CheckWaterGun()
+    {
+        
+
+        // Mientras mantienes clic izquierdo -> apuntar al ratón
+        if (Input.GetMouseButton(0))
+        {
+            if (!isAiming) 
+            {
+                isAiming = true;
+            }
+            
+            RotateGunTowardsMouse();
+            CheckGunFlip();
+        }
+        else
+        {
+            if (isAiming)
+            {
+                isAiming = false;
+            }
+            
+            // Volver suavemente a la rotación inicial
+            gun.localRotation = Quaternion.Lerp(
+                gun.localRotation,
+                gunInitialRotation,
+                Time.deltaTime * resetRotationSpeed
+            );
+        }
+    }
+
+    private void RotateGunTowardsMouse()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePos - gun.position;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        
+        // Ajustar ángulo basado en la dirección
+        if (isFacingLeft)
+        {
+            angle += 180f;
+            gunSR.flipY = true;
+        }
+        else
+        {
+            gunSR.flipY = false;
+        }
+        
+        gun.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    private void CheckGunFlip()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        // Determinar si está apuntando hacia atrás
+        bool aimingBackwards = (mousePos.x < transform.position.x && !isFacingLeft) ||
+                              (mousePos.x > transform.position.x && isFacingLeft);
+        
+        // Si está apuntando hacia atrás, flipear player y pistola
+        if (aimingBackwards)
+        {
+            // Cambiar dirección
+            isFacingLeft = !isFacingLeft;
+            sr.flipX = !sr.flipX;
+            
+            // Actualizar pistola
+            UpdateGunPosition();
+        }
+    }
+
+    private void UpdateGunPosition()
+    {
+      
+
+        if (isFacingLeft)
+        {
+            gunSR.flipX = true;
+            gun.localPosition = new Vector3(-Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
+        }
+        else
+        {
+            gunSR.flipX = false;
+            gun.localPosition = new Vector3(Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
         }
     }
 
@@ -143,10 +249,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckFlip()
     {
+        // No flipear automáticamente si estamos apuntando
+        if (isAiming) return;
+
         if ((isFacingLeft && horizontal > 0) || (!isFacingLeft && horizontal < 0))
         {
             isFacingLeft = !isFacingLeft;
             sr.flipX = !sr.flipX;
+            UpdateGunPosition();
         }
     }
 
@@ -193,8 +303,8 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Desactivar el sprite (ocultar el helado)
-            var sr = other.GetComponent<SpriteRenderer>();
-            if (sr) sr.enabled = false;
+            var otherSR = other.GetComponent<SpriteRenderer>();
+            if (otherSR) otherSR.enabled = false;
 
             // Desactivar su collider para que no se pueda volver a tocar
             var col = other.GetComponent<Collider2D>();
