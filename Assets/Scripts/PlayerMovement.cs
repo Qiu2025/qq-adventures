@@ -1,13 +1,15 @@
-using System;
 using System.Collections;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.U2D.IK;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // --------------------------------------------- //
+    [Header("Selección de mecánicas")]
+    [SerializeField] private bool allowDoubleJump;
+    [SerializeField] private bool allowDash;
+    [SerializeField] private bool allowGlide;
+
+
     // --------------------------------------------- //
 
     [Header("Movimiento")]
@@ -15,9 +17,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private float speed;
     [SerializeField] private float jumpingPower;
+    [SerializeField] private float secondJumpingPower;
     private float horizontal;   // Movimiento horizontal del frame actual
     private bool grounded;  // GroundCheck del frame actual
-    public static bool isFacingLeft;    // Controla direccion del sprite
+    public static bool isFacingRight;    // Controla direccion del sprite
     
     // --------------------------------------------- //
 
@@ -29,10 +32,12 @@ public class PlayerMovement : MonoBehaviour
     // --------------------------------------------- //
 
     [Header("Doble salto y caída lenta")]
-    [SerializeField] private int maxJumps = 2;
-    [SerializeField] private float normalGravity = 5f;
-    [SerializeField] private float slowFallGravity = 0.5f;
-    private int jumpsLeft;
+    [SerializeField] private int maxJumps;
+    [SerializeField] private float normalGravity;
+    [SerializeField] private float slowFallGravity;
+    [SerializeField] private float coyoteTime; // Tolerancia al considerar primer salto
+    private int usedJumps;
+    private float lastGroundedTime;
     private bool wasGrounded; // Detecta si estaba en el aire
 
     // --------------------------------------------- //
@@ -59,10 +64,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        jumpsLeft = maxJumps;
+        maxJumps = 2;
+        usedJumps = 0;
+        normalGravity = 5f;
+        slowFallGravity = 0.5f;
+        coyoteTime = 0.08f;
         rb.gravityScale = normalGravity;
         wasGrounded = IsGrounded();
-        isFacingLeft = true;
+        lastGroundedTime = wasGrounded ? Time.time : -999f;
+        isFacingRight = true;
     }
 
     void Update()
@@ -71,10 +81,11 @@ public class PlayerMovement : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         grounded = IsGrounded();
-        if (grounded) animator.SetBool("grounded", true); else animator.SetBool("grounded", false);
+
+        CheckGroundedAnimation();
         CheckJump();
         CheckGroundStatus();
-        CheckDoubleJump();
+        CheckGlide();
         CheckDash();
     }
 
@@ -84,6 +95,23 @@ public class PlayerMovement : MonoBehaviour
 
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
         CheckFlip();
+        CheckWalkingAnimation();
+    }
+
+    private void CheckGroundedAnimation()
+    {
+        if (grounded)
+        {
+            animator.SetBool("grounded", true);
+        }
+        else
+        {
+            animator.SetBool("grounded", false);
+        }
+    }
+
+    private void CheckWalkingAnimation()
+    {
         if (IsGrounded() && horizontal != 0)
         {
             animator.SetBool("isWalking", true);
@@ -95,15 +123,39 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CheckJump()
-    {
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && jumpsLeft > 0)
+    {        
+        bool jumpPressed = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
+
+        if (!jumpPressed) return;
+    
+        // Consideramos "en suelo" si actualmente grounded o si estamos dentro del coyote time
+        bool currentlyGrounded = grounded || (Time.time - lastGroundedTime) <= coyoteTime;
+
+        if (currentlyGrounded)
         {
-            if (!grounded) jumpsLeft = Math.Min(jumpsLeft, 1);
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
-            jumpsLeft--;
+            // Primer salto (o salto desde coyote time)
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpingPower);
+            usedJumps = 1; // hemos usado el primer salto
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", true);
+            return;
         }
+
+        // Si se ha seleccionado no permitir la mecánica de doble salto en la escena actual
+        if (!allowDoubleJump) return;
+
+        // Si no estamos en suelo, permitir el doble salto si queda (usedJumps < maxJumps)
+        if (usedJumps < maxJumps)
+        {
+            // Segundo salto
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, secondJumpingPower);
+            usedJumps++;
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isJumping", true);
+            return;
+        }
+
+        // Estar aqui = no quedan saltos disponibles
     }
 
     private void CheckGroundStatus()
@@ -112,22 +164,32 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && !wasGrounded)
         {
             animator.SetBool("isFalling", false);
-            jumpsLeft = maxJumps;
+            usedJumps = 0;
+        }
+
+        // Actualiza lastGroundedTime cuando estamos en suelo (para coyote time)
+        if (grounded)
+        {
+            lastGroundedTime = Time.time;
         }
 
         wasGrounded = grounded;
     }
     
-    private void CheckDoubleJump()
+    private void CheckGlide()
     {
         if (!grounded && rb.linearVelocity.y < 0f)
         {
             animator.SetBool("isFalling", true);
             animator.SetBool("isJumping", false);
+
+            // Si se ha seleccionado no permitir la mecánica de gliding en la escena actual
+            if (!allowGlide) return;
             
             if (Input.GetKey(KeyCode.Space))
             {
-                jumpsLeft = 0;
+                // No permitir saltos si mantiene presionado espacio (es decir, hace glide)
+                usedJumps = 2;
                 rb.gravityScale = slowFallGravity;
             }
             else
@@ -143,9 +205,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckFlip()
     {
-        if ((isFacingLeft && horizontal > 0) || (!isFacingLeft && horizontal < 0))
+        if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
         {
-            isFacingLeft = !isFacingLeft;
+            isFacingRight = !isFacingRight;
             sr.flipX = !sr.flipX;
         }
     }
@@ -158,6 +220,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckDash()
     {
+        // Si se ha seleccionado no permitir la mecánica de dash en la escena actual
+        if (!allowDash) return;
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
@@ -171,8 +236,8 @@ public class PlayerMovement : MonoBehaviour
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         Quaternion originalRotation = transform.rotation;
-        transform.rotation = Quaternion.Euler(0, 0, isFacingLeft ? 30f : -30f);
-        rb.linearVelocity = new Vector2((isFacingLeft? -1:1) * dashingPower, 0f);
+        transform.rotation = Quaternion.Euler(0, 0, isFacingRight ? -30f : 30f);
+        rb.linearVelocity = new Vector2((isFacingRight? 1:-1) * dashingPower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;

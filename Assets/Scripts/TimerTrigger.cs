@@ -9,7 +9,7 @@ public class TimerTrigger : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         // Comprobando si el jugador realizó la salida por la derecha
-        if (collision.CompareTag("Player") && !PlayerMovement.isFacingLeft)
+        if (collision.CompareTag("Player") && PlayerMovement.isFacingRight)
         {
             temporizador.SetActive(!temporizador.activeSelf);
             tiempoUI.SetActive(!tiempoUI.activeSelf);

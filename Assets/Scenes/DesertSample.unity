@@ -552,10 +552,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea1eb464d73d3e4b80797d17240e024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  allowDoubleJump: 1
+  allowDash: 1
+  allowGlide: 1
   rb: {fileID: 326325620}
   sr: {fileID: 326325621}
   speed: 5
-  jumpingPower: 14
+  jumpingPower: 18
+  secondJumpingPower: 14
   groundCheck: {fileID: 389578683}
   groundCheck2: {fileID: 1001774428}
   groundLayer:
@@ -564,6 +568,7 @@ MonoBehaviour:
   maxJumps: 2
   normalGravity: 5
   slowFallGravity: 0.5
+  coyoteTime: 0.08
   temporizador: {fileID: 594904320}
   animator: {fileID: 326325625}
   canDash: 1
@@ -1006,7 +1011,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8287296, y: -0.55921626, z: -10}
+  m_LocalPosition: {x: -6.8469563, y: -0.5592164, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
