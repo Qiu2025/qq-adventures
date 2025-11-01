@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Zhu"
+  given-names: "Xiaolei"
+  affiliation: "Universidad UPM"
+- family-names: "Zhang"
+  given-names: "Zhiwei"
+  affiliation: "Universidad UPM"
+- family-names: "Zheng"
+  given-names: "Jiade"
+  affiliation: "Universidad UPM"
+- family-names: "Yao"
+  given-names: "Yixiao"
+  affiliation: "Universidad UPM"
+- family-names: "Qiu"
+  given-names: "Siyuan"
+  affiliation: "Universidad UPM"
+- family-names: "Pan"
+  given-names: "Shuhang"
+  affiliation: "Universidad UPM"
+title: "FdV"
+version: 1.0.0
+date-released: 2025-10-22
+url: "https://github.com/Qiu2025/FdV"
