@@ -4,7 +4,7 @@ using System.Collections;
 public class Key : MonoBehaviour
 {
     public Vector3 playerOffset;
-    public float animationDuration = 0.5f;
+    private float animationDuration = 0.25f;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
