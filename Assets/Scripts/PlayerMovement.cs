@@ -80,6 +80,8 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing) return;
 
         horizontal = Input.GetAxisRaw("Horizontal");
+        
+        
         grounded = IsGrounded();
 
         CheckGroundedAnimation();
@@ -124,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckJump()
     {        
-        bool jumpPressed = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
+        bool jumpPressed = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.JoystickButton0);
 
         if (!jumpPressed) return;
     
@@ -186,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
             // Si se ha seleccionado no permitir la mecánica de gliding en la escena actual
             if (!allowGlide) return;
             
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
             {
                 // No permitir saltos si mantiene presionado espacio (es decir, hace glide)
                 usedJumps = 2;
@@ -222,8 +224,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // Si se ha seleccionado no permitir la mecánica de dash en la escena actual
         if (!allowDash) return;
+        
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton7)) && canDash)
         {
             StartCoroutine(Dash());
         }

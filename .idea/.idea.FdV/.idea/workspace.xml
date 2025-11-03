@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7aa542ba-d897-48c0-a23f-2fb4ffc29cd2" name="Changes" comment="" />
+    <list default="true" id="7aa542ba-d897-48c0-a23f-2fb4ffc29cd2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FdV/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FdV/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,9 +39,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Door.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HiddenArea.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/max/UnityProjects/FdV/Assets/Scripts/Key.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Key.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -63,7 +71,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\max\UnityEditors\6000.0.40f1\Editor\6000.2.5f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.2.5f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\max\UnityProjects\FdV -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\max\UnityProjects\FdV" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -75,7 +83,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\max\UnityEditors\6000.0.40f1\Editor\6000.2.5f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.2.5f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\max\UnityProjects\FdV -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\max\UnityProjects\FdV" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -130,6 +138,9 @@
       <workItem from="1762042853132" duration="1818000" />
       <workItem from="1762044888656" duration="545000" />
       <workItem from="1762076247488" duration="6166000" />
+      <workItem from="1762123829158" duration="124000" />
+      <workItem from="1762123971053" duration="22000" />
+      <workItem from="1762124155065" duration="4141000" />
     </task>
     <task id="LOCAL-00001" summary="Hidden spaces implemented">
       <option name="closed" value="true" />

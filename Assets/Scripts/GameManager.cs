@@ -30,4 +30,6 @@ public class GameManager : MonoBehaviour
         gameOver = cond;
         Time.timeScale = 0f;
     }
+    
+    
 }
