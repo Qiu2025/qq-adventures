@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7aa542ba-d897-48c0-a23f-2fb4ffc29cd2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FdV/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FdV/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DesertSample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DesertSample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Checkpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Checkpoint.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +139,7 @@
       <workItem from="1762123971053" duration="22000" />
       <workItem from="1762124155065" duration="4141000" />
       <workItem from="1762273954270" duration="1967000" />
+      <workItem from="1762278548213" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Hidden spaces implemented">
       <option name="closed" value="true" />
