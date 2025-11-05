@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Key : MonoBehaviour
 {
-    public Vector3 playerOffset;
+    private Vector3 playerOffset = new Vector3(0f, -0.03f, 0f);
     private float animationDuration = 0.25f;
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -23,7 +23,7 @@ public class Key : MonoBehaviour
         Vector3 startPos = transform.localPosition;
         Vector3 targetPos = playerOffset;
         Vector3 startScale = transform.localScale;
-        Vector3 targetScale = startScale * 0.5f;
+        Vector3 targetScale = startScale * 0.4f;
 
         float elapsed = 0f;
 
