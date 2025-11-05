@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static bool gameOver = false;
+    public static int score = 0;
 
     void Awake()
     {
