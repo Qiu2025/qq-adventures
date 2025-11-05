@@ -42,15 +42,15 @@ public class PlataformaTemporal : MonoBehaviour
     // La plataforma ingora al jugador y se cae
     private IEnumerator Caer(Collider2D playerCol)
     {
-        yield return StartCoroutine(Temblor(tiempoEspera, 0.05f)); // 0.05f = intensidad
-
         caida = true;
         ultimoPlayerCol = playerCol;
+        
+        yield return StartCoroutine(Temblor(tiempoEspera, 0.05f)); // 0.05f = intensidad
+        rb2D.constraints = RigidbodyConstraints2D.None;
+
+        rb2D.bodyType = RigidbodyType2D.Dynamic;
 
         Physics2D.IgnoreCollision(col, playerCol, true);
-
-        rb2D.constraints = RigidbodyConstraints2D.None;
-        rb2D.bodyType = RigidbodyType2D.Dynamic;
 
         yield return new WaitForSeconds(1);
         StartCoroutine(Respawn());
