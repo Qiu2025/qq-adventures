@@ -4,7 +4,8 @@ using System.Collections;
 public class PlataformaTemporal : MonoBehaviour
 {
     [SerializeField] private float tiempoEspera = 1.5f;  
-    [SerializeField] private float tiempoRespawn = 3.0f;  
+    [SerializeField] private float tiempoRespawn = 3.0f;
+    [SerializeField] private Collider2D stepSensor; 
 
     private Rigidbody2D rb2D;
     private Collider2D col;
@@ -31,14 +32,12 @@ public class PlataformaTemporal : MonoBehaviour
     }
 
     // Si el player toca la plataforma, ésta se cae
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void ActivarPorPisada(Collider2D playerCol)
     {
         if (!caida)
-        {
-            StartCoroutine(Caer(collision.collider));
-            return;
-        }
+            StartCoroutine(Caer(playerCol));
     }
+
 
     // La plataforma ingora al jugador y se cae
     private IEnumerator Caer(Collider2D playerCol)
