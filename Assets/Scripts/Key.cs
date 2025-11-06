@@ -23,7 +23,7 @@ public class Key : MonoBehaviour
         Vector3 startPos = transform.localPosition;
         Vector3 targetPos = playerOffset;
         Vector3 startScale = transform.localScale;
-        Vector3 targetScale = startScale * 0.4f;
+        Vector3 targetScale = startScale * 0.5f;
 
         float elapsed = 0f;
 
