@@ -6,14 +6,19 @@ public class PlataformaHorizontal : MonoBehaviour
     public float distanciaMaxima = 2f;
 
     private float x0;
-    private int dir = 1;
+    private int dir;
+
+    [SerializeField] bool izqDch;
 
     void Start()
     {
+        if (izqDch) dir = -1;
+        else dir = 1;
+
         x0 = transform.position.x;
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         float nuevaX = transform.position.x + velocidad * Time.fixedDeltaTime * dir;
 

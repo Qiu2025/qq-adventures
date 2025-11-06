@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
 
 public class Plataforma_circular : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class Plataforma_circular : MonoBehaviour
         posInicialY = gameObject.transform.position.y;
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
         MoverPlataforma();
     }

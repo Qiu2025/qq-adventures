@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         if (gameOver && Input.GetKeyDown(KeyCode.R))
         {
             ChangeGameOverStatus();
-            SceneManager.LoadScene("DesertSampleScene");
+            SceneManager.LoadScene("Desert");
         }
     }
 
