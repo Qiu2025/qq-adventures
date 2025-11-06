@@ -9,8 +9,7 @@ public class PlataformaMortal : MonoBehaviour
     {
         if (collision.collider.CompareTag(tagObjetivo))
         {
-            Debug.Log($"💀 Matado por {causa}");
-            // Aquí tu lógica de muerte o respawn
+            Debug.Log($"Matado por {causa}");
         }
     }
 }

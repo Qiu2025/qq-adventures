@@ -4,11 +4,18 @@ using System.Collections;
 
 public class Plataforma_circular : MonoBehaviour
 {
-    public float radio = 2f;
-    public float velocidad = 2f;
-    public Transform puntoVertice;
-    public bool cambiarOrientacion = false;
+    [SerializeField] private float radio = 2f;
+    [SerializeField] private float velocidad = 2f;
+    [SerializeField] private bool antiHorario;
+    private float posInicialX;
+    private float posInicialY;
 
+    void Start()
+    {
+        posInicialX = gameObject.transform.position.x;
+        posInicialY = gameObject.transform.position.y;
+    }
+    
     private void Update()
     {
         MoverPlataforma();
@@ -16,10 +23,10 @@ public class Plataforma_circular : MonoBehaviour
 
     void MoverPlataforma()
     {
-        float sentido = cambiarOrientacion ? 1f : -1f;
+        float sentido = antiHorario ? 1f : -1f;
         float angulo = Time.time * velocidad * sentido;
-        float x = puntoVertice.position.x + Mathf.Cos(angulo) * radio;
-        float y = puntoVertice.position.y + Mathf.Sin(angulo) * radio;
+        float x = posInicialX + Mathf.Cos(angulo) * radio;
+        float y = posInicialY + Mathf.Sin(angulo) * radio;
         transform.position = new Vector3(x, y, transform.position.z);
     }
 
