@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlataformaTemporal : MonoBehaviour
 {
-    [SerializeField] private float tiempoEspera = 1.5f;  
-    [SerializeField] private float tiempoRespawn = 3.0f;
+    [SerializeField] public float tiempoEspera = 1.5f;  
+    [SerializeField] public float tiempoRespawn = 3.0f;
     [SerializeField] private Collider2D stepSensor; 
 
     private Rigidbody2D rb2D;
