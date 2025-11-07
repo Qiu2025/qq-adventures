@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FlammableObject : MonoBehaviour
+public class FireObject : MonoBehaviour
 {
     [Header("Configuración de Fuego")]
     [SerializeField] private bool isOnFire = true;
