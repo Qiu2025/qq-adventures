@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static int score = 0;
     
     /* PARA RESPAWN EN CHECKPOINT */
-    private static Vector2 lastCheckpointPos; 
+    private static Vector2 lastCheckpointPos = new Vector2(-11.75f, 6.4f); 
     private static GameObject player;  
 
     void Awake()
@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
             ChangeGameOverStatus();
             SceneManager.LoadScene("Desert");
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            RespawnPlayer();
+        }
     }
     
     public static void SetCheckpoint(Vector2 position)
@@ -34,20 +39,16 @@ public class GameManager : MonoBehaviour
 
     public static void RespawnPlayer()
     {
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
+        Collider2D col = player.GetComponent<BoxCollider2D>();
+        col.enabled = false;
 
-        if (player != null)
-        {
-            player.transform.position = lastCheckpointPos;
-            Debug.Log("Jugador reaparecido en checkpoint");
-            gameOver = false;
-            Time.timeScale = 1f;
-        }
-        else
-        {
-            Debug.LogWarning("No se encontró el jugador para reaparecer.");
-        }
+        player.transform.position = lastCheckpointPos;
+
+        col.enabled = true;
+
+        Debug.Log("Jugador reaparecido en checkpoint");
+        gameOver = false;
+        Time.timeScale = 1f;
     }
 
     private static void ChangeGameOverStatus()
@@ -60,6 +61,4 @@ public class GameManager : MonoBehaviour
         gameOver = cond;
         Time.timeScale = 0f;
     }
-    
-    
 }
