@@ -6,6 +6,8 @@ TagManager:
   tags:
   - IceCream
   - TimerTrigger
+  - OnFire
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - ParticleAgua
+  - ParticleFuego
   - 
   - 
   - 
