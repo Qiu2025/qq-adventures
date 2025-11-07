@@ -22,11 +22,11 @@ public class CactusDispara : MonoBehaviour
         GameObject bola = PoolBolas.Instance != null ? PoolBolas.Instance.ObtenerBola() : null;
         if (bola == null)
         {
-            Debug.LogError("❌ No hay PoolBolas en escena o no hay prefab asignado.");
+            Debug.LogError("No hay PoolBolas en escena o no hay prefab asignado.");
             return;
         }
 
-        // Si no tienes FirePoint asignado, calculará el centro
+        // Si no hay FirePoint asignado, calculará el centro
         Vector3 desde = ObtenerPosicionDisparo();
         bola.transform.position = desde;
         bola.transform.rotation = Quaternion.identity;
@@ -34,12 +34,12 @@ public class CactusDispara : MonoBehaviour
         var script = bola.GetComponent<BolaPinchos>();
         if (script == null)
         {
-            Debug.LogError("❌ El prefab no tiene BolaPinchos.cs");
+            Debug.LogError("El prefab no tiene BolaPinchos.cs");
             return;
         }
 
         script.Disparar(direccionDisparo == Vector2.zero ? Vector2.left : direccionDisparo);
-        Debug.Log("✅ Disparo de prueba ejecutado.");
+        Debug.Log("Disparo de prueba ejecutado.");
     }
 
     void Update()
@@ -65,14 +65,14 @@ public class CactusDispara : MonoBehaviour
     void Disparar()
     {
         var pool = PoolBolas.Instance;
-        if (pool == null) { Debug.LogError("❌ Falta PoolBolas en escena."); return; }
+        if (pool == null) { Debug.LogError("Falta PoolBolas en escena."); return; }
 
         GameObject bola = pool.ObtenerBola();
         bola.transform.position = ObtenerPosicionDisparo();
         bola.transform.rotation = Quaternion.identity;
 
         var script = bola.GetComponent<BolaPinchos>();
-        if (script == null) { Debug.LogError("❌ El prefab no tiene BolaPinchos.cs"); return; }
+        if (script == null) { Debug.LogError("El prefab no tiene BolaPinchos.cs"); return; }
 
         script.Disparar(direccionDisparo == Vector2.zero ? Vector2.left : direccionDisparo);
     }   
