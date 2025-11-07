@@ -171,6 +171,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -178,12 +191,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_0
       rect:
         serializedVersion: 2
-        x: 18
+        x: 19
         y: 0
-        width: 12
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,12 +213,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_1
       rect:
         serializedVersion: 2
-        x: 82
+        x: 83
         y: 0
-        width: 16
-        height: 46
+        width: 28
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -222,12 +235,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_2
       rect:
         serializedVersion: 2
-        x: 146
+        x: 147
         y: 0
-        width: 16
-        height: 46
+        width: 28
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,12 +257,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_3
       rect:
         serializedVersion: 2
-        x: 210
+        x: 211
         y: 0
-        width: 16
-        height: 46
+        width: 28
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +279,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_4
       rect:
         serializedVersion: 2
-        x: 274
+        x: 275
         y: 0
-        width: 12
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,12 +301,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_5
       rect:
         serializedVersion: 2
-        x: 337
+        x: 338
         y: 0
-        width: 12
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -310,12 +323,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_6
       rect:
         serializedVersion: 2
-        x: 401
+        x: 402
         y: 0
-        width: 12
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -332,12 +345,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_7
       rect:
         serializedVersion: 2
-        x: 466
+        x: 467
         y: 0
-        width: 11
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -354,12 +367,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_8
       rect:
         serializedVersion: 2
-        x: 530
+        x: 531
         y: 0
-        width: 12
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,12 +389,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_9
       rect:
         serializedVersion: 2
-        x: 594
+        x: 595
         y: 0
-        width: 12
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -398,12 +411,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_10
       rect:
         serializedVersion: 2
-        x: 658
+        x: 659
         y: 0
-        width: 11
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -420,12 +433,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_11
       rect:
         serializedVersion: 2
-        x: 722
+        x: 723
         y: 0
-        width: 11
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -442,12 +455,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_12
       rect:
         serializedVersion: 2
-        x: 786
+        x: 787
         y: 0
-        width: 13
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -464,12 +477,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_13
       rect:
         serializedVersion: 2
-        x: 850
+        x: 851
         y: 0
-        width: 13
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -486,12 +499,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_14
       rect:
         serializedVersion: 2
-        x: 914
+        x: 915
         y: 0
-        width: 16
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -508,12 +521,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_15
       rect:
         serializedVersion: 2
-        x: 978
+        x: 979
         y: 0
-        width: 16
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -530,12 +543,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_16
       rect:
         serializedVersion: 2
-        x: 1042
+        x: 1043
         y: 0
-        width: 19
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -552,12 +565,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_17
       rect:
         serializedVersion: 2
-        x: 1106
+        x: 1107
         y: 0
-        width: 19
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -574,12 +587,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_18
       rect:
         serializedVersion: 2
-        x: 1170
+        x: 1171
         y: 0
-        width: 22
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -596,12 +609,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_19
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 1235
         y: 0
-        width: 22
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -618,12 +631,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_20
       rect:
         serializedVersion: 2
-        x: 1298
+        x: 1299
         y: 0
-        width: 25
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -640,12 +653,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_21
       rect:
         serializedVersion: 2
-        x: 1362
+        x: 1363
         y: 0
-        width: 25
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -662,12 +675,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_22
       rect:
         serializedVersion: 2
-        x: 1426
+        x: 1427
         y: 0
         width: 28
-        height: 47
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -684,12 +697,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_23
       rect:
         serializedVersion: 2
-        x: 1490
+        x: 1491
         y: 0
         width: 28
-        height: 47
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -706,12 +719,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_24
       rect:
         serializedVersion: 2
-        x: 1554
+        x: 1555
         y: 0
-        width: 30
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -728,12 +741,12 @@ TextureImporter:
       name: Checkpoint (Flag Out) (64x64)_25
       rect:
         serializedVersion: 2
-        x: 1618
+        x: 1619
         y: 0
-        width: 30
-        height: 47
+        width: 28
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -750,7 +763,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c591c51d1e4284fe38ac1caadd201c8f
     internalID: 0
     vertices: []
     indices: 
@@ -758,7 +771,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Checkpoint (Flag Out) (64x64)_0: -4184586705055241392
       Checkpoint (Flag Out) (64x64)_1: -8500414901909799154

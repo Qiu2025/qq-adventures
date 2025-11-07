@@ -5,11 +5,16 @@ public class GameManager : MonoBehaviour
 {
     private static bool gameOver = false;
     public static int score = 0;
+    
+    /* PARA RESPAWN EN CHECKPOINT */
+    private static Vector2 lastCheckpointPos; 
+    private static GameObject player;  
 
     void Awake()
     {
         gameOver = false;
         Time.timeScale = 1f;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -18,6 +23,30 @@ public class GameManager : MonoBehaviour
         {
             ChangeGameOverStatus();
             SceneManager.LoadScene("Desert");
+        }
+    }
+    
+    public static void SetCheckpoint(Vector2 position)
+    {
+        lastCheckpointPos = position;
+        Debug.Log("Checkpoint guardado en: " + position);
+    }
+
+    public static void RespawnPlayer()
+    {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            player.transform.position = lastCheckpointPos;
+            Debug.Log("Jugador reaparecido en checkpoint");
+            gameOver = false;
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró el jugador para reaparecer.");
         }
     }
 
