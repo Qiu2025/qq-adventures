@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2469488986852571155}
   - component: {fileID: 5509996126473518092}
-  - component: {fileID: 2408975543623419104}
   - component: {fileID: 2974005577567246440}
+  - component: {fileID: 2758421504591111692}
+  - component: {fileID: 7282930088575690201}
   m_Layer: 6
   m_Name: Spikes2
   m_TagString: Untagged
@@ -92,20 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2408975543623419104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3870556614998332775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352bb61560de5d84ca4d9703df6fab44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlataformaMortal
-  tagObjetivo: Player
-  causa: plataforma
 --- !u!61 &2974005577567246440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +123,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -152,3 +139,29 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.30429155, y: 0.074272916}
   m_EdgeRadius: 0
+--- !u!114 &2758421504591111692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870556614998332775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d791d84018e4684e838e919e2945084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NewAssembly::DeathZone
+--- !u!114 &7282930088575690201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870556614998332775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352bb61560de5d84ca4d9703df6fab44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NewAssembly::PlataformaMortal
+  tagObjetivo: Player
+  causa: Spike

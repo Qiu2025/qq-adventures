@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlataformaMortal : MonoBehaviour
+public class Spike : MonoBehaviour
 {
     [SerializeField] string tagObjetivo = "Player";
     [SerializeField] string causa = "plataforma";

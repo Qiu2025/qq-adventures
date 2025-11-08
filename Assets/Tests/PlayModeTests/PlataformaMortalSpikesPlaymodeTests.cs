@@ -28,7 +28,7 @@ public class PlataformaMortalSpikesPlaymodeTests
             spikesGO.AddComponent<BoxCollider2D>();
 
         // Asegura que el script esté
-        if (!spikesGO.GetComponent<PlataformaMortal>())
+        if (!spikesGO.GetComponent<Spike>())
             Assert.Inconclusive("El prefab 'Spikes' no tiene el script PlataformaMortal.");
 
         yield return null;

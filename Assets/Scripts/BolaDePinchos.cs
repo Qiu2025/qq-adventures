@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BolaPinchos : MonoBehaviour
@@ -9,6 +10,7 @@ public class BolaPinchos : MonoBehaviour
     {
         direccion = dir.normalized;
         gameObject.SetActive(true);
+        StartCoroutine(DisappearInSeconds(3));
     }
 
     void Update()
@@ -16,24 +18,26 @@ public class BolaPinchos : MonoBehaviour
         transform.Translate(direccion * velocidad * Time.deltaTime);
     }
 
+    private IEnumerator DisappearInSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        gameObject.SetActive(false);
+    }
+    
     private void OnBecameInvisible()
     {
         // Cuando sale de la cámara, se desactiva para volver al pool
         gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        // Si toca al jugador
-        if (collision.collider.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log("💀 Matado por disparo del cactus");
-            // Aquí podrías añadir lógica de daño o muerte del jugador
-            gameObject.SetActive(false); // También puedes desactivarla si quieres que desaparezca
-        }
-    
-        
             gameObject.SetActive(false);
-        
+        }
+
+
+        gameObject.SetActive(false);
     }
 }
