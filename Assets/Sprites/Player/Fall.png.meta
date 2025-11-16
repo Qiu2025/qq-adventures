@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8079fcd8d5090994fb4861290a3bfa73
+guid: d36cfe3fe6f3c6643a7d922d4e6fcda6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7000715807348034875
-    second: Checkpoint (No Flag)_0
+      213: -5966621866309598838
+    second: Fall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Checkpoint (No Flag)_0
+      name: Fall_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 21
+        y: 31
+        width: 20
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 1, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c2fe89801678de90800000000000000
-      internalID: -7000715807348034875
+      spriteID: a81c98d660d423da0800000000000000
+      internalID: -5966621866309598838
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9c96e203430334030b9ba11cf6428ba3
+    spriteID: bb3c6ab87564d624ba5e941e425b285d
     internalID: 0
     vertices: []
     indices: 
@@ -146,11 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Checkpoint (No Flag)_0: -7000715807348034875
+      Fall_0: -5966621866309598838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

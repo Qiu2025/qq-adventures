@@ -1,37 +1,28 @@
 fileFormatVersion: 2
-guid: 560964392758da640abc4cded224b349
+guid: f3463450e25fef54a8ff68db8dadcd7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8187355101989356663
-    second: Checkpoint (Flag Idle)(64x64)_0
+      213: 2426985752658597826
+    second: Spin Attack_0
   - first:
-      213: 3854939560234354291
-    second: Checkpoint (Flag Idle)(64x64)_1
+      213: -390127196166448869
+    second: Spin Attack_1
   - first:
-      213: -2176918498148329165
-    second: Checkpoint (Flag Idle)(64x64)_2
+      213: -6610080934951273939
+    second: Spin Attack_2
   - first:
-      213: -1878543983233424424
-    second: Checkpoint (Flag Idle)(64x64)_3
+      213: -5884241931025231273
+    second: Spin Attack_3
   - first:
-      213: 5249495973877922429
-    second: Checkpoint (Flag Idle)(64x64)_4
+      213: 1577367955425952058
+    second: Spin Attack_4
   - first:
-      213: 7294162130811222863
-    second: Checkpoint (Flag Idle)(64x64)_5
+      213: 7626695728954960432
+    second: Spin Attack_5
   - first:
-      213: 5907192917678821646
-    second: Checkpoint (Flag Idle)(64x64)_6
-  - first:
-      213: -3698963325330885405
-    second: Checkpoint (Flag Idle)(64x64)_7
-  - first:
-      213: -7168325035351650290
-    second: Checkpoint (Flag Idle)(64x64)_8
-  - first:
-      213: -8728669653598591988
-    second: Checkpoint (Flag Idle)(64x64)_9
+      213: 6209650829653115462
+    second: Spin Attack_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,7 +119,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_0
+      name: Spin Attack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 23
+        y: 31
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98b31f7c9eba06e80800000000000000
-      internalID: -8187355101989356663
+      spriteID: 2c7562eeea26ea120800000000000000
+      internalID: 2426985752658597826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_1
+      name: Spin Attack_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 86
+        y: 31
+        width: 19
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3768e5e0b1f7f7530800000000000000
-      internalID: 3854939560234354291
+      spriteID: b19974fc16df59af0800000000000000
+      internalID: -390127196166448869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_2
+      name: Spin Attack_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 150
+        y: 31
+        width: 20
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33954e4e8280ac1e0800000000000000
-      internalID: -2176918498148329165
+      spriteID: d2ab5af49664444a0800000000000000
+      internalID: -6610080934951273939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_3
+      name: Spin Attack_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 215
+        y: 31
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +212,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d3ac6043321ee5e0800000000000000
-      internalID: -1878543983233424424
+      spriteID: 75258c8c329f65ea0800000000000000
+      internalID: -5884241931025231273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_4
+      name: Spin Attack_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
+        x: 279
+        y: 31
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7a36d476c4f9d840800000000000000
-      internalID: 5249495973877922429
+      spriteID: a318f375ccfe3e510800000000000000
+      internalID: 1577367955425952058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_5
+      name: Spin Attack_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
+        x: 342
+        y: 31
+        width: 20
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4bfb15dfc11a3560800000000000000
-      internalID: 7294162130811222863
+      spriteID: 03a69568b5777d960800000000000000
+      internalID: 7626695728954960432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_6
+      name: Spin Attack_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
+        x: 407
+        y: 31
+        width: 19
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,74 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0113f539a09af150800000000000000
-      internalID: 5907192917678821646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3e4747c1474aaacc0800000000000000
-      internalID: -3698963325330885405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_8
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0053591c5ef48c90800000000000000
-      internalID: -7168325035351650290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint (Flag Idle)(64x64)_9
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c04268f42398dd680800000000000000
-      internalID: -8728669653598591988
+      spriteID: 6420fa8878c1d2650800000000000000
+      internalID: 6209650829653115462
       vertices: []
       indices: 
       edges: []
@@ -363,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2a6d1b9385f6b1d43b9e0a420a7e86a1
+    spriteID: fb4c325b8919f784f9e8a11265c93483
     internalID: 0
     vertices: []
     indices: 
@@ -371,20 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Checkpoint (Flag Idle)(64x64)_0: -8187355101989356663
-      Checkpoint (Flag Idle)(64x64)_1: 3854939560234354291
-      Checkpoint (Flag Idle)(64x64)_2: -2176918498148329165
-      Checkpoint (Flag Idle)(64x64)_3: -1878543983233424424
-      Checkpoint (Flag Idle)(64x64)_4: 5249495973877922429
-      Checkpoint (Flag Idle)(64x64)_5: 7294162130811222863
-      Checkpoint (Flag Idle)(64x64)_6: 5907192917678821646
-      Checkpoint (Flag Idle)(64x64)_7: -3698963325330885405
-      Checkpoint (Flag Idle)(64x64)_8: -7168325035351650290
-      Checkpoint (Flag Idle)(64x64)_9: -8728669653598591988
+      Spin Attack_0: 2426985752658597826
+      Spin Attack_1: -390127196166448869
+      Spin Attack_2: -6610080934951273939
+      Spin Attack_3: -5884241931025231273
+      Spin Attack_4: 1577367955425952058
+      Spin Attack_5: 7626695728954960432
+      Spin Attack_6: 6209650829653115462
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

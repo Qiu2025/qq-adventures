@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8079fcd8d5090994fb4861290a3bfa73
+guid: 47a785c52d815874993263cd1daeec57
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7000715807348034875
-    second: Checkpoint (No Flag)_0
+      213: 4134548387895576566
+    second: Land_0
+  - first:
+      213: 2555238416136873046
+    second: Land_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -101,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Checkpoint (No Flag)_0
+      name: Land_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 19
+        y: 31
+        width: 25
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 1, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c2fe89801678de90800000000000000
-      internalID: -7000715807348034875
+      spriteID: 6f70e2f5addd06930800000000000000
+      internalID: 4134548387895576566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Land_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 31
+        width: 31
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 654254e1dc7067320800000000000000
+      internalID: 2555238416136873046
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9c96e203430334030b9ba11cf6428ba3
+    spriteID: 2184587bc97bdef4cbffdbe669c0c5d8
     internalID: 0
     vertices: []
     indices: 
@@ -146,11 +171,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Checkpoint (No Flag)_0: -7000715807348034875
+      Land_0: 4134548387895576566
+      Land_1: 2555238416136873046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
