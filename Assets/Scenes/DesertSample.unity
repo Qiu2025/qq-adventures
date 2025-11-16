@@ -468,7 +468,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: 26281e69f13127d49b4fe74969db3dc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -486,7 +486,7 @@ Transform:
   m_GameObject: {fileID: 326325619}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -530,7 +530,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.0045500416, y: -0.00043834746}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.01, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.18, y: 0.17}
     newSize: {x: 1, y: 1}
@@ -552,14 +552,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea1eb464d73d3e4b80797d17240e024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  allowDoubleJump: 1
-  allowDash: 1
-  allowGlide: 1
   rb: {fileID: 326325620}
   sr: {fileID: 326325621}
   speed: 5
-  jumpingPower: 18
-  secondJumpingPower: 14
+  jumpingPower: 14
+  secondJumpingPower: 12
   groundCheck: {fileID: 389578683}
   groundCheck2: {fileID: 1001774428}
   groundLayer:
@@ -569,7 +566,7 @@ MonoBehaviour:
   normalGravity: 5
   slowFallGravity: 0.5
   coyoteTime: 0.08
-  temporizador: {fileID: 594904320}
+  temporizador: {fileID: 0}
   animator: {fileID: 326325625}
   canDash: 1
   isDashing: 0
@@ -1011,7 +1008,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8469563, y: -0.5592164, z: -10}
+  m_LocalPosition: {x: -6.041456, y: -0.5592164, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1264,6 +1261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd922751cf42b124b9ac37ebc50ae7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  allowDoubleJump: 0
+  allowDash: 0
+  allowGlide: 0
 --- !u!4 &807344187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5919873303709579301, guid: 6e2614c41b93d344da8c492466d1b926, type: 3}
@@ -1858,7 +1858,7 @@ Transform:
   m_GameObject: {fileID: 1567180127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.04146, y: -0.55512, z: -10}
+  m_LocalPosition: {x: -6.04146, y: -0.55512, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1976,7 +1976,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3173548189047763216, guid: 5848feba344bcfd49bf2796e1cc9f5b9, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

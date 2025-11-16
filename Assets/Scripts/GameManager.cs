@@ -1,33 +1,49 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
+    // --------------------------------------------- //
     private static bool gameOver = false;
-    public static int score = 0;
+    private static bool slowmo = false;
     
-    /* PARA RESPAWN EN CHECKPOINT */
+    // --- PARA PUNTUACION POR LOS COLLECTIBLES --- //
+    [HideInInspector] public static int score = 0;
+    
+    // -------- PARA RESPAWN EN CHECKPOINT -------- //
     private static Vector2 lastCheckpointPos = new Vector2(-11.75f, 6.4f); 
-    private static GameObject player;  
+    private static GameObject player;
+
+    // --------------------------------------------- //
+
+    [Header("Selección de mecánicas")]
+    public bool allowDoubleJump = false;
+    public bool allowDash = false;
+    public bool allowGlide = false;
+
+    // --------------------------------------------- //
 
     void Awake()
     {
-        gameOver = false;
-        Time.timeScale = 1f;
         player = GameObject.FindGameObjectWithTag("Player");
+        Application.targetFrameRate = 144;
+        Instance = this;
     }
 
     void Update()
     {
-        if (gameOver && Input.GetKeyDown(KeyCode.R))
-        {
-            ChangeGameOverStatus();
-            SceneManager.LoadScene("Desert");
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
+        // Para volver al ultimo checkpoint
+        if (Input.GetKeyDown(KeyCode.R))
         {
             RespawnPlayer();
+        }
+
+        // Slow motion, para debug
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            slowmo = !slowmo;
+            Time.timeScale = slowmo ? 0.2f : 1f;
         }
     }
     
@@ -51,14 +67,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private static void ChangeGameOverStatus()
-    {
-        gameOver = !gameOver;
-        Time.timeScale = gameOver ? 0f : 1f;
-    }
-
     public static void SetGameOver(bool cond) {
         gameOver = cond;
-        Time.timeScale = 0f;
+        Time.timeScale = gameOver ? 0f: 1f;
     }
 }

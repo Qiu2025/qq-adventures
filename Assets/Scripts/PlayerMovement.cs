@@ -4,13 +4,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // --------------------------------------------- //
-    [Header("Selección de mecánicas")]
-    [SerializeField] private bool allowDoubleJump;
-    [SerializeField] private bool allowDash;
-    [SerializeField] private bool allowGlide;
-
-
-    // --------------------------------------------- //
 
     [Header("Movimiento")]
     [SerializeField] private Rigidbody2D rb;
@@ -80,8 +73,6 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing) return;
 
         horizontal = Input.GetAxisRaw("Horizontal");
-        
-        
         grounded = IsGrounded();
 
         CheckGroundedAnimation();
@@ -112,6 +103,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void CheckGroundStatus()
+    {
+        // Reinicia saltos solo cuando acaba de tocar el suelo
+        if (grounded && !wasGrounded)
+        {
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isDoubleJumping", false);
+            animator.SetBool("isDoingSecondJump", false);
+            usedJumps = 0;
+        }
+
+        // Actualiza lastGroundedTime cuando estamos en suelo (para coyote time)
+        if (grounded)
+        {
+            lastGroundedTime = Time.time;
+        }
+
+        wasGrounded = grounded;
+    }
+
     private void CheckWalkingAnimation()
     {
         if (IsGrounded() && horizontal != 0)
@@ -127,55 +139,48 @@ public class PlayerMovement : MonoBehaviour
     private void CheckJump()
     {        
         bool jumpPressed = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.JoystickButton0);
-
         if (!jumpPressed) return;
     
         // Consideramos "en suelo" si actualmente grounded o si estamos dentro del coyote time
         bool currentlyGrounded = grounded || (Time.time - lastGroundedTime) <= coyoteTime;
 
+        // Primer salto (desde el suelo)
         if (currentlyGrounded)
         {
-            // Primer salto (o salto desde coyote time)
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpingPower);
             usedJumps = 1; // hemos usado el primer salto
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", true);
+            animator.SetBool("isDoubleJumping", false);
             return;
         }
 
         // Si se ha seleccionado no permitir la mecánica de doble salto en la escena actual
-        if (!allowDoubleJump) return;
+        if (!GameManager.Instance.allowDoubleJump) return;
 
         // Si no estamos en suelo, permitir el doble salto si queda (usedJumps < maxJumps)
         if (usedJumps < maxJumps)
         {
+            // Entrar aqui = no ha realizado el primer salto y esta en el aire
+            // en ese caso impedimos que haga dos saltos en el aire
+            if (usedJumps == 0)
+            {
+                usedJumps = 1;
+                animator.SetBool("isDoingSecondJump", true);
+            } else
+            {
+                animator.SetBool("isDoubleJumping", true);
+            }
+
             // Segundo salto
             rb.linearVelocity = new Vector2(rb.linearVelocityX, secondJumpingPower);
             usedJumps++;
             animator.SetBool("isFalling", false);
-            animator.SetBool("isJumping", true);
+            animator.SetBool("isJumping", false);
             return;
         }
 
         // Estar aqui = no quedan saltos disponibles
-    }
-
-    private void CheckGroundStatus()
-    {
-        // Reinicia saltos solo cuando acaba de tocar el suelo
-        if (grounded && !wasGrounded)
-        {
-            animator.SetBool("isFalling", false);
-            usedJumps = 0;
-        }
-
-        // Actualiza lastGroundedTime cuando estamos en suelo (para coyote time)
-        if (grounded)
-        {
-            lastGroundedTime = Time.time;
-        }
-
-        wasGrounded = grounded;
     }
     
     private void CheckGlide()
@@ -184,9 +189,11 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isFalling", true);
             animator.SetBool("isJumping", false);
+            animator.SetBool("isDoubleJumping", false);
+            animator.SetBool("isDoingSecondJump", false);
 
             // Si se ha seleccionado no permitir la mecánica de gliding en la escena actual
-            if (!allowGlide) return;
+            if (!GameManager.Instance.allowGlide) return;
             
             if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
             {
@@ -223,8 +230,7 @@ public class PlayerMovement : MonoBehaviour
     private void CheckDash()
     {
         // Si se ha seleccionado no permitir la mecánica de dash en la escena actual
-        if (!allowDash) return;
-        
+        if (!GameManager.Instance.allowDash) return;
 
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton7)) && canDash)
         {
@@ -251,10 +257,11 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("IceCream"))
         {
+            temporizador = FindAnyObjectByType<Temporizador>();
             if (temporizador != null)
             {
                 temporizador.AumentarTiempo(5f);
