@@ -12,7 +12,7 @@ public class Key : MonoBehaviour
         {
             GetComponent<Collider2D>().enabled = false;
 
-            transform.SetParent(col.transform);
+            transform.SetParent(GameObject.FindGameObjectWithTag("PlayerContainer").transform);
 
             StartCoroutine(MoveAndShrink(col.transform));
         }

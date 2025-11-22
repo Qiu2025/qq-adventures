@@ -8,6 +8,8 @@ TagManager:
   - TimerTrigger
   - Score
   - cactus
+  - Chat
+  - PlayerContainer
   layers:
   - Default
   - TransparentFX
