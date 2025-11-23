@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     // -------- PARA BOCADILLO ------------------- //
     private static GameObject chat; 
 
+    // -------- PARA circle fade ------------------- //
+    [SerializeField] private Animator animator;
+
     // --------------------------------------------- //
 
     [Header("Selección de mecánicas")]
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
     public bool allowGlide = false;
 
     // --------------------------------------------- //
+    
 
     void Awake()
     {
@@ -42,7 +46,7 @@ public class GameManager : MonoBehaviour
         // Para volver al ultimo checkpoint
         if (Input.GetKeyDown(KeyCode.R))
         {
-            RespawnPlayer();
+            StartCoroutine(TeleportWithTransition());
         }
 
         // Slow motion, para debug
@@ -57,6 +61,21 @@ public class GameManager : MonoBehaviour
     {
         lastCheckpointPos = position;
         Debug.Log("Checkpoint guardado en: " + position);
+    }
+
+    IEnumerator TeleportWithTransition()
+    {
+        // 1. Cerrar círculo
+        animator.SetTrigger("Start");
+
+        // 2. Esperar hasta que esté completamente negro
+        yield return new WaitForSeconds(1.5f);
+
+        // 3. Teleport
+        RespawnPlayer();
+
+        // 4. Abrir círculo
+        animator.SetTrigger("End");
     }
 
     public static void RespawnPlayer()
