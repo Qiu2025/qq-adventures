@@ -402,9 +402,10 @@ MonoBehaviour:
   animator: {fileID: 51650496}
   canDash: 1
   isDashing: 0
+  dashedInAir: 0
   dashingPower: 15
   dashingTime: 0.2
-  dashingCoolDown: 1
+  dashingCoolDown: 0.2
   tr: {fileID: 51650495}
 --- !u!61 &51650498
 BoxCollider2D:

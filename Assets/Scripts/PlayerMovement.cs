@@ -46,8 +46,9 @@ public class PlayerMovement : MonoBehaviour
     // --------------------------------------------- //
 
     [Header("Dash")]
-    [SerializeField] private bool canDash = true;
+    [SerializeField] public bool canDash = true;
     [SerializeField] private bool isDashing = false;
+    [SerializeField] public bool dashedInAir = false;
     [SerializeField] private float dashingPower;
     [SerializeField] private float dashingTime;
     [SerializeField] private float dashingCoolDown;
@@ -113,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isDoubleJumping", false);
             animator.SetBool("isDoingSecondJump", false);
             usedJumps = 0;
+            dashedInAir = false;
         }
 
         // Actualiza lastGroundedTime cuando estamos en suelo (para coyote time)
@@ -232,8 +234,9 @@ public class PlayerMovement : MonoBehaviour
         // Si se ha seleccionado no permitir la mecánica de dash en la escena actual
         if (!GameManager.Instance.allowDash) return;
 
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton7)) && canDash)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton7)) && canDash && !dashedInAir)
         {
+            if (!grounded) dashedInAir = true;
             StartCoroutine(Dash());
         }
     }
