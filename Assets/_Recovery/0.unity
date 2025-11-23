@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 326325624}
   - component: {fileID: 326325625}
   - component: {fileID: 326325626}
+  - component: {fileID: 326325627}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -557,10 +558,6 @@ MonoBehaviour:
   sr: {fileID: 326325621}
   speed: 5
   jumpingPower: 14
-  gun: {fileID: 1825438136}
-  firePoint: {fileID: 1606220442}
-  resetRotationSpeed: 5
-  waterStream: {fileID: 465558170}
   groundCheck: {fileID: 389578683}
   groundCheck2: {fileID: 1001774428}
   groundLayer:
@@ -718,6 +715,22 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &326325627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326325619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e444f2023d244b4b8e6e8076c6fa3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterGun
+  gun: {fileID: 1825438136}
+  firePoint: {fileID: 1606220442}
+  resetRotationSpeed: 5
+  waterStream: {fileID: 465558170}
 --- !u!1 &389578682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2245,37 +2258,6 @@ Transform:
   - {fileID: 996864217}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1157830608
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1157830609}
-  m_Layer: 0
-  m_Name: WaterStream
-  m_TagString: Water
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1157830609
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157830608}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1825438136}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1212509135
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,7 +3435,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1606220442}
-  - {fileID: 1157830609}
   m_Father: {fileID: 326325622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1825438137
@@ -3508,7 +3489,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.31, y: 0.12}
+  m_Size: {x: 0.29, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
