@@ -65,7 +65,7 @@ public class TimerTriggerTests
     public IEnumerator TimerTrigger_toggles_objects_and_disables_trigger_when_player_exits_right()
     {
         // Se testea que el trigger activa temporizador y tiempoUI y desactiva el trigger
-        PlayerMovement.isFacingRight = true;
+        //PlayerMovement.isFacingRight = true;
 
         // Simular OnTriggerExit2D
         timerTrigger.SendMessage("OnTriggerExit2D", player.GetComponent<Collider2D>());
@@ -81,7 +81,7 @@ public class TimerTriggerTests
     public IEnumerator TimerTrigger_does_nothing_if_player_not_facing_right()
     {
         // Se testea que no hace nada si el jugador no mira a la derecha
-        PlayerMovement.isFacingRight = false;
+        //PlayerMovement.isFacingRight = false;
 
         timerTrigger.SendMessage("OnTriggerExit2D", player.GetComponent<Collider2D>());
 

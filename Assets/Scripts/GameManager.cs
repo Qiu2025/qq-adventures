@@ -21,9 +21,12 @@ public class GameManager : MonoBehaviour
 
     // -------- PARA CIRCLE FADE ------------------- //
     private GameObject UICanvas;
-    private Animator animator;
+    private Animator UI_animator;
     private const float ANIMATION_DURATION = 1.5f;
     private float lastRespawnTime = 0;
+    private Animator player_animator;
+    private PlayerMovement player_script;
+    private Rigidbody2D player_rb;
 
     // --------------------------------------------- //
 
@@ -37,9 +40,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        player_animator = player.GetComponent<Animator>();
+        player_script = player.GetComponent<PlayerMovement>();
+        player_rb = player.GetComponent<Rigidbody2D>();
+
         chat =  GameObject.FindGameObjectWithTag("Chat");
         UICanvas = GameObject.FindGameObjectWithTag("UICanvas");
-        animator = UICanvas.GetComponent<Animator>();
+        UI_animator = UICanvas.GetComponent<Animator>();
 
         Application.targetFrameRate = 144;
         Instance = this;
@@ -47,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        bool canRespawn = animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        bool canRespawn = UI_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
 
         // Para volver al ultimo checkpoint
         if (Input.GetKeyDown(KeyCode.R) && canRespawn)
@@ -89,21 +96,28 @@ public class GameManager : MonoBehaviour
     // Corutina que realiza la transicion y hace respawn
     IEnumerator TeleportWithTransition()
     {
-        // 1. Fade in
-        animator.SetTrigger("Start");
 
-        // 2. Esperar hasta que este completamente negro
+        // Prohibir el movimiento del jugador durante la transicion
+        player_animator.Play("Player Turn");
+        player_script.canMove = false;
+        player_rb.linearVelocity = Vector2.zero;
+
+        // 1. Fade in
+        UI_animator.SetTrigger("Start");
         yield return new WaitForSeconds(ANIMATION_DURATION);
 
         // 3. Teleport
         RespawnPlayer();
 
         // 4. Fade out
-        animator.SetTrigger("End");
-
+        UI_animator.SetTrigger("End");
         yield return new WaitForSeconds(ANIMATION_DURATION);
 
-        animator.SetTrigger("BackToIdle");
+        UI_animator.SetTrigger("BackToIdle");
+
+        // Permitir el movimiento
+        player_script.canMove = true;
+        player_animator.Play("Player Idle");
     }
 
    // --------------------------------------------- //

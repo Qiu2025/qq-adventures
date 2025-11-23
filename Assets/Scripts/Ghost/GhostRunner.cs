@@ -11,14 +11,22 @@ public class GhostRunner : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.N))
+        if(Input.GetKeyDown(KeyCode.V))
         {
             _system.StartRun(_recordTarget, _captureEveryNFrames);
-            _system.PlayRecording(RecordingType.Best, Instantiate(_ghostPrefab));
-        } else if(Input.GetKeyDown(KeyCode.M))
+            Debug.Log("Recording");
+        } else if(Input.GetKeyDown(KeyCode.B))
         {
             _system.FinishRun();
+            Debug.Log("Record finished");
+        } else if (Input.GetKeyDown(KeyCode.N))
+        {
+            _system.PlayRecording(RecordingType.Last, Instantiate(_ghostPrefab));
+            Debug.Log("Playing record");
+        } else if(Input.GetKeyDown(KeyCode.M))
+        {
             _system.StopReplay();
+            Debug.Log("Record stopped manually");
         }
     }
 }

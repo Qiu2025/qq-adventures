@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float secondJumpingPower;
     private float horizontal;   // Movimiento horizontal del frame actual
     private bool grounded;  // GroundCheck del frame actual
-    public static bool isFacingRight;    // Controla direccion del sprite
+    public bool isFacingRight;    // Controla direccion del sprite
+    public bool canMove;
     
     // --------------------------------------------- //
 
@@ -67,10 +68,12 @@ public class PlayerMovement : MonoBehaviour
         wasGrounded = IsGrounded();
         lastGroundedTime = wasGrounded ? Time.time : -999f;
         isFacingRight = true;
+        canMove = true;
     }
 
     void Update()
     {
+        if (!canMove) return;
         if (isDashing) return;
 
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -85,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!canMove) return;
         if (isDashing) return;
 
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
