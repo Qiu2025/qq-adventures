@@ -1,4 +1,3 @@
-using UnityEditor.AssetImporters;
 using UnityEngine;
 
 public class DashPowerUp : MonoBehaviour

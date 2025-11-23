@@ -389,6 +389,8 @@ MonoBehaviour:
   speed: 5
   jumpingPower: 18
   secondJumpingPower: 14
+  isFacingRight: 0
+  canMove: 0
   groundCheck: {fileID: 250589491}
   groundCheck2: {fileID: 1552946852}
   groundLayer:
@@ -1337,7 +1339,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7034338576483803127, guid: 95681789aa79db64089286f58a28a295, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -3238,7 +3240,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 26281e69f13127d49b4fe74969db3dc8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -40249,8 +40251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::GhostRunner
   _recordTarget: {fileID: 51650501}
-  _ghostPrefab: {fileID: 51853930296819979, guid: eb70391d83a06834482f2af032e7f4bd, type: 3}
   _captureEveryNFrames: 2
+  _runName: run1
+  _ghostPrefab: {fileID: 4044353794338228096, guid: b7babdf8dcf69824ebcdc73a2c1ef91c, type: 3}
+  developerMode: 1
 --- !u!1 &1411566150 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3870556614998332775, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
@@ -41530,7 +41534,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4035959289877228764, guid: 7bc662f71eb85ae45a2d6c5754881ee7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -43579,7 +43583,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7460046300004610927, guid: 95681789aa79db64089286f58a28a295, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
