@@ -227,6 +227,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /*
+    private void CheckFlip()
+{
+    if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
+    {
+        animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
+        isFacingRight = !isFacingRight;
+        
+        // Agregar esta línea para actualizar la pistola
+        WaterGun waterGun = GetComponent<WaterGun>();
+        if (waterGun != null)
+        {
+            waterGun.UpdateGunPosition();
+        }
+    }
+}
+*/
+
     private bool IsGrounded()
     {
         return Physics2D.Raycast(groundCheck.position, Vector2.down, 0.1f, groundLayer) ||
