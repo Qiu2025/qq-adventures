@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,8 +19,11 @@ public class GameManager : MonoBehaviour
     // -------- PARA BOCADILLO ------------------- //
     private static GameObject chat; 
 
-    // -------- PARA circle fade ------------------- //
-    [SerializeField] private Animator animator;
+    // -------- PARA CIRCLE FADE ------------------- //
+    private GameObject UICanvas;
+    private Animator animator;
+    private const float ANIMATION_DURATION = 1.5f;
+    private float lastRespawnTime = 0;
 
     // --------------------------------------------- //
 
@@ -32,20 +34,25 @@ public class GameManager : MonoBehaviour
 
     // --------------------------------------------- //
     
-
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         chat =  GameObject.FindGameObjectWithTag("Chat");
+        UICanvas = GameObject.FindGameObjectWithTag("UICanvas");
+        animator = UICanvas.GetComponent<Animator>();
+
         Application.targetFrameRate = 144;
         Instance = this;
     }
 
     void Update()
     {
+        bool canRespawn = animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+
         // Para volver al ultimo checkpoint
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && canRespawn)
         {
+            lastRespawnTime = Time.time;
             StartCoroutine(TeleportWithTransition());
         }
 
@@ -57,25 +64,12 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    // --------------------------------------------- //
+
     public static void SetCheckpoint(Vector2 position)
     {
         lastCheckpointPos = position;
         Debug.Log("Checkpoint guardado en: " + position);
-    }
-
-    IEnumerator TeleportWithTransition()
-    {
-        // 1. Cerrar círculo
-        animator.SetTrigger("Start");
-
-        // 2. Esperar hasta que esté completamente negro
-        yield return new WaitForSeconds(1.5f);
-
-        // 3. Teleport
-        RespawnPlayer();
-
-        // 4. Abrir círculo
-        animator.SetTrigger("End");
     }
 
     public static void RespawnPlayer()
@@ -92,12 +86,35 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    // Corutina que realiza la transicion y hace respawn
+    IEnumerator TeleportWithTransition()
+    {
+        // 1. Fade in
+        animator.SetTrigger("Start");
+
+        // 2. Esperar hasta que este completamente negro
+        yield return new WaitForSeconds(ANIMATION_DURATION);
+
+        // 3. Teleport
+        RespawnPlayer();
+
+        // 4. Fade out
+        animator.SetTrigger("End");
+
+        yield return new WaitForSeconds(ANIMATION_DURATION);
+
+        animator.SetTrigger("BackToIdle");
+    }
+
+   // --------------------------------------------- //
+
     public static void SetGameOver(bool cond) {
         gameOver = cond;
         Time.timeScale = gameOver ? 0f: 1f;
     }
     
-    
+    // --------------------------------------------- //
+
     public static void ShowChat(Sprite sprite, float fadeIn, float hold, float fadeOut, 
                                 float scale = 1f, float offsetX = 0f, float offsetY = 0f)
     {
@@ -177,4 +194,5 @@ public class GameManager : MonoBehaviour
         chat.SetActive(false);
     }
 
+   // --------------------------------------------- //
 }

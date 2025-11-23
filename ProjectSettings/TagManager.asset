@@ -10,6 +10,7 @@ TagManager:
   - cactus
   - Chat
   - PlayerContainer
+  - UICanvas
   layers:
   - Default
   - TransparentFX
