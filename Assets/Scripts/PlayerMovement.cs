@@ -13,18 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
     public static bool isFacingLeft;
 
-    [Header("Pistola de Agua")]
-    [SerializeField] private Transform gun;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private float resetRotationSpeed = 5f;
-    [SerializeField] private ParticleSystem waterStream;
-
-    private Quaternion gunInitialRotation;
-    private SpriteRenderer gunSR;
-    private Vector3 gunOriginalLocalPosition;
-    private Vector3 firePointOriginalLocalPosition;
-    private bool isAiming = false;
-
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform groundCheck2;
@@ -51,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashingCoolDown;
     [SerializeField] private TrailRenderer tr;
 
+    private WaterGun waterGun;
+
     void Start()
     {
         jumpsLeft = maxJumps;
@@ -58,11 +48,7 @@ public class PlayerMovement : MonoBehaviour
         wasGrounded = IsGrounded();
         isFacingLeft = true;
 
-        gunSR = gun.GetComponent<SpriteRenderer>();
-        gunInitialRotation = gun.localRotation;
-        gunOriginalLocalPosition = gun.localPosition;
-        firePointOriginalLocalPosition = firePoint.localPosition;
-        UpdateGunPosition();
+        waterGun = GetComponent<WaterGun>();
     }
 
     void Update()
@@ -78,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
         CheckGroundStatus();
         CheckDoubleJump();
         CheckDash();
-        CheckWaterGun();
     }
 
     void FixedUpdate()
@@ -97,149 +82,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private float nextEmitTime = 0f;
-    private float emitInterval = 0.05f; // Intervalo entre emisiones (segundos)
-
-    private void CheckWaterGun()
-    {
-        waterStream.transform.position = firePoint.position;
-        
-        if (Input.GetMouseButton(0))
-        {
-            if (!isAiming) 
-            {
-                isAiming = true;
-            }
-            
-            RotateGunTowardsMouse();
-            CheckGunFlip();
-
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 direction = mousePos - gun.position;
-            float particleAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            waterStream.transform.rotation = Quaternion.Euler(0, 0, particleAngle);
-
-            if (!waterStream.isPlaying)
-            {
-                waterStream.Play();
-            }
-            
-            // Control por TIEMPO en lugar de por FRAME
-            if (Time.time >= nextEmitTime)
-            {
-                waterStream.Emit(2); // 2 partículas cada 0.05 segundos
-                nextEmitTime = Time.time + emitInterval;
-            }
-        }
-        else
-        {
-            if (isAiming)
-            {
-                isAiming = false;
-            }
-
-            waterStream.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-
-            gun.localRotation = Quaternion.Lerp(
-                gun.localRotation,
-                gunInitialRotation,
-                Time.deltaTime * resetRotationSpeed
-            );
-            firePoint.localRotation = Quaternion.Lerp(
-                firePoint.localRotation,
-                gunInitialRotation,
-                Time.deltaTime * resetRotationSpeed
-            );
-            
-            if (!waterStream.isEmitting)
-            {
-                float defaultAngle = isFacingLeft ? 180f : 0f;
-                waterStream.transform.rotation = Quaternion.Lerp(
-                    waterStream.transform.rotation,
-                    Quaternion.Euler(0, 0, defaultAngle),
-                    Time.deltaTime * resetRotationSpeed
-                );
-            }
-        }
-    }
-
-    private void RotateGunTowardsMouse()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - gun.position;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        
-        if (isFacingLeft)
-        {
-            angle += 180f;
-            gunSR.flipY = true;
-        }
-        else
-        {
-            gunSR.flipY = false;
-        }
-        
-        gun.rotation = Quaternion.Euler(0, 0, angle);
-        firePoint.rotation = Quaternion.Euler(0, 0, angle);
-        
-        // Para el Particle System, usa el ángulo SIN la corrección de 180°
-        float particleAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        waterStream.transform.rotation = Quaternion.Euler(0, 0, particleAngle);
-    }
-
-    private void CheckGunFlip()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-        bool aimingBackwards = (mousePos.x < transform.position.x && !isFacingLeft) ||
-                        (mousePos.x > transform.position.x && isFacingLeft);
-        
-        if (aimingBackwards)
-        {
-            isFacingLeft = !isFacingLeft;
-            sr.flipX = !sr.flipX;
-            UpdateGunPosition();
-            
-            // Para el Particle System, calcular la dirección correcta sin la corrección de 180°
-            Vector3 direction = mousePos - gun.position;
-            float particleAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            waterStream.transform.rotation = Quaternion.Euler(0, 0, particleAngle);
-        }
-    }
-
-    private void UpdateGunPosition()
-    {
-        if (isFacingLeft)
-        {
-            gunSR.flipX = true;
-            gun.localPosition = new Vector3(-Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
-            firePoint.localPosition = new Vector3(-Mathf.Abs(firePointOriginalLocalPosition.x), firePointOriginalLocalPosition.y, firePointOriginalLocalPosition.z);
-        }
-        else
-        {
-            gunSR.flipX = false;
-            gun.localPosition = new Vector3(Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
-            firePoint.localPosition = new Vector3(Mathf.Abs(firePointOriginalLocalPosition.x), firePointOriginalLocalPosition.y, firePointOriginalLocalPosition.z);
-        }
-    }
-
     private void CheckFlip()
     {
-        if (isAiming) return;
+        if (waterGun != null && waterGun.IsAiming()) return;
 
         if ((isFacingLeft && horizontal > 0) || (!isFacingLeft && horizontal < 0))
         {
             isFacingLeft = !isFacingLeft;
             sr.flipX = !sr.flipX;
-            UpdateGunPosition();
             
-            // Cuando no estamos apuntando, el Particle System debe apuntar en la dirección por defecto
-            if (!isAiming)
+            if (waterGun != null)
             {
-                // Dirección por defecto: derecha si mira a la derecha, izquierda si mira a la izquierda
-                float defaultAngle = isFacingLeft ? 180f : 0f;
-                waterStream.transform.rotation = Quaternion.Euler(0, 0, defaultAngle);
+                waterGun.UpdateGunPosition();
             }
         }
     }
@@ -334,11 +188,5 @@ public class PlayerMovement : MonoBehaviour
             var col = other.GetComponent<Collider2D>();
             col.enabled = false;
         }
-        
     }
-
-
-
-
-
 }
