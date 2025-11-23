@@ -6,7 +6,8 @@ using System.Collections.Generic;
 
 /// <summary>
 /// Guarda la trayectoria como 3 AnimationCurves (posX, posY, rotZ).
-/// Además permite grabar parámetros del Animator (floats y bools) como curvas.
+/// Además permite grabar parámetros del Animator (floats y bools) como curvas,
+/// y el estado del TrailRenderer (trail active) como una lista de keyframes.
 /// Serializa / deserializa todo a texto para persistencia.
 /// </summary>
 public class Recording
@@ -23,7 +24,7 @@ public class Recording
 
     private readonly Transform _target;
     public Transform Target => _target;
-    
+
     private readonly List<string> _floatParamNames;
     private readonly List<string> _boolParamNames;
     private readonly List<Keyframe> _trailActive = new List<Keyframe>();
@@ -77,6 +78,7 @@ public class Recording
             }
         }
 
+        // registrar estado del trail como keyframe (1 = activo, 0 = inactivo)
         _trailActive.Add(new Keyframe(elapsed, trailActive ? 1f : 0f));
     }
 
@@ -158,17 +160,19 @@ public class Recording
         float lastParams = 0f;
         foreach (var c in _floatParamCurves.Values) lastParams = Mathf.Max(lastParams, c.keys.LastOrDefault().time);
         foreach (var c in _boolParamCurves.Values) lastParams = Mathf.Max(lastParams, c.keys.LastOrDefault().time);
-        Duration = Mathf.Max(Mathf.Max(lastX, lastY), Mathf.Max(lastZ, lastParams));
+        float lastTrail = _trailActive.Count > 0 ? _trailActive.Last().time : 0f;
+        Duration = Mathf.Max(Mathf.Max(lastX, lastY), Mathf.Max(lastZ, Mathf.Max(lastParams, lastTrail)));
     }
 
     private const char DATA_DELIMITER = '|';
     private const char CURVE_DELIMITER = '\n';
 
     // Formato:
-    // [posX]\n[posY]\n[rotZ]\n[param lines...]
+    // [posX]\n[posY]\n[rotZ]\n[param lines...]\n[T:time,val|time,val...]
     // Cada curva (posX, posY, rotZ) es: "t,v|t,v|..."
     // Cada param línea empieza por: "F:paramName:t,v|t,v..." para float
     //                         o   "B:paramName:t,v|t,v..." para bool
+    // La línea de trail empieza por "T:" seguida de time,val pairs
     public string Serialize()
     {
         var builder = new StringBuilder();
@@ -180,7 +184,7 @@ public class Recording
         builder.Append(CURVE_DELIMITER);
         Stringify(_rotZCurve);
 
-        // parámetros
+        // parámetros (cada una en su línea)
         foreach (var kv in _floatParamCurves)
         {
             builder.Append(CURVE_DELIMITER);
@@ -196,6 +200,21 @@ public class Recording
             builder.Append(Escape(kv.Key));
             builder.Append(":");
             Stringify(kv.Value);
+        }
+
+        // trailActive (opcional)
+        if (_trailActive.Count > 0)
+        {
+            builder.Append(CURVE_DELIMITER);
+            builder.Append("T:");
+            for (int i = 0; i < _trailActive.Count; i++)
+            {
+                var k = _trailActive[i];
+                builder.Append(k.time.ToString("F3", CultureInfo.InvariantCulture));
+                builder.Append(',');
+                builder.Append(k.value.ToString("F0", CultureInfo.InvariantCulture)); // 0 or 1
+                if (i != _trailActive.Count - 1) builder.Append(DATA_DELIMITER);
+            }
         }
 
         return builder.ToString();
@@ -222,6 +241,7 @@ public class Recording
         _rotZCurve.keys = new Keyframe[0];
         _floatParamCurves.Clear();
         _boolParamCurves.Clear();
+        _trailActive.Clear();
 
         var lines = data.Split(CURVE_DELIMITER);
         if (lines.Length < 3) return;
@@ -230,66 +250,90 @@ public class Recording
         FillCurve(_posYCurve, lines[1]);
         FillCurve(_rotZCurve, lines[2]);
 
-        // parámetro lines empezando en index 3
+        // parámetro lines empezando en index 3 (pueden haber F:, B: y/o T:)
         for (int i = 3; i < lines.Length; i++)
         {
             var line = lines[i];
             if (string.IsNullOrWhiteSpace(line)) continue;
-            // formato: "F:paramName:time,val|time,val..." o "B:paramName:..."
-            var firstColon = line.IndexOf(':');
-            if (firstColon <= 0) continue;
-            char type = line[0]; // 'F' o 'B'
-            if (line.Length <= 2 || line[1] != ':') continue; // sanity
 
-            var rest = line.Substring(2); // "paramName:..." or with escaped chars
-            // split paramName and data at the first unescaped ':'
-            int splitIndex = FindUnescapedColon(rest);
-            if (splitIndex < 0) continue;
-            string rawName = rest.Substring(0, splitIndex);
-            string content = rest.Substring(splitIndex + 1);
+            // Detectar tipo por prefijo: 'F:', 'B:', 'T:'
+            if (line.StartsWith("F:") || line.StartsWith("B:"))
+            {
+                char type = line[0]; // 'F' o 'B'
+                var rest = line.Substring(2); // "paramName:content"
+                int splitIndex = FindUnescapedColon(rest);
+                if (splitIndex < 0) continue;
+                string rawName = rest.Substring(0, splitIndex);
+                string content = rest.Substring(splitIndex + 1);
 
-            string paramName = Unescape(rawName);
-            var curve = new AnimationCurve();
-            FillCurve(curve, content);
-            if (type == 'F')
-            {
-                _floatParamCurves[paramName] = curve;
-                _floatParamNames.Add(paramName);
-            }
-            else if (type == 'B')
-            {
-                _boolParamCurves[paramName] = curve;
-                _boolParamNames.Add(paramName);
-            }
-        }
-
-        void FillCurve(AnimationCurve curve, string comp)
-        {
-            if (string.IsNullOrEmpty(comp)) return;
-            var pairs = comp.Split(DATA_DELIMITER);
-            foreach (var pair in pairs)
-            {
-                if (string.IsNullOrWhiteSpace(pair)) continue;
-                var s = pair.Split(',');
-                if (s.Length < 2) continue;
-                if (float.TryParse(s[0], NumberStyles.Float, CultureInfo.InvariantCulture, out float time) &&
-                    float.TryParse(s[1], NumberStyles.Float, CultureInfo.InvariantCulture, out float val))
+                string paramName = Unescape(rawName);
+                var curve = new AnimationCurve();
+                FillCurve(curve, content);
+                if (type == 'F')
                 {
-                    curve.AddKey(new Keyframe(time, val));
+                    _floatParamCurves[paramName] = curve;
+                    _floatParamNames.Add(paramName);
+                }
+                else if (type == 'B')
+                {
+                    _boolParamCurves[paramName] = curve;
+                    _boolParamNames.Add(paramName);
                 }
             }
-        }
-
-        int FindUnescapedColon(string s)
-        {
-            for (int i = 0; i < s.Length; i++)
+            else if (line.StartsWith("T:"))
             {
-                if (s[i] == ':' && (i == 0 || s[i - 1] != '\\')) return i;
+                // línea de trail: "T:time,val|time,val..."
+                var content = line.Substring(2);
+                if (!string.IsNullOrEmpty(content))
+                {
+                    var pairs = content.Split(DATA_DELIMITER);
+                    foreach (var pair in pairs)
+                    {
+                        if (string.IsNullOrWhiteSpace(pair)) continue;
+                        var s = pair.Split(',');
+                        if (s.Length < 2) continue;
+                        if (float.TryParse(s[0], NumberStyles.Float, CultureInfo.InvariantCulture, out float time) &&
+                            float.TryParse(s[1], NumberStyles.Float, CultureInfo.InvariantCulture, out float val))
+                        {
+                            _trailActive.Add(new Keyframe(time, val));
+                        }
+                    }
+                }
             }
-            return -1;
+            else
+            {
+                // línea sin prefijo reconocido -> ignorar (compatibilidad)
+                continue;
+            }
         }
-        string Unescape(string s) => s.Replace("\\:", ":").Replace("\\|", "|").Replace("\\n", "\n");
     }
+
+    void FillCurve(AnimationCurve curve, string comp)
+    {
+        if (string.IsNullOrEmpty(comp)) return;
+        var pairs = comp.Split(DATA_DELIMITER);
+        foreach (var pair in pairs)
+        {
+            if (string.IsNullOrWhiteSpace(pair)) continue;
+            var s = pair.Split(',');
+            if (s.Length < 2) continue;
+            if (float.TryParse(s[0], NumberStyles.Float, CultureInfo.InvariantCulture, out float time) &&
+                float.TryParse(s[1], NumberStyles.Float, CultureInfo.InvariantCulture, out float val))
+            {
+                curve.AddKey(new Keyframe(time, val));
+            }
+        }
+    }
+
+    int FindUnescapedColon(string s)
+    {
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s[i] == ':' && (i == 0 || s[i - 1] != '\\')) return i;
+        }
+        return -1;
+    }
+    string Unescape(string s) => s.Replace("\\:", ":").Replace("\\|", "|").Replace("\\n", "\n");
 
     #endregion
 }
