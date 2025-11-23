@@ -2,21 +2,20 @@ using UnityEngine;
 
 /// <summary>
 /// Controla grabación (V/B) y reproducción (N/M) de runs.
-/// - NO hace auto-load: la reproducción solo ocurre cuando se la pides (PlayRun / PlayRunByName o Trigger).
+/// - NO hace auto-load: para reproducir, llamar a PlayRunByName.
 /// - Distinción DeveloperMode: grabación solo permitida en modo desarrollador/editor.
 /// </summary>
 public class GhostRunner : MonoBehaviour
 {
     [Header("Recording")]
     [SerializeField] private Transform _recordTarget;
-    [SerializeField, Range(1, 10)] private int _captureEveryNFrames = 1;
+    [SerializeField, Range(1, 10)] private int _captureEveryNFrames = 2;
     [SerializeField] private string _runName = "run1"; // nombre para guardar/cargar la grabación
 
     [Header("Playback")]
     [SerializeField] private GameObject _ghostPrefab;
 
     [Header("Mode")]
-    // true por defecto en Editor, false por defecto en builds
 #if UNITY_EDITOR
     [SerializeField] private bool developerMode = true;
 #else
@@ -27,7 +26,6 @@ public class GhostRunner : MonoBehaviour
 
     private void Awake()
     {
-        // ReplaySystem necesita un MonoBehaviour para iniciar coroutines
         _system = new ReplaySystem(this);
     }
 
@@ -49,7 +47,7 @@ public class GhostRunner : MonoBehaviour
                 else
                 {
                     string[] floatParams = new string[] { };
-                    string[] boolParams = new string[] { "isWalking", "isFalling", "isJumping", "grounded", "isDoubleJumping", "isDoingSecondJump" };
+                    string[] boolParams = new string[] { "isWalking", "isFalling", "isJumping", "grounded", "isDoubleJumping", "isDoingSecondJump", "isFacingRight" };
                     _system.StartRun(_recordTarget, _captureEveryNFrames, 60f, floatParams, boolParams);
                     Debug.Log("Recording started: " + _runName);
                 }
@@ -79,19 +77,14 @@ public class GhostRunner : MonoBehaviour
     }
 
     /// <summary>
-    /// Reproduce una run concreta (si existe en memoria).
+    /// Reproduce una run concreta
     /// Si no está cargada, devuelve false y destruye el prefab instanciado.
     /// </summary>
     public bool PlayRunByName(string runName)
     {
-        if (_ghostPrefab == null)
-        {
-            Debug.LogError("GhostRunner: ghostPrefab no asignado.");
-            return false;
-        }
-
         var ghost = Instantiate(_ghostPrefab);
         bool ok = _system.PlayRecording(runName, ghost);
+
         if (!ok)
         {
             Debug.LogWarning("No recording found with name: " + runName);

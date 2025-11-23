@@ -77,7 +77,11 @@ public class ReplaySystem
 
         if (_frameCount++ % _snapshotEveryNFrames == 0)
         {
-            _currentRun.AddSnapshot(_elapsedRecordingTime);
+            bool trailActive = false;
+            var player = _currentRun.Target.GetComponent<PlayerMovement>();
+            if (player != null) trailActive = player.isDashing;
+
+            _currentRun.AddSnapshot(_elapsedRecordingTime, trailActive);
         }
 
         if (_currentRun.Duration >= _maxRecordingTimeLimit)
@@ -300,7 +304,7 @@ public class ReplaySystem
             // Clear existe en versiones modernas de Unity
             trail.Clear();
             // asegurar que emite
-            trail.emitting = true;
+            // trail.emitting = true;
         }
 
         // Aseguramos que el ghost no interfiera físicamente
@@ -392,6 +396,11 @@ public class ReplaySystem
                 // Triggers not handled here (would need edge detection)
             }
         }
+
+        // Actualizar TrailRenderer
+        var trail = _ghostObj.GetComponent<TrailRenderer>();
+        if(trail != null)
+            trail.emitting = _currentReplay.GetTrailActiveAt(_replaySmoothedTime);
 
         if (_replaySmoothedTime > _currentReplay.Duration)
         {

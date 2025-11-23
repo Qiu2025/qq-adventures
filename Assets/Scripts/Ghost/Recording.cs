@@ -22,8 +22,11 @@ public class Recording
     public float Duration { get; private set; }
 
     private readonly Transform _target;
+    public Transform Target => _target;
+    
     private readonly List<string> _floatParamNames;
     private readonly List<string> _boolParamNames;
+    private readonly List<Keyframe> _trailActive = new List<Keyframe>();
 
     // Constructor para grabar en runtime, pasando nombres de parámetros a registrar (opcional)
     public Recording(Transform target, IEnumerable<string> floatParamNames = null, IEnumerable<string> boolParamNames = null)
@@ -40,7 +43,7 @@ public class Recording
     }
 
     // Añade una instantánea con el tiempo relativo elapsed (en segundos)
-    public void AddSnapshot(float elapsed)
+    public void AddSnapshot(float elapsed, bool trailActive)
     {
         Duration = elapsed;
 
@@ -73,6 +76,24 @@ public class Recording
                 }
             }
         }
+
+        _trailActive.Add(new Keyframe(elapsed, trailActive ? 1f : 0f));
+    }
+
+    public bool GetTrailActiveAt(float elapsed)
+    {
+        if (_trailActive.Count == 0) return false;
+
+        Keyframe last = _trailActive[0];
+        foreach (var kf in _trailActive)
+        {
+            if (kf.time <= elapsed)
+                last = kf;
+            else
+                break;
+        }
+
+        return last.value > 0.5f;
     }
 
     private void AddOrMoveKey(AnimationCurve curve, float time, float value)

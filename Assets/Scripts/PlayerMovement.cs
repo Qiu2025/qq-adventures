@@ -46,10 +46,10 @@ public class PlayerMovement : MonoBehaviour
 
     // --------------------------------------------- //
 
-    [Header("Dash")]
-    [SerializeField] public bool canDash = true;
-    [SerializeField] private bool isDashing = false;
-    [SerializeField] public bool dashedInAir = false;
+    // [Header("Dash")]
+    [HideInInspector] public bool canDash = true;
+    [HideInInspector] public bool isDashing = false;
+    [HideInInspector] public bool dashedInAir = false;
     [SerializeField] private float dashingPower;
     [SerializeField] private float dashingTime;
     [SerializeField] private float dashingCoolDown;
@@ -222,8 +222,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
         {
+            animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
             isFacingRight = !isFacingRight;
-            sr.flipX = !sr.flipX;
         }
     }
 
