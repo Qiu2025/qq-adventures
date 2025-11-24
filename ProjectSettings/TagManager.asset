@@ -11,6 +11,7 @@ TagManager:
   - Chat
   - PlayerContainer
   - UICanvas
+  - PowerEffect
   layers:
   - Default
   - TransparentFX

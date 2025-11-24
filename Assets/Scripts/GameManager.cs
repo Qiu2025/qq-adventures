@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public bool allowGlide = false;
 
     // --------------------------------------------- //
+    private static Animator powerFxAnimator; 
+    private static GameObject powerFx;
     
     void Awake()
     {
@@ -47,6 +49,13 @@ public class GameManager : MonoBehaviour
         chat =  GameObject.FindGameObjectWithTag("Chat");
         UICanvas = GameObject.FindGameObjectWithTag("UICanvas");
         UI_animator = UICanvas.GetComponent<Animator>();
+        
+        powerFx = GameObject.FindGameObjectWithTag("PowerEffect");
+        if (powerFx != null)
+        {
+            powerFxAnimator = powerFx.GetComponent<Animator>();
+            powerFx.SetActive(false);
+        }
 
         Application.targetFrameRate = 144;
         Instance = this;
@@ -209,4 +218,21 @@ public class GameManager : MonoBehaviour
     }
 
    // --------------------------------------------- //
+
+   public static void PowerEffect()
+   {
+       powerFx.SetActive(true);
+       powerFxAnimator.Play("Power", 0, 0f);        // reproducir desde el frame 0
+       Instance.StartCoroutine(DisableFxWhenDone());
+   }
+   private static IEnumerator DisableFxWhenDone()
+   {
+       // espera la duración de la animación
+       yield return new WaitForSeconds(
+           powerFxAnimator.GetCurrentAnimatorStateInfo(0).length
+       );
+
+       powerFx.SetActive(false);
+   }
+   
 }
