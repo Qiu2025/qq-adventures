@@ -218,32 +218,32 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // private void CheckFlip()
+    // {
+    //     if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
+    //     {
+    //         animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
+    //         isFacingRight = !isFacingRight;
+    //     }
+    // }
+
+    
     private void CheckFlip()
     {
         if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
         {
             animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
             isFacingRight = !isFacingRight;
+            
+            // Actualizar la pistola
+            WaterGun waterGun = GetComponent<WaterGun>();
+            if (waterGun != null)
+            {
+                waterGun.UpdateGunPosition();
+            }
         }
     }
 
-    /*
-    private void CheckFlip()
-{
-    if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
-    {
-        animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
-        isFacingRight = !isFacingRight;
-        
-        // Agregar esta línea para actualizar la pistola
-        WaterGun waterGun = GetComponent<WaterGun>();
-        if (waterGun != null)
-        {
-            waterGun.UpdateGunPosition();
-        }
-    }
-}
-*/
 
     private bool IsGrounded()
     {

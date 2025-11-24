@@ -10,6 +10,7 @@ public class WaterGun : MonoBehaviour
 
     private Quaternion gunInitialRotation;
     private SpriteRenderer gunSR;
+    private SpriteRenderer playerSR;
     private Vector3 gunOriginalLocalPosition;
     private Vector3 firePointOriginalLocalPosition;
     private bool isAiming = false;
@@ -17,9 +18,7 @@ public class WaterGun : MonoBehaviour
     private float nextEmitTime = 0f;
     private float emitInterval = 0.05f;
 
-    // Referencia al PlayerMovement
     private PlayerMovement playerMovement;
-    private SpriteRenderer playerSR;
 
     void Start()
     {
@@ -30,8 +29,11 @@ public class WaterGun : MonoBehaviour
         gunOriginalLocalPosition = gun.localPosition;
         firePointOriginalLocalPosition = firePoint.localPosition;
         
-        // Configurar inicialmente para mirar a la derecha (isFacingRight = true)
-        UpdateGunPosition();
+        // Configuración inicial - SIN flips, posición derecha
+        gunSR.flipX = false;
+        gunSR.flipY = false;
+        gun.localPosition = new Vector3(Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
+        firePoint.localPosition = new Vector3(Mathf.Abs(firePointOriginalLocalPosition.x), firePointOriginalLocalPosition.y, firePointOriginalLocalPosition.z);
     }
 
     void Update()
@@ -108,7 +110,6 @@ public class WaterGun : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         
-        // Usar isFacingRight en lugar de isFacingLeft
         if (!playerMovement.isFacingRight)
         {
             angle += 180f;
@@ -130,17 +131,18 @@ public class WaterGun : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
-        // Lógica invertida porque ahora usamos isFacingRight
-        bool aimingBackwards = (mousePos.x < transform.position.x && playerMovement.isFacingRight) ||
-                        (mousePos.x > transform.position.x && !playerMovement.isFacingRight);
+        bool shouldFlip = (playerMovement.isFacingRight && mousePos.x < transform.position.x) ||
+                        (!playerMovement.isFacingRight && mousePos.x > transform.position.x);
         
-        if (aimingBackwards)
+        if (shouldFlip)
         {
-            // Cambiar la dirección del personaje
+            // Cambiar dirección del player
             playerMovement.isFacingRight = !playerMovement.isFacingRight;
             
-            // Actualizar el animator
-            playerMovement.GetComponent<Animator>().SetBool("isFacingRight", playerMovement.isFacingRight);
+            // Actualizar animator con el valor OPUESTO al actual
+            Animator animator = GetComponent<Animator>();
+            bool currentAnimatorValue = animator.GetBool("isFacingRight");
+            animator.SetBool("isFacingRight", !currentAnimatorValue);
             
             UpdateGunPosition();
             
@@ -152,18 +154,19 @@ public class WaterGun : MonoBehaviour
 
     public void UpdateGunPosition()
     {
-        // Lógica invertida porque ahora usamos isFacingRight
-        if (!playerMovement.isFacingRight)
+        if (playerMovement.isFacingRight)
         {
-            gunSR.flipX = true;
-            gun.localPosition = new Vector3(-Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
-            firePoint.localPosition = new Vector3(-Mathf.Abs(firePointOriginalLocalPosition.x), firePointOriginalLocalPosition.y, firePointOriginalLocalPosition.z);
-        }
-        else
-        {
+            // Mirando a la derecha
             gunSR.flipX = false;
             gun.localPosition = new Vector3(Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
             firePoint.localPosition = new Vector3(Mathf.Abs(firePointOriginalLocalPosition.x), firePointOriginalLocalPosition.y, firePointOriginalLocalPosition.z);
+        }
+        else
+        {
+            // Mirando a la izquierda
+            gunSR.flipX = true;
+            gun.localPosition = new Vector3(-Mathf.Abs(gunOriginalLocalPosition.x), gunOriginalLocalPosition.y, gunOriginalLocalPosition.z);
+            firePoint.localPosition = new Vector3(-Mathf.Abs(firePointOriginalLocalPosition.x), firePointOriginalLocalPosition.y, firePointOriginalLocalPosition.z);
         }
     }
 
