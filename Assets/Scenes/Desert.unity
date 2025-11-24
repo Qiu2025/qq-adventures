@@ -1494,6 +1494,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6647712921228002256, guid: daae6476a21f76042805d4d0c0782747, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647712921228002256, guid: daae6476a21f76042805d4d0c0782747, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
       value: 192
       objectReference: {fileID: 0}
@@ -4594,6 +4598,10 @@ PrefabInstance:
     - target: {fileID: 7746619437005642897, guid: 00840b724bdeefe428446ee1b3643c7f, type: 3}
       propertyPath: m_Name
       value: CactusEnLLamas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746619437005642897, guid: 00840b724bdeefe428446ee1b3643c7f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
