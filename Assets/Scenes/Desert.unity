@@ -1425,6 +1425,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 482784806229676447, guid: daae6476a21f76042805d4d0c0782747, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 482784806229676447, guid: daae6476a21f76042805d4d0c0782747, type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 1902067300144294674, guid: daae6476a21f76042805d4d0c0782747, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.21
@@ -1465,6 +1473,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 169.918
       objectReference: {fileID: 0}
+    - target: {fileID: 6647712921228002256, guid: daae6476a21f76042805d4d0c0782747, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647712921228002256, guid: daae6476a21f76042805d4d0c0782747, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647712921228002256, guid: daae6476a21f76042805d4d0c0782747, type: 3}
+      propertyPath: 'CollisionModule.m_Planes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1857220820}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43596,6 +43616,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &1857220820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3455846227644517409, guid: 546e56fbd4a7a064994e1761e4deae5d, type: 3}
+  m_PrefabInstance: {fileID: 2059446245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1874135077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44431,6 +44456,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2331298526534072543, guid: 546e56fbd4a7a064994e1761e4deae5d, type: 3}
       propertyPath: m_Name
+      value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331298526534072543, guid: 546e56fbd4a7a064994e1761e4deae5d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331298526534072543, guid: 546e56fbd4a7a064994e1761e4deae5d, type: 3}
+      propertyPath: m_TagString
       value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 3455846227644517409, guid: 546e56fbd4a7a064994e1761e4deae5d, type: 3}

@@ -11,6 +11,8 @@ TagManager:
   - Chat
   - PlayerContainer
   - UICanvas
+  - Fire
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - ParticleFuego
+  - ParticleAgua
   - 
   - 
   - 
