@@ -47,9 +47,9 @@ public class PlayerMovement : MonoBehaviour
     // --------------------------------------------- //
 
     [Header("Dash")]
-    [SerializeField] public bool canDash = true;
+    [SerializeField] private bool canDash = true;
     [SerializeField] private bool isDashing = false;
-    [SerializeField] public bool dashedInAir = false;
+    [SerializeField] private bool dashedInAir = false;
     [SerializeField] private float dashingPower;
     [SerializeField] private float dashingTime;
     [SerializeField] private float dashingCoolDown;
@@ -119,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isDoingSecondJump", false);
             usedJumps = 0;
             dashedInAir = false;
+            secondJumpingPower = 14f;
         }
 
         // Actualiza lastGroundedTime cuando estamos en suelo (para coyote time)
@@ -183,7 +184,6 @@ public class PlayerMovement : MonoBehaviour
             usedJumps++;
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
-            return;
         }
 
         // Estar aqui = no quedan saltos disponibles
@@ -262,6 +262,14 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCoolDown);
         canDash = true;
+    }
+
+    public void PowerUp()
+    {
+        canDash = true;
+        dashedInAir = false;
+        usedJumps = 1;
+        secondJumpingPower = jumpingPower;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -21,8 +21,7 @@ public class DashPowerUp : MonoBehaviour
             PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
 
             // Permitir dash
-            playerMovement.canDash = true;
-            playerMovement.dashedInAir = false;
+            playerMovement.PowerUp();
             
             GameManager.PowerEffect();
 
