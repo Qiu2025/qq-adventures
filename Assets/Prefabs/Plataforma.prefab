@@ -153,6 +153,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   velocidad: 2
   distanciaMaxima: 2
+  izqDch: 0
+  prefabPuntoTrayecto: {fileID: 1371407073141373748, guid: fdf44ce77d7fb9d4a8d780d10934143a, type: 3}
+  numeroPuntos: 16
+  offsetAltura: 0.1
 --- !u!50 &-1843867937285780184
 Rigidbody2D:
   serializedVersion: 5

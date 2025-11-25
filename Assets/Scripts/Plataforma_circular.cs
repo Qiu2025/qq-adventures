@@ -8,10 +8,16 @@ public class Plataforma_circular : MonoBehaviour
     private float posInicialX;
     private float posInicialY;
 
+    [SerializeField] private GameObject prefabPuntoTrayecto; 
+    [SerializeField] private int numeroPuntos = 24;           
+
+
     void Start()
     {
         posInicialX = gameObject.transform.position.x;
         posInicialY = gameObject.transform.position.y;
+
+        CrearPuntosTrayecto();
     }
     
     private void FixedUpdate()
@@ -39,4 +45,25 @@ public class Plataforma_circular : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
             collision.transform.SetParent(null);
     }
+
+    private void CrearPuntosTrayecto()
+    {
+        if (prefabPuntoTrayecto == null || numeroPuntos <= 0)
+            return;
+
+        Transform parent = transform.parent;
+
+        for (int i = 0; i < numeroPuntos; i++)
+        {
+            float t = (float)i / numeroPuntos;
+            float angulo = t * Mathf.PI * 2f;
+
+            float x = posInicialX + Mathf.Cos(angulo) * radio;
+            float y = posInicialY + Mathf.Sin(angulo) * radio;
+
+            Vector3 pos = new Vector3(x, y, transform.position.z);
+            Instantiate(prefabPuntoTrayecto, pos, Quaternion.identity, parent);
+        }
+    }
+
 }

@@ -10,12 +10,18 @@ public class PlataformaHorizontal : MonoBehaviour
 
     [SerializeField] bool izqDch;
 
+    [SerializeField] private GameObject prefabPuntoTrayecto; 
+    [SerializeField] private int numeroPuntos = 16;             
+
+
     void Start()
     {
         if (izqDch) dir = -1;
         else dir = 1;
 
         x0 = transform.position.x;
+
+        CrearPuntosTrayecto();
     }
 
     void FixedUpdate()
@@ -38,5 +44,27 @@ public class PlataformaHorizontal : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
             collision.transform.SetParent(null);         
+    }
+
+    private void CrearPuntosTrayecto()
+    {
+        if (prefabPuntoTrayecto == null || numeroPuntos <= 0)
+            return;
+
+       
+        float inicio = x0 - distanciaMaxima;
+        float fin = x0 + distanciaMaxima;
+
+        Transform parent = transform.parent;
+
+        for (int i = 0; i < numeroPuntos; i++)
+        {
+            float t = (i + 1f) / (numeroPuntos + 1f);
+            float x = Mathf.Lerp(inicio, fin, t);
+
+            Vector3 pos = new Vector3(x,transform.position.y,transform.position.z);
+
+            Instantiate(prefabPuntoTrayecto, pos, Quaternion.identity, parent);
+        }
     }
 }

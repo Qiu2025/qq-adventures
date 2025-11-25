@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlataformaVertical
   velocidad: 2
   distanciaMaxima: 2
+  prefabPuntoTrayecto: {fileID: 1371407073141373748, guid: fdf44ce77d7fb9d4a8d780d10934143a, type: 3}
+  numeroPuntos: 16
 --- !u!50 &7323522159469160069
 Rigidbody2D:
   serializedVersion: 5

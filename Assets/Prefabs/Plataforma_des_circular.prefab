@@ -154,6 +154,8 @@ MonoBehaviour:
   radio: 2
   velocidad: 2
   antiHorario: 0
+  prefabPuntoTrayecto: {fileID: 1371407073141373748, guid: fdf44ce77d7fb9d4a8d780d10934143a, type: 3}
+  numeroPuntos: 24
 --- !u!50 &7927539291733762336
 Rigidbody2D:
   serializedVersion: 5
