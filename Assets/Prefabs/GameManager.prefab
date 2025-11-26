@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 206907996154247965}
   - component: {fileID: 8228837335322192569}
   - component: {fileID: 3805906821481604930}
+  - component: {fileID: 7173263441497799703}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -63,3 +64,17 @@ MonoBehaviour:
   _recordTarget: {fileID: 0}
   _ghostPrefab: {fileID: 51853930296819979, guid: eb70391d83a06834482f2af032e7f4bd, type: 3}
   _captureEveryNFrames: 2
+--- !u!114 &7173263441497799703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962345527578415114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3144c07d0f118a4db0f601941928126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NewAssembly::PoolBolas
+  prefabBola: {fileID: 177976088606117411, guid: d4fb2a60a79015d4ea31283736b7ba1f, type: 3}
+  cantidadInicial: 4

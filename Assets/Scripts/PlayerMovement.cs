@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         usedJumps = 0;
         normalGravity = 5f;
         slowFallGravity = 0.5f;
-        coyoteTime = 0.08f;
+        coyoteTime = 0.12f;
         rb.gravityScale = normalGravity;
         wasGrounded = IsGrounded();
         lastGroundedTime = wasGrounded ? Time.time : -999f;
