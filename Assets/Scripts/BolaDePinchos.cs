@@ -6,11 +6,11 @@ public class BolaPinchos : MonoBehaviour
     public float velocidad = 5f;
     private Vector2 direccion;
 
-    public void Disparar(Vector2 dir)
+    public void Disparar(Vector2 dir,float tiempoVida)
     {
         direccion = dir.normalized;
         gameObject.SetActive(true);
-        StartCoroutine(DisappearInSeconds(3));
+        StartCoroutine(DisappearInSeconds(tiempoVida));
     }
 
     void Update()
@@ -38,6 +38,10 @@ public class BolaPinchos : MonoBehaviour
         }
 
 
-        gameObject.SetActive(false);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
+

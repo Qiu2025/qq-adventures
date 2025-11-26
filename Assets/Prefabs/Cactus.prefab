@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8089814908338685933}
   - component: {fileID: 2785847640329724191}
   - component: {fileID: 638870238373442374}
+  - component: {fileID: 6283900257188520819}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: cactus
@@ -107,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CactusDispara
   tiempoEntreDisparos: 3
   direccionDisparo: {x: -1, y: 0}
+  tiempoVidaProyectil: 3
   puntoDisparo: {fileID: 6555708988246848142}
 --- !u!70 &638870238373442374
 CapsuleCollider2D:
@@ -138,13 +140,25 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.98882675, y: -0.41635036}
   m_Size: {x: 6.4429092, y: 8.004217}
   m_Direction: 0
+--- !u!114 &6283900257188520819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2460189928131497750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d791d84018e4684e838e919e2945084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NewAssembly::DeathZone
 --- !u!1 &7960701122173380083
 GameObject:
   m_ObjectHideFlags: 0

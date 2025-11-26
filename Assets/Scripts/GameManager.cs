@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     
     // --- PARA PUNTUACION POR LOS COLLECTIBLES --- //
     [HideInInspector] public static int score = 0;
-    
+
     // -------- PARA RESPAWN EN CHECKPOINT -------- //
-    private static Vector2 lastCheckpointPos = new Vector2(-11.75f, 6.4f); 
+    private static Vector2 lastCheckpointPos;
     private static GameObject player;
     
     // -------- PARA BOCADILLO ------------------- //
@@ -41,10 +41,20 @@ public class GameManager : MonoBehaviour
     
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);  // si ya había uno, este se destruye
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);  // este vive entre escenas
+
         player = GameObject.FindGameObjectWithTag("Player");
         player_animator = player.GetComponent<Animator>();
         player_script = player.GetComponent<PlayerMovement>();
         player_rb = player.GetComponent<Rigidbody2D>();
+
+        lastCheckpointPos = player.transform.position;
 
         chat =  GameObject.FindGameObjectWithTag("Chat");
         UICanvas = GameObject.FindGameObjectWithTag("UICanvas");
@@ -58,7 +68,7 @@ public class GameManager : MonoBehaviour
         }
 
         Application.targetFrameRate = 144;
-        Instance = this;
+        
     }
 
     void Update()

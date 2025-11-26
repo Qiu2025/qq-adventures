@@ -5,6 +5,7 @@ public class CactusDispara : MonoBehaviour
     [Header("Disparo")]
     public float tiempoEntreDisparos = 2f;
     public Vector2 direccionDisparo = Vector2.left;
+    public float tiempoVidaProyectil = 3f;   
     public Transform puntoDisparo; // opcional (FirePoint). Si no se asigna, usa centro del sprite/collider.
 
     private float temporizador;
@@ -38,7 +39,7 @@ public class CactusDispara : MonoBehaviour
             return;
         }
 
-        script.Disparar(direccionDisparo == Vector2.zero ? Vector2.left : direccionDisparo);
+        script.Disparar(direccionDisparo == Vector2.zero ? Vector2.left : direccionDisparo, tiempoVidaProyectil);
         Debug.Log("Disparo de prueba ejecutado.");
     }
 
@@ -74,6 +75,6 @@ public class CactusDispara : MonoBehaviour
         var script = bola.GetComponent<BolaPinchos>();
         if (script == null) { Debug.LogError("El prefab no tiene BolaPinchos.cs"); return; }
 
-        script.Disparar(direccionDisparo == Vector2.zero ? Vector2.left : direccionDisparo);
+        script.Disparar(direccionDisparo == Vector2.zero ? Vector2.left : direccionDisparo,tiempoVidaProyectil);
     }   
 }

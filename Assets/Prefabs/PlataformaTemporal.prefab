@@ -270,6 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d55bb491f1bfb4c9fb116e88ad1eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlataformaTemporal
-  tiempoEspera: 1.5
+  tiempoEspera: 0.8
   tiempoRespawn: 1.6
   stepSensor: {fileID: 5181267955926515966}
