@@ -100,3 +100,7 @@ InitTestScene*.unity*
 
 # VSCode
 .vscode/
+.idea/.idea.FdV/.idea/indexLayout.xml
+.idea/.idea.FdV/.idea/projectSettingsUpdater.xml
+.idea/.idea.FdV/.idea/vcs.xml
+.idea/.idea.FdV/.idea/workspace.xml
