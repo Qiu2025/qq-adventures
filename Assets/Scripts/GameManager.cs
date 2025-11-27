@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     [Header("Selección de mecánicas")]
     public bool allowDoubleJump = false;
     public bool allowDash = false;
-    public bool allowGlide = false;
 
     // --------------------------------------------- //
     private static Animator powerFxAnimator; 

@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         CheckGroundedAnimation();
         CheckJump();
         CheckGroundStatus();
-        CheckGlide();
+        CheckFall();
         CheckDash();
     }
 
@@ -145,7 +145,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckJump()
     {        
-        bool jumpPressed = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.JoystickButton0);
+        bool jumpPressed = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || 
+                            Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0);
         if (!jumpPressed) return;
     
         // Consideramos "en suelo" si actualmente grounded o si estamos dentro del coyote time
@@ -189,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
         // Estar aqui = no quedan saltos disponibles
     }
     
-    private void CheckGlide()
+    private void CheckFall()
     {
         if (!grounded && rb.linearVelocity.y < 0f)
         {
@@ -197,24 +198,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isJumping", false);
             animator.SetBool("isDoubleJumping", false);
             animator.SetBool("isDoingSecondJump", false);
-
-            // Si se ha seleccionado no permitir la mecánica de gliding en la escena actual
-            if (!GameManager.Instance.allowGlide) return;
-            
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
-            {
-                // No permitir saltos si mantiene presionado espacio (es decir, hace glide)
-                usedJumps = 2;
-                rb.gravityScale = slowFallGravity;
-            }
-            else
-            {
-                rb.gravityScale = normalGravity;
-            }
-        }
-        else
-        {
-            rb.gravityScale = normalGravity;
         }
     }
 
@@ -224,13 +207,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
             isFacingRight = !isFacingRight;
-            
-            // // Actualizar la pistola
-            // WaterGun waterGun = GetComponent<WaterGun>();
-            // if (waterGun != null)
-            // {
-            //     waterGun.UpdateGunPosition();
-            // }
         }
     }
 
