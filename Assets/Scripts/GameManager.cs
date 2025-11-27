@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
     // Corutina que realiza la transicion y hace respawn
     IEnumerator TeleportWithTransition()
     {
+
         // Prohibir el movimiento del jugador durante la transicion
         player_animator.Play("Player Turn");
         player_script.canMove = false;
