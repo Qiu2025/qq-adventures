@@ -46,10 +46,10 @@ public class PlayerMovement : MonoBehaviour
 
     // --------------------------------------------- //
 
-    [Header("Dash")]
-    [SerializeField] private bool canDash = true;
-    [SerializeField] private bool isDashing = false;
-    [SerializeField] private bool dashedInAir = false;
+    // [Header("Dash")]
+    [HideInInspector] public bool canDash = true;
+    [HideInInspector] public bool isDashing = false;
+    [HideInInspector] public bool dashedInAir = false;
     [SerializeField] private float dashingPower;
     [SerializeField] private float dashingTime;
     [SerializeField] private float dashingCoolDown;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         usedJumps = 0;
         normalGravity = 5f;
         slowFallGravity = 0.5f;
-        coyoteTime = 0.12f;
+        coyoteTime = 0.08f;
         rb.gravityScale = normalGravity;
         wasGrounded = IsGrounded();
         lastGroundedTime = wasGrounded ? Time.time : -999f;
@@ -119,7 +119,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isDoingSecondJump", false);
             usedJumps = 0;
             dashedInAir = false;
-            secondJumpingPower = 14f;
         }
 
         // Actualiza lastGroundedTime cuando estamos en suelo (para coyote time)
@@ -184,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
             usedJumps++;
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
+            return;
         }
 
         // Estar aqui = no quedan saltos disponibles
@@ -218,14 +218,32 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // private void CheckFlip()
+    // {
+    //     if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
+    //     {
+    //         animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
+    //         isFacingRight = !isFacingRight;
+    //     }
+    // }
+
+    
     private void CheckFlip()
     {
         if ((isFacingRight && horizontal < 0) || (!isFacingRight && horizontal > 0))
         {
+            animator.SetBool("isFacingRight", !animator.GetBool("isFacingRight"));
             isFacingRight = !isFacingRight;
-            sr.flipX = !sr.flipX;
+            
+            // Actualizar la pistola
+            WaterGun waterGun = GetComponent<WaterGun>();
+            if (waterGun != null)
+            {
+                waterGun.UpdateGunPosition();
+            }
         }
     }
+
 
     private bool IsGrounded()
     {
@@ -262,14 +280,6 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCoolDown);
         canDash = true;
-    }
-
-    public void PowerUp()
-    {
-        canDash = true;
-        dashedInAir = false;
-        usedJumps = 1;
-        secondJumpingPower = jumpingPower;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
