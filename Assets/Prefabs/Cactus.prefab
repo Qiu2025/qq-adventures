@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -3899640206489364744, guid: b9de7838cea603a4c84a5b9fcdaade7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10.19, y: 10.19}
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9316161e7ad738f4ba6baaa52c0bc72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CactusDispara
-  tiempoEntreDisparos: 3
+  tiempoEntreDisparos: 1.8
   direccionDisparo: {x: -1, y: 0}
-  tiempoVidaProyectil: 3
+  tiempoVidaProyectil: 4
   puntoDisparo: {fileID: 6555708988246848142}
 --- !u!70 &638870238373442374
 CapsuleCollider2D:
