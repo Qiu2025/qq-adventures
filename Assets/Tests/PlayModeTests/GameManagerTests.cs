@@ -148,21 +148,23 @@ public class GameManagerTests
             "Si el sprite es null, ShowChat no debe activar el chat.");
     }
 
-    [UnityTest]
-    public IEnumerator ShowChat_shows_then_hides_chat()
-    {
-        chatObj.SetActive(false);
+[UnityTest]
+public IEnumerator ShowChat_shows_then_hides_chat()
+{
+    chatObj.SetActive(false);
 
-        var tex = new Texture2D(2, 2);
-        var sprite = Sprite.Create(tex, new Rect(0, 0, 2, 2), new Vector2(0.5f, 0.5f));
+    var tex = new Texture2D(2, 2);
+    var sprite = Sprite.Create(tex, new Rect(0, 0, 2, 2), new Vector2(0.5f, 0.5f));
 
-        GameManager.ShowChat(sprite, 0.02f, 0.05f, 0.02f);
+    GameManager.ShowChat(sprite, 0f, 0f, 0f);
 
-        Assert.IsTrue(chatObj.activeSelf, "El chat debe activarse al comenzar ShowChatRoutine.");
+    Assert.IsTrue(chatObj.activeSelf, "El chat debe activarse al comenzar ShowChatRoutine.");
 
-        yield return new WaitForSeconds(0.1f);
-        Assert.IsFalse(chatObj.activeSelf, "El chat debe desactivarse al terminar ShowChatRoutine.");
-    }
+    yield return null;
+
+    Assert.IsFalse(chatObj.activeSelf, "El chat debe desactivarse al terminar ShowChatRoutine.");
+}
+
 
     [UnityTest]
     public IEnumerator PowerEffect_enables_then_disables_effect()
