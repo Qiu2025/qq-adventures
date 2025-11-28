@@ -45,8 +45,9 @@ Incluye:
 - **Doble salto**  
 - **Dash** (movimiento rápido en una dirección)
 
-#### 1.4.2 Mecánica complementaria
+#### 1.4.2 Mecánica complementaria 
 La mecánica complementaria a la del movimiento es el uso de powerups. Estos powerups le dan al jugador la posibilidad de hacer un dash más en el aire, hacer un salto más en el aire, etc. 
+
 ---
 
 ### 1.5 Storyboard
