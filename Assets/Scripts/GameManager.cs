@@ -43,8 +43,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-        
+                
         // Buscamos referencias la primera vez
         RefreshReferences(); 
         

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be235c4e3acf04c8d838eb050896c520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::MapDirectLoader
-  sceneName: Salto
+  sceneName: 1. Salto
   isUnlocked: 1
   lockIcon: {fileID: 0}
 --- !u!114 &11949143
