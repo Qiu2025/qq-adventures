@@ -9,6 +9,7 @@ public class KeyTests
     private GameObject keyObject;
     private Key key;
     private GameObject player;
+    private GameObject playerContainer;
     private Rigidbody2D rb;
     private readonly List<Object> toDestroy = new();
 
@@ -30,13 +31,18 @@ public class KeyTests
         rb.gravityScale = 0f;
         player.transform.position = new Vector3(-2f, 0f, 0f);
 
+        // PlayerContainer
+        playerContainer = new GameObject("PlayerContainer");
+        toDestroy.Add(playerContainer);
+        playerContainer.tag = "PlayerContainer";
+
         // Key
         keyObject = new GameObject("Key");
         toDestroy.Add(keyObject);
         var keyCol = keyObject.AddComponent<CircleCollider2D>();
         keyCol.isTrigger = true;
         key = keyObject.AddComponent<Key>();
-        keyObject.transform.position = new Vector3(0f, 0f, 0f);
+        keyObject.transform.position = Vector3.zero;
 
         yield return new WaitForFixedUpdate();
     }
@@ -53,28 +59,33 @@ public class KeyTests
     }
 
     [UnityTest]
-    public IEnumerator Key_attaches_to_player_and_shrinks()
+    public IEnumerator Key_attaches_to_playerContainer_and_shrinks()
     {
         Vector3 initialScale = keyObject.transform.localScale;
 
         rb.linearVelocity = new Vector2(10f, 0f);
-        yield return SimulateForSeconds(0.3f);
-        yield return SimulateForSeconds(0.3f);
+
+        // Duración de la animación
+        yield return SimulateForSeconds(0.5f);
         yield return null;
 
         var collider = keyObject.GetComponent<Collider2D>();
         Assert.IsFalse(collider.enabled, "El collider de la llave debería estar desactivado.");
-        Assert.AreEqual(player.transform, keyObject.transform.parent, "La llave debería ser hija del jugador.");
-        Assert.Less(keyObject.transform.localScale.magnitude, initialScale.magnitude, "La llave debería haberse reducido.");
-        Assert.AreEqual(new Vector3(0f, -0.03f, 0f), keyObject.transform.localPosition, "El offset de la llave respecto al jugador debería ser (0, -0.03, 0).");
+
+        Assert.AreEqual(playerContainer.transform, keyObject.transform.parent,
+            "La llave debería ser hija del PlayerContainer.");
+
+        Assert.Less(keyObject.transform.localScale.magnitude, initialScale.magnitude,
+            "La llave debería haberse reducido.");
+
+        Assert.AreEqual(new Vector3(0f, -0.03f, 0f), keyObject.transform.localPosition,
+            "El offset de la llave respecto al PlayerContainer debería ser (0, -0.03, 0).");
     }
 
-    // Simula la física durante un número determinado de segundos
     private IEnumerator SimulateForSeconds(float seconds)
     {
         var steps = Mathf.CeilToInt(seconds / Time.fixedDeltaTime);
         for (int i = 0; i < steps; i++)
             yield return new WaitForFixedUpdate();
     }
-
 }

@@ -7,7 +7,6 @@ using UnityEngine.TestTools;
 public class DeathZoneTests
 {
     private GameObject deathZoneObject;
-    private DeathZone deathZone;
     private GameObject player;
     private Rigidbody2D rb;
     private GameObject gm;
@@ -22,9 +21,9 @@ public class DeathZoneTests
         // DeathZone
         deathZoneObject = new GameObject("DeathZone");
         toDestroy.Add(deathZoneObject);
-        var col = deathZoneObject.AddComponent<BoxCollider2D>();
-        col.isTrigger = true;
-        deathZone = deathZoneObject.AddComponent<DeathZone>();
+        var dzCol = deathZoneObject.AddComponent<BoxCollider2D>();
+        dzCol.isTrigger = true;
+        deathZoneObject.AddComponent<DeathZone>();
         deathZoneObject.transform.position = Vector3.zero;
 
         // Player
@@ -38,12 +37,32 @@ public class DeathZoneTests
         rb.gravityScale = 0f;
         player.transform.position = new Vector3(-3f, 0f, 0f);
 
+        // UICanvas
+        var uiCanvas = new GameObject("UICanvas");
+        uiCanvas.tag = "UICanvas";
+        uiCanvas.AddComponent<Animator>();
+        toDestroy.Add(uiCanvas);
+
+        // Chat
+        var chatObj = new GameObject("Chat");
+        chatObj.tag = "Chat";
+        var chatImage = new GameObject("ImagenMostrar");
+        chatImage.transform.SetParent(chatObj.transform);
+        chatImage.AddComponent<SpriteRenderer>();
+        toDestroy.Add(chatObj);
+
+        // PowerEffect
+        var powerEffect = new GameObject("PowerEffect");
+        powerEffect.tag = "PowerEffect";
+        powerEffect.AddComponent<Animator>();
+        powerEffect.AddComponent<SpriteRenderer>();
+        toDestroy.Add(powerEffect);
+
         // GameManager
         gm = new GameObject("GameManager");
         gm.AddComponent<GameManager>();
         toDestroy.Add(gm);
 
-        // Crear checkpoint inicial para comparar
         GameManager.SetCheckpoint(Vector2.zero);
 
         yield return new WaitForFixedUpdate();
@@ -63,14 +82,13 @@ public class DeathZoneTests
     [UnityTest]
     public IEnumerator Player_respawns_when_enters_deathzone()
     {
-        // Mover jugador fuera del checkpoint
         player.transform.position = new Vector3(-3f, 0f, 0f);
         rb.linearVelocity = new Vector2(10f, 0f);
 
         yield return SimulateForSeconds(0.4f);
         yield return null;
 
-        Assert.AreEqual(Vector2.zero, (Vector2)player.transform.position, "El jugador debe reaparecer en el último checkpoint después de morir.");
+        Assert.AreEqual(Vector2.zero, (Vector2)player.transform.position, "El jugador debe reaparecer en el último checkpoint al entrar en la DeathZone.");
         rb.linearVelocity = Vector2.zero;
     }
 

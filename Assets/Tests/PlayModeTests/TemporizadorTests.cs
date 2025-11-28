@@ -11,17 +11,12 @@ public class TemporizadorTests
     private Temporizador temporizador;
     private Slider slider;
     private Image relleno;
-    private GameObject gameManagerObj;
     private readonly List<Object> toDestroy = new();
 
     [UnitySetUp]
     public IEnumerator UnitySetUp()
     {
         Time.timeScale = 1f;
-
-        gameManagerObj = new GameObject("GameManager");
-        gameManagerObj.AddComponent<GameManager>();
-        toDestroy.Add(gameManagerObj);
 
         timerObject = new GameObject("Temporizador");
         toDestroy.Add(timerObject);
@@ -38,8 +33,7 @@ public class TemporizadorTests
         temporizador.sliderTemporizador = slider;
         temporizador.relleno = relleno;
         temporizador.tiempoMaximo = 2f;
-
-        temporizador.ActivarTemporizador();
+        
         yield return null;
     }
 
@@ -60,35 +54,36 @@ public class TemporizadorTests
     [UnityTest]
     public IEnumerator Temporizador_decreases_over_time()
     {
-        // El slider debe disminuir con el tiempo
         float inicio = slider.value;
         yield return SimulateRealtime(0.5f);
-        Assert.Less(slider.value, inicio);
+        Assert.Less(slider.value, inicio, "El slider debe disminuir con el tiempo.");
     }
 
     [UnityTest]
     public IEnumerator Temporizador_stops_and_gameover_when_time_runs_out()
     {
-        // Debe parar y poner timeScale=0 al agotarse
         temporizador.tiempoMaximo = 0.25f;
         temporizador.ActivarTemporizador();
 
         yield return SimulateRealtime(0.6f);
-        Assert.AreEqual(0f, Time.timeScale);
+        Assert.AreEqual(0f, Time.timeScale, 1e-4f,
+            "Cuando el tiempo se agota, debe ponerse el juego en pausa (timeScale=0).");
     }
 
     [UnityTest]
     public IEnumerator Temporizador_increases_but_caps_at_max()
     {
-        // Aumentar tiempo no debe superar el máximo (tolerancia por Update)
         temporizador.tiempoMaximo = 3f;
         temporizador.ActivarTemporizador();
+
         temporizador.AumentarTiempo(5f);
-        Assert.That(slider.value, Is.EqualTo(temporizador.tiempoMaximo).Within(0.05f));
+
+        Assert.That(slider.value,
+            Is.EqualTo(temporizador.tiempoMaximo).Within(0.01f),
+            "El tiempo no debe superar el máximo configurado.");
         yield break;
     }
-
-    // Usa tiempo no escalado para evitar bloqueo cuando timeScale=0
+    
     private IEnumerator SimulateRealtime(float seconds)
     {
         float end = Time.realtimeSinceStartup + seconds;

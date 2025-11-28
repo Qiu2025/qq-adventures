@@ -9,6 +9,7 @@ public class DoorTests
     private GameObject doorObject;
     private Door door;
     private GameObject player;
+    private GameObject playerContainer;
     private Rigidbody2D rb;
     private readonly List<Object> toDestroy = new();
 
@@ -36,8 +37,13 @@ public class DoorTests
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.gravityScale = 0f;
-
         player.transform.position = new Vector3(-3f, 0f, 0f);
+
+        // PlayerContainer
+        playerContainer = new GameObject("PlayerContainer");
+        playerContainer.tag = "PlayerContainer";
+        toDestroy.Add(playerContainer);
+
         yield return new WaitForFixedUpdate();
     }
 
@@ -59,7 +65,8 @@ public class DoorTests
         yield return SimulateForSeconds(0.35f);
         yield return null;
 
-        Assert.IsTrue(doorObject.activeSelf, "La puerta debe permanecer activa si el jugador no tiene llave");
+        Assert.IsTrue(doorObject.activeSelf,
+            "La puerta debe permanecer activa si el jugador no tiene llave");
         rb.linearVelocity = Vector2.zero;
     }
 
@@ -69,19 +76,20 @@ public class DoorTests
         var keyGO = new GameObject("Key");
         toDestroy.Add(keyGO);
         keyGO.AddComponent<Key>();
-        keyGO.transform.SetParent(player.transform, false);
+        keyGO.transform.SetParent(playerContainer.transform, false);
 
         rb.linearVelocity = new Vector2(10f, 0f);
         yield return SimulateForSeconds(0.35f);
         yield return null;
 
-        Assert.IsFalse(doorObject.activeSelf, "La puerta debe desactivarse y la llave destruirse si el jugador tiene llave");
-        Assert.IsTrue(keyGO == null, "La llave debe ser destruida al abrir la puerta");
+        Assert.IsFalse(doorObject.activeSelf,
+            "La puerta debe desactivarse si el jugador tiene llave");
+        Assert.IsTrue(keyGO == null,
+            "La llave debe ser destruida al abrir la puerta");
+
         rb.linearVelocity = Vector2.zero;
     }
 
-
-    // Simula la física durante un número determinado de segundos
     private IEnumerator SimulateForSeconds(float seconds)
     {
         var steps = Mathf.CeilToInt(seconds / Time.fixedDeltaTime);
