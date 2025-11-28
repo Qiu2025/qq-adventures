@@ -2305,6 +2305,10 @@ PrefabInstance:
       value: Cactus
       objectReference: {fileID: 0}
     - target: {fileID: 2785847640329724191, guid: 8a5feaedf377b394184f81ee2f789791, type: 3}
+      propertyPath: tiempoEntreDisparos
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785847640329724191, guid: 8a5feaedf377b394184f81ee2f789791, type: 3}
       propertyPath: tiempoVidaProyectil
       value: 6
       objectReference: {fileID: 0}
@@ -43718,7 +43722,7 @@ Transform:
   m_GameObject: {fileID: 1935590367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.49, y: -3.53, z: 0}
+  m_LocalPosition: {x: -6.2, y: -3.26, z: 0}
   m_LocalScale: {x: 2.7, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45398,7 +45402,7 @@ Transform:
   m_GameObject: {fileID: 4924318273730110416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.022221848, y: 0, z: -10}
+  m_LocalPosition: {x: 0.02222614, y: -0.088554144, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45545,7 +45549,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: NewAssembly::GameManager
   allowDoubleJump: 1
   allowDash: 1
-  allowGlide: 0
 --- !u!95 &2805878507585314506
 Animator:
   serializedVersion: 7
@@ -45809,10 +45812,14 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -14.2, y: 14}
       - {x: -14.2, y: -8}
+      - {x: 98.8, y: -8.707588}
       - {x: 98.8, y: -8}
-      - {x: 98.8, y: 69}
-      - {x: 14, y: 69}
-      - {x: 14, y: 14}
+      - {x: 99.304756, y: 24.828264}
+      - {x: 100.30105, y: 34.552708}
+      - {x: 101.38759, y: 45.158073}
+      - {x: 122.019745, y: 87.078224}
+      - {x: -14.029543, y: 86.58066}
+      - {x: -14.029545, y: 15.658556}
   m_UseDelaunayMesh: 0
 --- !u!4 &3884481387767541602
 Transform:
@@ -46321,8 +46328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::GhostRunner
   _recordTarget: {fileID: 51650501}
-  _ghostPrefab: {fileID: 51853930296819979, guid: eb70391d83a06834482f2af032e7f4bd, type: 3}
   _captureEveryNFrames: 2
+  _runName: run1
+  _ghostPrefab: {fileID: 51853930296819979, guid: eb70391d83a06834482f2af032e7f4bd, type: 3}
+  _developerMode: 1
 --- !u!114 &7229194696040182651
 MonoBehaviour:
   m_ObjectHideFlags: 0

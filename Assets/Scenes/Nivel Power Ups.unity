@@ -3365,8 +3365,8 @@ Transform:
   m_GameObject: {fileID: 1165442163}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8182604, y: -4.5748897, z: 0}
-  m_LocalScale: {x: 2.7, y: 2, z: 1}
+  m_LocalPosition: {x: -9.3, y: -5.3, z: 0}
+  m_LocalScale: {x: 3.2535002, y: 2.4218, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 689061177}
@@ -54871,8 +54871,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::GhostRunner
   _recordTarget: {fileID: 4697351063785809719}
-  _ghostPrefab: {fileID: 51853930296819979, guid: eb70391d83a06834482f2af032e7f4bd, type: 3}
   _captureEveryNFrames: 2
+  _runName: run1
+  _ghostPrefab: {fileID: 51853930296819979, guid: eb70391d83a06834482f2af032e7f4bd, type: 3}
+  _developerMode: 1
 --- !u!1 &3818716902606771378
 GameObject:
   m_ObjectHideFlags: 0
@@ -55761,7 +55763,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: NewAssembly::GameManager
   allowDoubleJump: 1
   allowDash: 1
-  allowGlide: 1
 --- !u!50 &8362468946168670836
 Rigidbody2D:
   serializedVersion: 5
