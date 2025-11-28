@@ -223,6 +223,30 @@ PrefabInstance:
       propertyPath: m_Navigation.m_Mode
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 8913416928641874975, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913416928641874975, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913416928641874975, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913416928641874975, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913416928641874975, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913416928641874975, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43597,7 +43621,7 @@ Transform:
   m_GameObject: {fileID: 4924318273730110416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9114902, y: 6, z: -10}
+  m_LocalPosition: {x: 0.02221851, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
