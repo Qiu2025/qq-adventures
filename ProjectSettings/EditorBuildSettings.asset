@@ -6,17 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Salto.unity
-    guid: ece8bc8379121f6409ccef7229850b9a
-  - enabled: 0
-    path: Assets/Scenes/GameLab.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 6e2219a1587e040418dd3eef35ccd767
   - enabled: 1
     path: Assets/Scenes/MapSelection.unity
     guid: c1831682a76a543aab39b449cd693244
+  - enabled: 1
+    path: Assets/Scenes/1. Salto.unity
+    guid: ece8bc8379121f6409ccef7229850b9a
+  - enabled: 1
+    path: Assets/Scenes/2. DobleSalto.unity
+    guid: 557cd485f37c0c94b85c421770fdf24b
+  - enabled: 1
+    path: Assets/Scenes/3. Dash.unity
+    guid: f61cbde219e09d148b4ea52bc4ec4e95
+  - enabled: 1
+    path: Assets/Scenes/4. PowerUps.unity
+    guid: 87ec5115ebbad114eaa4485752794b68
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
