@@ -43727,6 +43727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_button
       objectReference: {fileID: 0}
+    - target: {fileID: 3621666808300051774, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
+      propertyPath: runName
+      value: salto1
+      objectReference: {fileID: 0}
     - target: {fileID: 6157176140553820922, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.516
