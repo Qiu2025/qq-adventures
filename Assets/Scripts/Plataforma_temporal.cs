@@ -5,6 +5,7 @@ public class PlataformaTemporal : MonoBehaviour
 {
     [SerializeField] public float tiempoEspera = 1.5f;  
     [SerializeField] public float tiempoRespawn = 3.0f;
+    [SerializeField] public float despawnTime = 0.5f;
     [SerializeField] private Collider2D stepSensor; 
 
     private Rigidbody2D rb2D;
@@ -52,7 +53,7 @@ public class PlataformaTemporal : MonoBehaviour
 
         Physics2D.IgnoreCollision(col, playerCol, true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(despawnTime);
         StartCoroutine(Respawn());
 
     }

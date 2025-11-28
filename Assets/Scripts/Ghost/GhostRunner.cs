@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class GhostRunner : MonoBehaviour
 {
+    public static GhostRunner Instance { get; private set; }
+
     // --------------------------------------------- //
 
     [Header("Recording")]
@@ -41,6 +43,7 @@ public class GhostRunner : MonoBehaviour
     private void Awake()
     {
         _system = new ReplaySystem(this);
+        Instance = this;
     }
 
     void Update()
