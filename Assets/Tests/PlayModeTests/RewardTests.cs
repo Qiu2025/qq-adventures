@@ -26,7 +26,7 @@ public class RewardTests
         toDestroy.Add(scoreUI);
         scoreUI.tag = "Score";
         scoreText = scoreUI.AddComponent<TextMeshProUGUI>();
-        scoreText.text = "Secrets: 0/3";
+        scoreText.text = "0/3";
 
         // Player
         player = new GameObject("Player");
@@ -66,11 +66,17 @@ public class RewardTests
     {
         var rb = player.GetComponent<Rigidbody2D>();
         rb.linearVelocity = new Vector2(10f, 0f);
+
         yield return new WaitForFixedUpdate();
         yield return new WaitForSeconds(0.1f);
 
-        Assert.AreEqual(1, GameManager.score, "El puntaje debe incrementarse en 1 al recoger el reward");
-        Assert.AreEqual("Secrets: 1/3", scoreText.text, "El texto del score debe actualizarse correctamente");
-        Assert.IsTrue(rewardObject == null, "El objeto reward debe destruirse tras ser recogido");
+        Assert.AreEqual(1, GameManager.score,
+            "El puntaje debe incrementarse en 1 al recoger el reward");
+
+        Assert.AreEqual("1/3", scoreText.text,
+            "El texto del score debe actualizarse correctamente");
+
+        Assert.IsTrue(rewardObject == null,
+            "El objeto reward debe destruirse tras ser recogido");
     }
 }
