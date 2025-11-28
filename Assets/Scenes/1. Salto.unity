@@ -44118,7 +44118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: NewAssembly::GhostRunner
   _recordTarget: {fileID: 51650501}
   _captureEveryNFrames: 2
-  _runName: run1
+  _runName: 
   _ghostPrefab: {fileID: 1547775306856727610, guid: b7babdf8dcf69824ebcdc73a2c1ef91c, type: 3}
   _developerMode: 1
 --- !u!60 &3851375273372248468
@@ -44703,8 +44703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd922751cf42b124b9ac37ebc50ae7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::GameManager
-  allowDoubleJump: 1
-  allowDash: 1
+  allowDoubleJump: 0
+  allowDash: 0
 --- !u!1001 &8373833503904598045
 PrefabInstance:
   m_ObjectHideFlags: 0

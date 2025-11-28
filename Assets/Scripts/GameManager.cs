@@ -71,9 +71,6 @@ public class GameManager : MonoBehaviour
     // --- 3. NUEVO: Método para buscar todo de nuevo ---
     void RefreshReferences()
     {
-        // Solo buscamos si estamos en una escena de juego (no en el menú principal, por ejemplo)
-        // Puedes ajustar esto si tu Player también existe en el menú.
-        
         player = GameObject.FindGameObjectWithTag("Player");
         
         if (player != null)
@@ -82,8 +79,7 @@ public class GameManager : MonoBehaviour
             player_script = player.GetComponent<PlayerMovement>();
             player_rb = player.GetComponent<Rigidbody2D>();
             
-            // Opcional: Si quieres que el checkpoint se resetee al iniciar nivel nuevo
-            // lastCheckpointPos = player.transform.position; 
+            lastCheckpointPos = player.transform.position; 
         }
 
         chat = GameObject.FindGameObjectWithTag("Chat");
