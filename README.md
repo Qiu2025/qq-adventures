@@ -34,7 +34,8 @@ Contará con mecánicas que los jugadores deberán dominar para completar los di
 
 ---
 
-### 1.4 Mecánica principal de juego
+### 1.4 Mecánicas del juego  
+#### 1.4.1 Mecánica principal de juego
 La mecánica principal en esta primera iteración es el **movimiento**.  
 Siendo un juego de plataformas, se prioriza que el movimiento sea fluido y divertido para el jugador objetivo.
 
@@ -42,8 +43,10 @@ Incluye:
 - **Movimiento horizontal y vertical**  
 - **Salto y caída**  
 - **Doble salto**  
-- **Planeo**  
 - **Dash** (movimiento rápido en una dirección)
+
+#### 1.4.2 Mecánica complementaria 
+La mecánica complementaria a la del movimiento es el uso de powerups. Estos powerups le dan al jugador la posibilidad de hacer un dash más en el aire, hacer un salto más en el aire, etc. 
 
 ---
 
@@ -63,7 +66,7 @@ Incluye:
 
 ---
 
-### 1.7 Organización del equipo (primera iteración)
+### 1.7 Organización del equipo (tercera iteración)
 
 | Miembro | Rol / Tareas | Descripción |
 |----------|---------------|--------------|
