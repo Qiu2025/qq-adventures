@@ -14,6 +14,6 @@ public class ControladorMenu : MonoBehaviour
 
     void CambiarDeEscena()
     {
-        SceneManager.LoadScene("Salto");
+        SceneManager.LoadScene("MapSelection");
     }
 }

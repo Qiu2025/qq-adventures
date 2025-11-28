@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: dc364e740e9ba4242a8c6894c548a9ed
+guid: ce12ff99a12c546fc87ed22e18950045
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8675064856357701385
-    second: 01PixelCoinGold_0
+      213: 1637954016605795844
+    second: Locked_0
   - first:
-      213: 5451450550269152654
-    second: 01PixelCoinGold_1
-  - first:
-      213: -8484282285687446431
-    second: 01PixelCoinGold_2
+      213: -3612360273905304128
+    second: Locked_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -81,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,67 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 01PixelCoinGold_0
+      name: Locked_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 12
+        width: 693
+        height: 727
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e7a654ff11ad24a84a8fdcdc61417634
-      internalID: 8675064856357701385
+      spriteID: 4067636ff7e2bb610800000000000000
+      internalID: 1637954016605795844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 01PixelCoinGold_1
+      name: Locked_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 829
         y: 0
-        width: 14
-        height: 32
+        width: 703
+        height: 872
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4d8d67308b7144dcd9b5fe5ed211e80e
-      internalID: 5451450550269152654
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 01PixelCoinGold_2
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 16
-        width: 21
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfa5e88c49f014b8d9ce9b13c4669f6b
-      internalID: -8484282285687446431
+      spriteID: 0cd342158715eddc0800000000000000
+      internalID: -3612360273905304128
       vertices: []
       indices: 
       edges: []
@@ -188,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4fbc07b6c42e44628aee4ddbc47feb51
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -196,13 +171,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      01PixelCoinGold_0: 8675064856357701385
-      01PixelCoinGold_1: 5451450550269152654
-      01PixelCoinGold_2: -8484282285687446431
+      Locked_0: 1637954016605795844
+      Locked_1: -3612360273905304128
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

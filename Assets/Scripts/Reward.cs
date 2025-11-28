@@ -18,8 +18,9 @@ public class Reward : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            scoreText.text = "Secrets: "+ (GameManager.score += 1) + "/3";
-            Destroy(gameObject); // Desaparece el reward
+            GameManager.score += 1;
+            scoreText.text = GameManager.score + "/3"; 
+            Destroy(gameObject); 
         }
     }
 }

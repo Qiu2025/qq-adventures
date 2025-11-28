@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement; 
 
 public class GameManager : MonoBehaviour
 {
@@ -9,14 +10,11 @@ public class GameManager : MonoBehaviour
     private static bool gameOver = false;
     private static bool slowmo = false;
     
-    // --- PARA PUNTUACION POR LOS COLLECTIBLES --- //
     [HideInInspector] public static int score = 0;
 
-    // -------- PARA RESPAWN EN CHECKPOINT -------- //
     private static Vector2 lastCheckpointPos;
     private static GameObject player;
     
-    // -------- PARA BOCADILLO ------------------- //
     private static GameObject chat; 
 
     // -------- PARA CIRCLE FADE ------------------- //
@@ -24,17 +22,16 @@ public class GameManager : MonoBehaviour
     private Animator UI_animator;
     private const float ANIMATION_DURATION = 1.5f;
     private float lastRespawnTime = 0;
+    
+    // Variables del jugador (instancia)
     private Animator player_animator;
     private PlayerMovement player_script;
     private Rigidbody2D player_rb;
-
-    // --------------------------------------------- //
 
     [Header("Selección de mecánicas")]
     public bool allowDoubleJump = false;
     public bool allowDash = false;
 
-    // --------------------------------------------- //
     private static Animator powerFxAnimator; 
     private static GameObject powerFx;
     
@@ -42,22 +39,60 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);  // si ya había uno, este se destruye
+            Destroy(gameObject);
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);  // este vive entre escenas
+        DontDestroyOnLoad(gameObject);
+        
+        // Buscamos referencias la primera vez
+        RefreshReferences(); 
+        
+        Application.targetFrameRate = 144;
+    }
 
+    // --- 2. NUEVO: Detectar cuando cambia la escena ---
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // Esta función se ejecuta AUTOMÁTICAMENTE cada vez que carga un nivel
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        RefreshReferences();
+    }
+
+    // --- 3. NUEVO: Método para buscar todo de nuevo ---
+    void RefreshReferences()
+    {
+        // Solo buscamos si estamos en una escena de juego (no en el menú principal, por ejemplo)
+        // Puedes ajustar esto si tu Player también existe en el menú.
+        
         player = GameObject.FindGameObjectWithTag("Player");
-        player_animator = player.GetComponent<Animator>();
-        player_script = player.GetComponent<PlayerMovement>();
-        player_rb = player.GetComponent<Rigidbody2D>();
+        
+        if (player != null)
+        {
+            player_animator = player.GetComponent<Animator>();
+            player_script = player.GetComponent<PlayerMovement>();
+            player_rb = player.GetComponent<Rigidbody2D>();
+            
+            // Opcional: Si quieres que el checkpoint se resetee al iniciar nivel nuevo
+            // lastCheckpointPos = player.transform.position; 
+        }
 
-        lastCheckpointPos = player.transform.position;
-
-        chat =  GameObject.FindGameObjectWithTag("Chat");
+        chat = GameObject.FindGameObjectWithTag("Chat");
+        
         UICanvas = GameObject.FindGameObjectWithTag("UICanvas");
-        UI_animator = UICanvas.GetComponent<Animator>();
+        if (UICanvas != null)
+        {
+            UI_animator = UICanvas.GetComponent<Animator>();
+        }
         
         powerFx = GameObject.FindGameObjectWithTag("PowerEffect");
         if (powerFx != null)
@@ -65,23 +100,21 @@ public class GameManager : MonoBehaviour
             powerFxAnimator = powerFx.GetComponent<Animator>();
             powerFx.SetActive(false);
         }
-
-        Application.targetFrameRate = 144;
-        
     }
 
     void Update()
     {
+        // Pequeña protección por si estamos en el menú y no hay UI_animator
+        if (UI_animator == null || player == null) return;
+
         bool canRespawn = UI_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
 
-        // Para volver al ultimo checkpoint
         if (Input.GetKeyDown(KeyCode.R) && canRespawn)
         {
             lastRespawnTime = Time.time;
             StartCoroutine(TeleportWithTransition());
         }
 
-        // Slow motion, para debug
         if (Input.GetKeyDown(KeyCode.T))
         {
             slowmo = !slowmo;
@@ -99,41 +132,38 @@ public class GameManager : MonoBehaviour
 
     public static void RespawnPlayer()
     {
+        if (player == null) return; // Protección contra errores
+
         Collider2D col = player.GetComponent<BoxCollider2D>();
-        col.enabled = false;
+        if(col != null) col.enabled = false;
 
         player.transform.position = lastCheckpointPos;
 
-        col.enabled = true;
+        if(col != null) col.enabled = true;
 
         Debug.Log("Jugador reaparecido en checkpoint");
         gameOver = false;
         Time.timeScale = 1f;
     }
 
-    // Corutina que realiza la transicion y hace respawn
     IEnumerator TeleportWithTransition()
     {
+        if (player_animator == null || player_script == null) yield break;
 
-        // Prohibir el movimiento del jugador durante la transicion
         player_animator.Play("Player Turn");
         player_script.canMove = false;
-        player_rb.linearVelocity = Vector2.zero;
+        player_rb.linearVelocity = Vector2.zero; // Unity 6 usa linearVelocity, Unity viejo velocity
 
-        // 1. Fade in
         UI_animator.SetTrigger("Start");
         yield return new WaitForSeconds(ANIMATION_DURATION);
 
-        // 3. Teleport
         RespawnPlayer();
 
-        // 4. Fade out
         UI_animator.SetTrigger("End");
         yield return new WaitForSeconds(ANIMATION_DURATION);
 
         UI_animator.SetTrigger("BackToIdle");
 
-        // Permitir el movimiento
         player_script.canMove = true;
         player_animator.Play("Player Idle");
     }
@@ -150,7 +180,7 @@ public class GameManager : MonoBehaviour
     public static void ShowChat(Sprite sprite, float fadeIn, float hold, float fadeOut, 
                                 float scale = 1f, float offsetX = 0f, float offsetY = 0f)
     {
-        if (chat == null || sprite == null) return;
+        if (Instance == null || chat == null || sprite == null) return;
 
         Instance.StartCoroutine(Instance.ShowChatRoutine(sprite, fadeIn, hold, fadeOut, scale, offsetX, offsetY));
     }
@@ -158,71 +188,42 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShowChatRoutine(Sprite sprite, float fadeIn, float hold, float fadeOut,
                                         float scale, float offsetX, float offsetY)
     {
-        // Hijo que contiene el SpriteRenderer del chat
-        SpriteRenderer imgRenderer = chat.transform.Find("ImagenMostrar").GetComponent<SpriteRenderer>();
+        Transform imgTransform = chat.transform.Find("ImagenMostrar");
+        if (imgTransform == null) yield break;
+
+        SpriteRenderer imgRenderer = imgTransform.GetComponent<SpriteRenderer>();
         if (imgRenderer == null) yield break;
 
-        // Asignar el sprite
         imgRenderer.sprite = sprite;
-
-        // Ajustar escala
         imgRenderer.transform.localScale = Vector3.one * scale;
-
-        // Ajustar posición relativa
         imgRenderer.transform.localPosition = new Vector3(offsetX, offsetY, imgRenderer.transform.localPosition.z);
 
-        // Activar chat
         chat.SetActive(true);
 
-        // Poner alfa 0 a todos los SpriteRenderers del chat
         SpriteRenderer[] renderers = chat.GetComponentsInChildren<SpriteRenderer>(true);
-        foreach (var r in renderers)
-        {
-            Color c = r.color;
-            c.a = 0f;
-            r.color = c;
-        }
+        foreach (var r in renderers) { Color c = r.color; c.a = 0f; r.color = c; }
 
-        // Fade in
         float t = 0f;
         while (t < fadeIn)
         {
             t += Time.deltaTime;
             float a = t / fadeIn;
-            foreach (var r in renderers)
-            {
-                Color c = r.color;
-                c.a = a;
-                r.color = c;
-            }
+            foreach (var r in renderers) { Color c = r.color; c.a = a; r.color = c; }
             yield return null;
         }
 
-        // Mantener visible
-        foreach (var r in renderers)
-        {
-            Color c = r.color;
-            c.a = 1f;
-            r.color = c;
-        }
+        foreach (var r in renderers) { Color c = r.color; c.a = 1f; r.color = c; }
         yield return new WaitForSeconds(hold);
 
-        // Fade out
         t = 0f;
         while (t < fadeOut)
         {
             t += Time.deltaTime;
             float a = 1f - t / fadeOut;
-            foreach (var r in renderers)
-            {
-                Color c = r.color;
-                c.a = a;
-                r.color = c;
-            }
+            foreach (var r in renderers) { Color c = r.color; c.a = a; r.color = c; }
             yield return null;
         }
 
-        // Ocultar chat
         chat.SetActive(false);
     }
 
@@ -230,18 +231,21 @@ public class GameManager : MonoBehaviour
 
    public static void PowerEffect()
    {
+       if(powerFx == null) return;
+
        powerFx.SetActive(true);
-       powerFxAnimator.Play("Power", 0, 0f);        // reproducir desde el frame 0
+       powerFxAnimator.Play("Power", 0, 0f);       
        Instance.StartCoroutine(DisableFxWhenDone());
    }
+   
    private static IEnumerator DisableFxWhenDone()
    {
-       // espera la duración de la animación
+       if(powerFxAnimator == null) yield break;
+       
        yield return new WaitForSeconds(
            powerFxAnimator.GetCurrentAnimatorStateInfo(0).length
        );
 
-       powerFx.SetActive(false);
+       if(powerFx != null) powerFx.SetActive(false);
    }
-   
 }
