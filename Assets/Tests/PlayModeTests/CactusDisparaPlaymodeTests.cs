@@ -21,7 +21,7 @@ public class CactusDisparaPlaymodeTests
         Assert.NotNull(cactusPrefab, "No encontré el prefab 'Cactus' en Resources.");
         cactusGO = Object.Instantiate(cactusPrefab);
 
-        yield return null; // deja correr Awake/Start
+        yield return null; 
     }
 
     [UnityTearDown]
