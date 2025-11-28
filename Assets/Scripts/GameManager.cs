@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         RefreshReferences(); 
         
         Application.targetFrameRate = 144;
+        powerFx.SetActive(true);
     }
 
     // --- 2. NUEVO: Detectar cuando cambia la escena ---
