@@ -19,13 +19,7 @@ public class CactusDispara : MonoBehaviour
     }
     void Start()
     {
-        // TEST: dispara una vez al empezar
         GameObject bola = PoolBolas.Instance != null ? PoolBolas.Instance.ObtenerBola() : null;
-        if (bola == null)
-        {
-            Debug.LogError("No hay PoolBolas en escena o no hay prefab asignado.");
-            return;
-        }
 
         // Si no hay FirePoint asignado, calculará el centro
         Vector3 desde = ObtenerPosicionDisparo();

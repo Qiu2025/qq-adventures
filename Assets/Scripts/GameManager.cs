@@ -44,14 +44,12 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
                 
-        // Buscamos referencias la primera vez
         RefreshReferences(); 
         
         Application.targetFrameRate = 144;
         powerFx.SetActive(true);
     }
 
-    // --- 2. NUEVO: Detectar cuando cambia la escena ---
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -62,13 +60,11 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // Esta función se ejecuta AUTOMÁTICAMENTE cada vez que carga un nivel
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         RefreshReferences();
     }
 
-    // --- 3. NUEVO: Método para buscar todo de nuevo ---
     void RefreshReferences()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -128,15 +124,10 @@ public class GameManager : MonoBehaviour
 
     public static void RespawnPlayer()
     {
-        if (player == null) return; // Protección contra errores
-
         Collider2D col = player.GetComponent<BoxCollider2D>();
-        if(col != null) col.enabled = false;
-
+        col.enabled = false;
         player.transform.position = lastCheckpointPos;
-
-        if(col != null) col.enabled = true;
-
+        col.enabled = true;
         Debug.Log("Jugador reaparecido en checkpoint");
         gameOver = false;
         Time.timeScale = 1f;
@@ -148,7 +139,7 @@ public class GameManager : MonoBehaviour
 
         player_animator.Play("Player Turn");
         player_script.canMove = false;
-        player_rb.linearVelocity = Vector2.zero; // Unity 6 usa linearVelocity, Unity viejo velocity
+        player_rb.linearVelocity = Vector2.zero;
 
         UI_animator.SetTrigger("Start");
         yield return new WaitForSeconds(ANIMATION_DURATION);

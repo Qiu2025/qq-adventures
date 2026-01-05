@@ -1755,8 +1755,16 @@ PrefabInstance:
       value: Plataforma (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
+      propertyPath: izqDch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
+      propertyPath: velocidad
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
       propertyPath: distanciaMaxima
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4704,11 +4712,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
       propertyPath: izqDch
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
+      propertyPath: velocidad
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
       propertyPath: distanciaMaxima
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43187,7 +43199,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 489045999428986238, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.99
+      value: -17.5
       objectReference: {fileID: 0}
     - target: {fileID: 489045999428986238, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -43258,8 +43270,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
+      propertyPath: velocidad
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878203379130745785, guid: c65e024ec600da744b8b747c5b1d24ac, type: 3}
       propertyPath: distanciaMaxima
-      value: 4.5
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
