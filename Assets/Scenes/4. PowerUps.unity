@@ -6664,6 +6664,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.9104538
       objectReference: {fileID: 0}
+    - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
+      propertyPath: sceneName
+      value: Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 8841507395311028438, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
       propertyPath: m_FlipX
       value: 1
