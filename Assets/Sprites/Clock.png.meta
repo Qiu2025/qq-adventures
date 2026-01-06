@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 66288e6b3c10c544f8943ad3d32fd88b
+guid: 1bb400c08c2390b4f8772ab5691fca2d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1361045060741195963
-    second: SignArrow_0
+      213: 3184269830322045201
+    second: Clock 1_0
+  - first:
+      213: 2458054699648217081
+    second: Clock 1_1
+  - first:
+      213: -6709109848991808970
+    second: Clock 1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -101,7 +107,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SignArrow_0
+      name: Clock 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 84
-        height: 87
+        x: 9
+        y: 366
+        width: 153
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb867c8854763e210800000000000000
-      internalID: 1361045060741195963
+      spriteID: 111c6592a8cc03c20800000000000000
+      internalID: 3184269830322045201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clock 1_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 444
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ffe20bd9b3cc1220800000000000000
+      internalID: 2458054699648217081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clock 1_2
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 358
+        width: 153
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632c4c3832474e2a0800000000000000
+      internalID: -6709109848991808970
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SignArrow_0: 1361045060741195963
+      Clock 1_0: 3184269830322045201
+      Clock 1_1: 2458054699648217081
+      Clock 1_2: -6709109848991808970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

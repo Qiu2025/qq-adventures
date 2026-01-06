@@ -20,7 +20,7 @@ public class Reward : MonoBehaviour
         {
             AudioManager.Instance.PlayCoinSound();
             GameManager.score += 1;
-            scoreText.text = GameManager.score + "/3"; 
+            scoreText.text = "  " + GameManager.score + " / ?"; 
             Destroy(gameObject); 
         }
     }

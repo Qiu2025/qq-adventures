@@ -154,7 +154,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 0.46}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.11, y: 0.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -201,3 +201,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa7ea4af7544465d93efe92a6f7529d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::Checkpoint
+  canvasTextoFlotante: {fileID: 7591147586197376005, guid: 46d6da0b5b30cc54b98536a2b8f86cc9, type: 3}

@@ -105846,7 +105846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::PoolBolas
   prefabBola: {fileID: 177976088606117411, guid: d4fb2a60a79015d4ea31283736b7ba1f, type: 3}
-  cantidadInicial: 4
+  cantidadInicial: 15
 --- !u!222 &7401139522148877002
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 66288e6b3c10c544f8943ad3d32fd88b
+guid: ede17e8f5ada420418f25b6ae59e5fa7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1361045060741195963
-    second: SignArrow_0
+      213: 1451598668254842067
+    second: Solid_black_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SignArrow_0
+      name: Solid_black_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 84
-        height: 87
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb867c8854763e210800000000000000
-      internalID: 1361045060741195963
+      spriteID: 3dc82c14c4d152410800000000000000
+      internalID: 1451598668254842067
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SignArrow_0: 1361045060741195963
+      Solid_black_0: 1451598668254842067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
