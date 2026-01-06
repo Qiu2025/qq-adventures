@@ -4,10 +4,10 @@ public class Door : MonoBehaviour
 {
     public Sprite keySprite;
 
-    private bool canShowChat = true;   // ← evita spam del mensaje
+    private bool canShowChat = true;   // evita spam del mensaje
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!canShowChat) return;  // ← evita parpadeo
+        if (!canShowChat) return;  // evita parpadeo
 
         if (collision.collider.CompareTag("Player"))
         {

@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Doble salto y caída lenta")]
     [SerializeField] private int maxJumps;
     [SerializeField] private float normalGravity;
-    [SerializeField] private float slowFallGravity;
     [SerializeField] private float coyoteTime; // Tolerancia al considerar primer salto
     private int usedJumps;
     private float lastGroundedTime;
@@ -62,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
         maxJumps = 2;
         usedJumps = 0;
         normalGravity = 5f;
-        slowFallGravity = 0.5f;
         coyoteTime = 0.12f;
         rb.gravityScale = normalGravity;
         wasGrounded = IsGrounded();

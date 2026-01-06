@@ -6,7 +6,7 @@ public class CactusDispara : MonoBehaviour
     public float tiempoEntreDisparos = 2f;
     public Vector2 direccionDisparo = Vector2.left;
     public float tiempoVidaProyectil = 3f;   
-    public Transform puntoDisparo; // opcional (FirePoint). Si no se asigna, usa centro del sprite/collider.
+    public Transform puntoDisparo; // opcional. Si no se asigna, usa centro del sprite/collider.
 
     private float temporizador;
     private SpriteRenderer sr;
@@ -34,7 +34,6 @@ public class CactusDispara : MonoBehaviour
         }
 
         script.Disparar(direccionDisparo == Vector2.zero ? Vector2.left : direccionDisparo, tiempoVidaProyectil);
-        Debug.Log("Disparo de prueba ejecutado.");
     }
 
     void Update()

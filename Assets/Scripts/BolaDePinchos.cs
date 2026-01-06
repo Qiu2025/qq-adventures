@@ -26,7 +26,6 @@ public class BolaPinchos : MonoBehaviour
     
     private void OnBecameInvisible()
     {
-        // Cuando sale de la cámara, se desactiva para volver al pool
         gameObject.SetActive(false);
     }
 

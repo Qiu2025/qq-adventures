@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Necesario para controlar el Botón
+using UnityEngine.UI;
 
 public class MapDirectLoader : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class MapDirectLoader : MonoBehaviour
     {
         ActualizarVisuales();
     }
+    
     private void ActualizarVisuales()
     {
       

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private Animator player_animator;
     private PlayerMovement player_script;
     private Rigidbody2D player_rb;
+    private SpriteRenderer player_sr;
 
     [Header("Selección de mecánicas")]
     public bool allowDoubleJump = false;
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
             player_animator = player.GetComponent<Animator>();
             player_script = player.GetComponent<PlayerMovement>();
             player_rb = player.GetComponent<Rigidbody2D>();
+            player_sr = player.GetComponent<SpriteRenderer>();
             
             lastCheckpointPos = player.transform.position; 
         }
@@ -129,27 +131,48 @@ public class GameManager : MonoBehaviour
         col.enabled = false;
         player.transform.position = lastCheckpointPos;
         col.enabled = true;
-        Debug.Log("Jugador reaparecido en checkpoint");
         gameOver = false;
         Time.timeScale = 1f;
     }
 
     IEnumerator TeleportWithTransition()
     {
-        if (player_animator == null || player_script == null) yield break;
-
         player_animator.Play("Player Turn");
         player_script.canMove = false;
+        player_rb.simulated = false;
         player_rb.linearVelocity = Vector2.zero;
 
         UI_animator.SetTrigger("Start");
         yield return new WaitForSeconds(ANIMATION_DURATION);
 
         RespawnPlayer();
+        player_rb.simulated = true;
 
         UI_animator.SetTrigger("End");
         yield return new WaitForSeconds(ANIMATION_DURATION);
+        UI_animator.SetTrigger("BackToIdle");
 
+        player_script.canMove = true;
+        player_animator.Play("Player Idle");
+    }
+
+    public IEnumerator RespawnPlayerWithTransition()
+    {
+        player_animator.Play("Player Turn");
+        player_sr.enabled = false;
+        player_script.canMove = false;
+        player_rb.simulated = false;
+        player_rb.linearVelocity = Vector2.zero;
+
+        UI_animator.SetTrigger("Start");
+        yield return new WaitForSeconds(ANIMATION_DURATION);
+
+        RespawnPlayer();
+        player_sr.enabled = true;
+        player_rb.simulated = true;
+
+        UI_animator.SetTrigger("End");
+        yield return new WaitForSeconds(ANIMATION_DURATION);
         UI_animator.SetTrigger("BackToIdle");
 
         player_script.canMove = true;

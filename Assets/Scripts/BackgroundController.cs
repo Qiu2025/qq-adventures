@@ -6,7 +6,6 @@ public class BackgroundController : MonoBehaviour
     public GameObject cam;
     public float parallaxEffect;
 
-    // OnEnable en vez de Start para elegir las estaciones
     void OnEnable() 
     {
         startPos = transform.position.x;
