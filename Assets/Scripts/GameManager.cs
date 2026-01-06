@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         RefreshReferences();
+        score = 0;
     }
 
     void RefreshReferences()

@@ -18,6 +18,7 @@ public class Reward : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayCoinSound();
             GameManager.score += 1;
             scoreText.text = GameManager.score + "/3"; 
             Destroy(gameObject); 

@@ -18,6 +18,7 @@ public class DashPowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayPowerUpSound();
             PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
 
             // Permitir dash

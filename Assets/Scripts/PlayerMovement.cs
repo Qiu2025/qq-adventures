@@ -148,13 +148,14 @@ public class PlayerMovement : MonoBehaviour
         bool jumpPressed = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || 
                             Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0);
         if (!jumpPressed) return;
-    
+            
         // Consideramos "en suelo" si actualmente grounded o si estamos dentro del coyote time
         bool currentlyGrounded = grounded || (Time.time - lastGroundedTime) <= coyoteTime;
 
         // Primer salto (desde el suelo)
         if (currentlyGrounded)
         {
+            AudioManager.Instance.PlayJumpSound();
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpingPower);
             usedJumps = 1; // hemos usado el primer salto
             animator.SetBool("isFalling", false);
@@ -169,10 +170,10 @@ public class PlayerMovement : MonoBehaviour
         // Si no estamos en suelo, permitir el doble salto si queda (usedJumps < maxJumps)
         if (usedJumps < maxJumps)
         {
-            // Entrar aqui = no ha realizado el primer salto y esta en el aire
-            // en ese caso impedimos que haga dos saltos en el aire
             if (usedJumps == 0)
             {
+                // Entrar aqui = no ha realizado el primer salto y esta en el aire
+                // en ese caso impedimos que haga dos saltos en el aire
                 usedJumps = 1;
                 animator.SetBool("isDoingSecondJump", true);
             } else
@@ -181,6 +182,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Segundo salto
+            AudioManager.Instance.PlayJumpSound();
             rb.linearVelocity = new Vector2(rb.linearVelocityX, secondJumpingPower);
             usedJumps++;
             animator.SetBool("isFalling", false);
@@ -230,6 +232,7 @@ public class PlayerMovement : MonoBehaviour
     
     private IEnumerator Dash()
     {
+        AudioManager.Instance.PlayDashSound();
         canDash = false;
         isDashing = true;
         float originalGravity = rb.gravityScale;
