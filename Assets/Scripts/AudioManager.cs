@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [SerializeField] private AudioSource bgm;
+    [SerializeField] public AudioSource bgm;
     [SerializeField] private AudioSource sfx;
     
     [SerializeField] private AudioClip jump;
