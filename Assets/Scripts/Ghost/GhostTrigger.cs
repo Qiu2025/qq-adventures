@@ -1,39 +1,78 @@
 using UnityEngine;
+using System.Collections;
 
-// Script para triggers que activen GhostRuns
 public class GhostTrigger : MonoBehaviour
 {
-    public float playCooldown = 1.5f;
+    [Header("Configuración")]
     [SerializeField] private string runName;
-    Animator animator;
-    bool canPlay = true;
-    float lastPlayedTime;
+    [SerializeField] private float runDuration = 5f;
+    [SerializeField] private GameObject floatingPrompt;
 
-    void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+    [Header("Referencias")]
+    [SerializeField] private Transform ghostTransform;
+    // [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private Animator animator;
+
+    private bool isPlayerNearby = false;
+    private bool isPlaying = false;
 
     void Update()
     {
-        if(Time.time - lastPlayedTime > playCooldown)
+        if (isPlayerNearby && !isPlaying && Input.GetKeyDown(KeyCode.E))
         {
-            canPlay = true;
+            animator.SetTrigger("isPressed");
+            StartCoroutine(PlayGhostSequence());
         }
+    }
+
+    IEnumerator PlayGhostSequence()
+    {
+        isPlaying = true;
+        floatingPrompt.SetActive(false);
+
+        // Hacer que el jugador no se pueda mover
+        PlayerMovement playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        Rigidbody2D playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        playerScript.canMove = false;
+        playerRb.simulated = false;
+        playerRb.linearVelocity = Vector2.zero;
+
+        // Cambio de follow de la camara
+        // Transform originalCameraTarget = virtualCamera.Follow;
+        // virtualCamera.Follow = ghostTransform;
+
+        GhostRunner.Instance.PlayRunByName(runName);
+        
+        yield return new WaitForSeconds(runDuration);
+
+        // virtualCamera.Follow = originalCameraTarget;
+
+        yield return new WaitForSeconds(1f);
+
+        // Devolver control
+        playerScript.canMove = true;
+        playerRb.simulated = true;
+        
+        if(isPlayerNearby) floatingPrompt.SetActive(true);
+        
+        isPlaying = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && canPlay)
+        if (collision.CompareTag("Player"))
         {
-            if(runName.Length == 0)
-            {
-                Debug.Log("GhostTrigger: runName vacio");
-            }
-            GhostRunner.Instance.PlayRunByName(runName);
-            animator.SetTrigger("isPressed");
-            canPlay = false;
-            lastPlayedTime = Time.time;
+            isPlayerNearby = true;
+            if(!isPlaying) floatingPrompt.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerNearby = false;
+            floatingPrompt.SetActive(false);
         }
     }
 }
