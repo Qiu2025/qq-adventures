@@ -2620,6 +2620,10 @@ PrefabInstance:
       value: -1.0003204
       objectReference: {fileID: 0}
     - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 907630599}
+    - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
       propertyPath: sceneName
       value: 4. PowerUps
       objectReference: {fileID: 0}
@@ -3276,6 +3280,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476fde15483994676b4c5d67ff34527d, type: 3}
+--- !u!95 &907630599 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1688075267428008488, guid: 476fde15483994676b4c5d67ff34527d, type: 3}
+  m_PrefabInstance: {fileID: 907630598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &910232968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8730331457521098538, guid: ecf452bcef54d0441a5f109812241362, type: 3}

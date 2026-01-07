@@ -1,10 +1,11 @@
 using UnityEngine;
-using System.Collections; 
+using System.Collections;
 
 // Script para mostrar el titulo "NIVEL 1: DESIERTO"
 public class EfectoTitulo : MonoBehaviour
 {
     public CanvasGroup canvasGroup; 
+    public float espera = 1f;
     public float tiempoAparicion = 1.5f;
     public float tiempoEspera = 3.0f;
     public float tiempoDesaparicion = 1.5f;
@@ -24,6 +25,8 @@ public class EfectoTitulo : MonoBehaviour
 
     IEnumerator SecuenciaTitulo()
     {
+        yield return new WaitForSeconds(espera);
+
         float timer = 0f;
         while (timer < tiempoAparicion)
         {
@@ -32,11 +35,9 @@ public class EfectoTitulo : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 1f;
-
       
         yield return new WaitForSeconds(tiempoEspera);
 
-  
         timer = 0f;
         while (timer < tiempoDesaparicion)
         {

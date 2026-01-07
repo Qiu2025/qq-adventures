@@ -3067,6 +3067,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476fde15483994676b4c5d67ff34527d, type: 3}
+--- !u!95 &1057392148 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1688075267428008488, guid: 476fde15483994676b4c5d67ff34527d, type: 3}
+  m_PrefabInstance: {fileID: 1057392147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1064410889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3127,6 +3132,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.8640022
       objectReference: {fileID: 0}
+    - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1057392148}
     - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
       propertyPath: sceneName
       value: 3. Dash

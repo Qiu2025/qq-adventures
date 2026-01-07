@@ -5582,6 +5582,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476fde15483994676b4c5d67ff34527d, type: 3}
+--- !u!95 &1704392882 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1688075267428008488, guid: 476fde15483994676b4c5d67ff34527d, type: 3}
+  m_PrefabInstance: {fileID: 1704392881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1704668848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7590455069440226121, guid: 1c1d0fd8810efa440beb58c2e0ad67ca, type: 3}
@@ -6765,6 +6770,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.9104538
       objectReference: {fileID: 0}
+    - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1704392882}
     - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
       propertyPath: sceneName
       value: Menu

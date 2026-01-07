@@ -1468,6 +1468,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 51650501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &291981795 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1688075267428008488, guid: 476fde15483994676b4c5d67ff34527d, type: 3}
+  m_PrefabInstance: {fileID: 457546710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &318649594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,8 +4332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::EfectoTitulo
   canvasGroup: {fileID: 719148677}
+  espera: 1
   tiempoAparicion: 1.5
-  tiempoEspera: 1
+  tiempoEspera: 2
   tiempoDesaparicion: 1.5
 --- !u!225 &719148677
 CanvasGroup:
@@ -4402,6 +4408,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.9700279
       objectReference: {fileID: 0}
+    - target: {fileID: 6387603577025496504, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 291981795}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
