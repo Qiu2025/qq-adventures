@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Script para realizar la caida de las plataformas
 public class PlataformaStepSensor : MonoBehaviour
 {
     private PlataformaTemporal plataforma;

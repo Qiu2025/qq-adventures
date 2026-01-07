@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Script para la animacion de latido
+// Por ahora, usado solo por el nivel 1 de desierto
 public class PulseAnimation : MonoBehaviour
 {
     public float speed = 2f;

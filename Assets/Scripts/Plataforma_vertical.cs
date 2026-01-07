@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Script de las plataformas de movimiento vertical
 public class PlataformaVertical : MonoBehaviour
 {
     public float velocidad = 2f;

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// Script para cargar un nivel en el selector de niveles
 public class MapDirectLoader : MonoBehaviour
 {
     [Header("Configuración")]
@@ -18,7 +19,6 @@ public class MapDirectLoader : MonoBehaviour
     
     private void ActualizarVisuales()
     {
-      
         if (lockIcon != null)
         {
          

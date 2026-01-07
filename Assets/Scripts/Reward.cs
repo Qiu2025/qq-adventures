@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 
+// Script de los coins
 public class Reward : MonoBehaviour
 {
     private TextMeshProUGUI scoreText;

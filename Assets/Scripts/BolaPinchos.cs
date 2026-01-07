@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+// Script del prefab bola que dispara el cactus
 public class BolaPinchos : MonoBehaviour
 {
     public float velocidad = 5f;

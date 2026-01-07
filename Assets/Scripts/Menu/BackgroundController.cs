@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Script que mueve todos las imagenes de fondo del menu para el efecto parallax
+// Metido en cada una de las imagenes de fondo del menu
 public class BackgroundController : MonoBehaviour
 {
     private float startPos, length;

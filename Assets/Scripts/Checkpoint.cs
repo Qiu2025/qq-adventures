@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Script del prefab Checkpoint
 public class Checkpoint : MonoBehaviour
 {
     private Animator animator;

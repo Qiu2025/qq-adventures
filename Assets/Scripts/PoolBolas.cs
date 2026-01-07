@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script que maneja el object pooling de las bolas que disparan los cactus
 public class PoolBolas : MonoBehaviour
 {
     public static PoolBolas Instance;

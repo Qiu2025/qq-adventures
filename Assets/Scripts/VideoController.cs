@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
 
+// Script para controlar la reproduccion de las cinematicas
 public class VideoController : MonoBehaviour
 {
-
     [SerializeField] private GameObject mapPanel;
     [SerializeField] private VideoPlayer vp;
     [SerializeField] private float durationFade;

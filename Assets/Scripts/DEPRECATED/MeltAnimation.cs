@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// DEPRECATED
+// Script para reproducir la animacion de derritimiento del helado
 public class MeltAnimation : MonoBehaviour
 {
     public SpriteRenderer target;

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// DEPRECATED
+// Script para triggers que activan el timer que se usaba junto con el helado
 public class TimerTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject temporizador;

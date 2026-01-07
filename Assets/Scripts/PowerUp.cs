@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Script del prefab PowerUp, que habilita un dash y un salto
 public class DashPowerUp : MonoBehaviour
 {
     private float respawnTime = 2f;
@@ -21,7 +22,7 @@ public class DashPowerUp : MonoBehaviour
             AudioManager.Instance.PlayPowerUpSound();
             PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
 
-            // Permitir dash
+            // Permitir dash y otro salto
             playerMovement.PowerUp();
             
             GameManager.PowerEffect();

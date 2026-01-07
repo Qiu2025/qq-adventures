@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
+// Script del menu de pausa al presionar ESC
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
@@ -36,7 +37,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
     }
-
 
     public void GoToMainMenu()
     {

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Script de las plataformas de movimiento circular
 public class Plataforma_circular : MonoBehaviour
 {
     [SerializeField] private float radio = 2f;
@@ -10,7 +11,6 @@ public class Plataforma_circular : MonoBehaviour
 
     [SerializeField] private GameObject prefabPuntoTrayecto; 
     [SerializeField] private int numeroPuntos = 24;           
-
 
     void Start()
     {

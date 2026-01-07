@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Script para ponerlo sobre objetos que puedan matar al jugador
 public class DeathZone : MonoBehaviour
 {
     [SerializeField] private GameObject prefabExplosionPlumas;
@@ -8,7 +9,7 @@ public class DeathZone : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {   
-            Instantiate(prefabExplosionPlumas, transform.position, Quaternion.identity);
+            Instantiate(prefabExplosionPlumas, collision.transform.position, Quaternion.identity);
             AudioManager.Instance.PlayDieSound();
             GameManager.Instance.StartCoroutine(GameManager.Instance.RespawnPlayerWithTransition());        
         }

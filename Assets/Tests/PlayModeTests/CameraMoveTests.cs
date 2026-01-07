@@ -25,7 +25,7 @@ public class CameraMoveTests
         var go = new GameObject("CameraMover");
         toDestroy.Add(go);
 
-        var mover = go.AddComponent<cameraMove>();
+        var mover = go.AddComponent<CameraMove>();
         mover.speed = 3f;
 
         Vector3 initialPosition = go.transform.position;
@@ -44,7 +44,7 @@ public class CameraMoveTests
         var go = new GameObject("CameraMover");
         toDestroy.Add(go);
 
-        var mover = go.AddComponent<cameraMove>();
+        var mover = go.AddComponent<CameraMove>();
         mover.speed = 1f;
 
         yield return null;

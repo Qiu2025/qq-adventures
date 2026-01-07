@@ -1,10 +1,10 @@
 using UnityEngine;
 
-/// <summary>
-/// Controla grabación (V/B) y reproducción (N/M) de runs.
-/// - NO hace auto-load: para reproducir, llamar a PlayRunByName.
-/// - Distinción DeveloperMode: grabación solo permitida en modo desarrollador/editor.
-/// </summary>
+// Script que controla la grabacion y reproduccion de runs
+// - Para debug, V/B para grabar y N/M para reproducir
+// - Dichos controles solo estan permitidos en modo developer, es decir, en Unity Editor
+// - Para reproducir llama a PlayRunByName, o sea que es necesario tener un archivo 
+//   x.ghost siendo x el nombre del run para reproducir
 public class GhostRunner : MonoBehaviour
 {
     public static GhostRunner Instance { get; private set; }
@@ -79,10 +79,8 @@ public class GhostRunner : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Reproduce una run concreta
-    /// Si no existe, devuelve false y destruye el prefab instanciado.
-    /// </summary>
+    // Reproduce una run concreta
+    // Si no existe, devuelve false y destruye el prefab instanciado.
     public bool PlayRunByName(string runName)
     {
         var ghost = Instantiate(_ghostPrefab);

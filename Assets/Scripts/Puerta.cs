@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DoorNextLevel : MonoBehaviour
+// Script de las puertas de paso de nivel
+public class Puerta : MonoBehaviour
 {
     public string sceneName;
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5509996126473518092}
   - component: {fileID: 2974005577567246440}
   - component: {fileID: 2758421504591111692}
-  - component: {fileID: 7282930088575690201}
   m_Layer: 6
   m_Name: Spikes2
   m_TagString: Untagged
@@ -152,17 +151,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::DeathZone
   prefabExplosionPlumas: {fileID: 2874300545060158242, guid: b56f118ea164b85489575bfbffc80041, type: 3}
---- !u!114 &7282930088575690201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3870556614998332775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352bb61560de5d84ca4d9703df6fab44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NewAssembly::PlataformaMortal
-  tagObjetivo: Player
-  causa: Spike

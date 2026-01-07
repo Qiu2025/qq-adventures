@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 
+// Script para mostrar texto flotante
+// Usado por el checkpoint para mostrar el tiempo de llegada
 public class TextoFlotante : MonoBehaviour
 {
     [SerializeField] private float velocidadSubida = 1f;

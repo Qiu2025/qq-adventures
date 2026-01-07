@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 
+// Script para triggers que activen GhostRuns
 public class GhostTrigger : MonoBehaviour
 {
     public float playCooldown = 1.5f;

@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class cameraMove : MonoBehaviour
+// Script para mover la camara a una velocidad constante
+// Usado por la camara del menu
+public class CameraMove : MonoBehaviour
 {
     public float speed = 0.2f;
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections; 
 
+// Script para mostrar el titulo "NIVEL 1: DESIERTO"
 public class EfectoTitulo : MonoBehaviour
 {
     public CanvasGroup canvasGroup; 

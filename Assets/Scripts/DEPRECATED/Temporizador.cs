@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// DEPRECATED
+// Script para controlar el temporizador (relacionado con el helado)
 public class Temporizador : MonoBehaviour
 {
     public float tiempoMaximo;

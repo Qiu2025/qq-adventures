@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Script para el prefab "Door"
 public class Door : MonoBehaviour
 {
     public Sprite keySprite;

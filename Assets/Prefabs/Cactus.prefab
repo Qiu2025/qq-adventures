@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d791d84018e4684e838e919e2945084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::DeathZone
+  prefabExplosionPlumas: {fileID: 2874300545060158242, guid: b56f118ea164b85489575bfbffc80041, type: 3}
 --- !u!1 &7960701122173380083
 GameObject:
   m_ObjectHideFlags: 0

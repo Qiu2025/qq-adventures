@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Script de las plataformas temporales
 public class PlataformaTemporal : MonoBehaviour
 {
     [SerializeField] public float tiempoEspera = 1.5f;  

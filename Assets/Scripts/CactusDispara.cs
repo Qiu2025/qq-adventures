@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Script del cactus
 public class CactusDispara : MonoBehaviour
 {
     [Header("Disparo")]
@@ -17,6 +18,7 @@ public class CactusDispara : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
     }
+
     void Start()
     {
         GameObject bola = PoolBolas.Instance != null ? PoolBolas.Instance.ObtenerBola() : null;
@@ -45,6 +47,7 @@ public class CactusDispara : MonoBehaviour
             temporizador = 0f;
         }   
     }
+
     Vector3 ObtenerPosicionDisparo()
     {
         if (puntoDisparo != null) return puntoDisparo.position;

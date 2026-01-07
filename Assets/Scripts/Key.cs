@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Script de las llaves
 public class Key : MonoBehaviour
 {
     private Vector3 playerOffset = new Vector3(0f, -0.03f, 0f);

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Tilemaps;
 
+// Script para hacer fade-in / fade-out de las zonas ocultas
 public class HiddenZone : MonoBehaviour
 {
     private TilemapRenderer tr;

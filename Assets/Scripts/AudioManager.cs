@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Script que contiene los audio clips y metodos para reproducir dichos clips
+// Metido en un empty de cada nivel
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
@@ -9,7 +11,6 @@ public class AudioManager : MonoBehaviour
     
     [SerializeField] private AudioClip jump;
     [SerializeField] private AudioClip die;
-    // [SerializeField] private AudioClip walk;
     [SerializeField] private AudioClip coin;
     [SerializeField] private AudioClip powerUp;
     [SerializeField] private AudioClip dash;
@@ -35,11 +36,6 @@ public class AudioManager : MonoBehaviour
     {
         sfx.PlayOneShot(die);
     }
-    
-    // public void PlayWalkSound()
-    // {
-    //     sfx.PlayOneShot(walk);
-    // }
 
     public void PlayCoinSound()
     {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Script para realizar el cambio de fondos parallax del menu
 public class ThemeSwitcher : MonoBehaviour
 {
     [Header("Configuración de Grupos")]

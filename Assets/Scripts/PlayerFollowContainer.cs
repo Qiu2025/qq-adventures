@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Metido en un empty, usado para mostrar los "bocadillos" y el efecto rayo de powerup junto al jugador
 public class PlayerFollowContainer : MonoBehaviour
 {
     private GameObject player;
