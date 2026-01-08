@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Cinemachine;
 
 public class GhostTrigger : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class GhostTrigger : MonoBehaviour
     [SerializeField] private GameObject floatingPrompt;
 
     [Header("Referencias")]
-    [SerializeField] private Transform ghostTransform;
-    // [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private CinemachineVirtualCamera ghostCamera;
     [SerializeField] private Animator animator;
 
     private bool isPlayerNearby = false;
@@ -20,42 +21,49 @@ public class GhostTrigger : MonoBehaviour
     {
         if (isPlayerNearby && !isPlaying && Input.GetKeyDown(KeyCode.E))
         {
-            animator.SetTrigger("isPressed");
-            StartCoroutine(PlayGhostSequence());
+            StartCoroutine(PlayGhostRun());
         }
     }
 
-    IEnumerator PlayGhostSequence()
+    IEnumerator PlayGhostRun()
     {
+        animator.SetTrigger("isPressed");
         isPlaying = true;
         floatingPrompt.SetActive(false);
 
-        // Hacer que el jugador no se pueda mover
+        // Bloquear jugador
         PlayerMovement playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         Rigidbody2D playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        Animator playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         playerScript.canMove = false;
         playerRb.simulated = false;
         playerRb.linearVelocity = Vector2.zero;
+        playerAnimator.Play("Player Turn");
 
-        // Cambio de follow de la camara
-        // Transform originalCameraTarget = virtualCamera.Follow;
-        // virtualCamera.Follow = ghostTransform;
+        // Logica de cambio de camaras
+        GameObject spawnedGhost = GhostRunner.Instance.PlayRunByName(runName);  // Obtener el ghost
+        ghostCamera.Follow = spawnedGhost.transform;    // Segunda camara -> ghost instanciado
 
-        GhostRunner.Instance.PlayRunByName(runName);
-        
+        // Estas cuatro lineas son para arreglar el problema de tp que ocurre raramente
+        yield return null;
+        ghostCamera.transform.position = spawnedGhost.transform.position;
+        ghostCamera.PreviousStateIsValid = false;
+        yield return null;
+
+        ghostCamera.Priority = 20; // Cambiar de camara
         yield return new WaitForSeconds(runDuration);
+        ghostCamera.Priority = 5; // Volver a la camara del player
+        ghostCamera.Follow = null;  // Limpiar segunda camara
 
-        // virtualCamera.Follow = originalCameraTarget;
-
-        yield return new WaitForSeconds(1f);
-
-        // Devolver control
+        // Devolver el control tras tener terminar el blend camara ghost -> camara original
+        yield return new WaitForSeconds(2f);
         playerScript.canMove = true;
         playerRb.simulated = true;
         
-        if(isPlayerNearby) floatingPrompt.SetActive(true);
-        
+        playerAnimator.Play("Player Idle");
+        floatingPrompt.SetActive(true);
         isPlaying = false;
+        animator.SetTrigger("isFinished");
     }
 
     void OnTriggerEnter2D(Collider2D collision)

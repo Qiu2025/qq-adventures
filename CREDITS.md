@@ -50,6 +50,12 @@ Este archivo contiene información sobre los autores y licencias de los assets u
   Licencia/uso: Gratuito, revisar términos en la página del autor.  
   Cambios: reescalado.
 
+- **2D Casual UI HD**  
+  Autor: [MiMU STUDIO](https://assetstore.unity.com/publishers/20972)  
+  Asset: [2D Casual UI HD](https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080)  
+  Licencia/uso: Standard Unity Asset Store EULA 
+  Cambios: reescalado.
+
 
 ---
 
@@ -116,5 +122,6 @@ Este archivo contiene información sobre los autores y licencias de los assets u
 Todos los assets pertenecen a sus respectivos autores y se utilizan conforme a sus licencias.  
 En caso de distribuir el juego, incluye este archivo y los avisos/licencias correspondientes.  
 Si algún autor solicita un cambio en la atribución, actualizaremos este documento.
+
 
 
