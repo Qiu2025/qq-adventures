@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class volumenGeneral : MonoBehaviour
+public class volumenSFX : MonoBehaviour
 {
     public Slider slider;
     public float sliderValue;
@@ -12,14 +12,14 @@ public class volumenGeneral : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("volumenGeneral", 0.5f);
-        AudioListener.volume = slider.value;
+        slider.value = PlayerPrefs.GetFloat("volumenSFX", 0.5f);
+        AudioManager.Instance.volumen = slider.value;
     }
 
     public void ChangeSlider(float valor)
     {
         sliderValue = valor;
-        PlayerPrefs.SetFloat("volumenGeneral", sliderValue);
-        AudioListener.volume = slider.value;
+        PlayerPrefs.SetFloat("volumenSFX", sliderValue);
+        AudioManager.Instance.volumen = slider.value;
     }
 }

@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip coin;
     [SerializeField] private AudioClip powerUp;
     [SerializeField] private AudioClip dash;
-
+    public float volumen; 
     void Awake()
     {
         if (Instance == null)
@@ -29,26 +29,26 @@ public class AudioManager : MonoBehaviour
 
     public void PlayJumpSound()
     {
-        sfx.PlayOneShot(jump);
+        sfx.PlayOneShot(jump,volumen);
     }
 
     public void PlayDieSound()
     {
-        sfx.PlayOneShot(die);
+        sfx.PlayOneShot(die,volumen);
     }
 
     public void PlayCoinSound()
     {
-        sfx.PlayOneShot(coin);
+        sfx.PlayOneShot(coin,volumen);
     }
 
     public void PlayPowerUpSound()
     {
-        sfx.PlayOneShot(powerUp);
+        sfx.PlayOneShot(powerUp,volumen);
     }
 
     public void PlayDashSound()
     {
-        sfx.PlayOneShot(dash);
+        sfx.PlayOneShot(dash,volumen);
     }
 }

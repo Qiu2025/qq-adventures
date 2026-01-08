@@ -7,10 +7,9 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject panelMenu;
     public GameObject panelOpciones;
+    public GameObject panelSonido; 
 
     public string menuSceneName = "Menu";
-
-    float originalMusicVolume;
 
     private bool isPaused = false;
 
@@ -35,21 +34,17 @@ public class PauseManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
 
-        AudioManager.Instance.bgm.volume = originalMusicVolume;
         isPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenu.SetActive(true);
         panelMenu.SetActive(true);
         panelOpciones.SetActive(false);
+        panelSonido.SetActive(false);
 
         Time.timeScale = 0f;
-
-        originalMusicVolume = AudioManager.Instance.bgm.volume;
-        AudioManager.Instance.bgm.volume = originalMusicVolume * 0.5f;
-
         isPaused = true;
     }
 
@@ -59,10 +54,22 @@ public class PauseManager : MonoBehaviour
         panelOpciones.SetActive(true);
     }
 
+    public void OpenSoundOptions()
+    {
+        panelOpciones.SetActive(false);
+        panelSonido.SetActive(true);
+    }
+
     public void BackToMenu()
     {
         panelOpciones.SetActive(false);
         panelMenu.SetActive(true);
+    }
+
+    public void BackToOptionsMenu()
+    {
+        panelSonido.SetActive(false);
+        panelOpciones.SetActive(true);
     }
 
 
