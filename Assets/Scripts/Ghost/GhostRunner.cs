@@ -80,8 +80,8 @@ public class GhostRunner : MonoBehaviour
     }
 
     // Reproduce una run concreta
-    // Si no existe, devuelve false y destruye el prefab instanciado.
-    public bool PlayRunByName(string runName)
+    // Si no existe, devuelve null y destruye el prefab instanciado.
+    public GameObject PlayRunByName(string runName)
     {
         var ghost = Instantiate(_ghostPrefab);
         bool ok = _system.PlayRecording(runName, ghost);
@@ -90,10 +90,10 @@ public class GhostRunner : MonoBehaviour
         {
             Debug.LogWarning("No recording found with name: " + runName);
             Destroy(ghost);
-            return false;
+            return null;
         }
 
         Debug.Log("Playing record: " + runName);
-        return true;
+        return ghost;
     }
 }
