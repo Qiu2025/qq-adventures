@@ -17,6 +17,6 @@ public class ControladorMenu : MonoBehaviour
 
     void CambiarDeEscena()
     {
-        SceneManager.LoadScene("MapSelection");
+        SceneManager.LoadScene("Menu_principal");
     }
 }

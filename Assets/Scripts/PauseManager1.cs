@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement; 
 
 // Script del menu de pausa al presionar ESC
-public class PauseManager : MonoBehaviour
+public class PauseManager1 : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject panelMenu;
@@ -10,32 +10,15 @@ public class PauseManager : MonoBehaviour
     public GameObject panelSonido;
     public GameObject panelControles;
 
-    public string menuSceneName = "Menu";
-
-    private bool isPaused = false;
-
     void Start()
     {
         pauseMenu.SetActive(false);
+        Pause();
     }
-
-    void Update()
+    public void Play()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-                Resume();
-            else
-                Pause();
-        }
-    }
-
-    public void Resume()
-    {
-        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-
-        isPaused = false;
+        SceneManager.LoadScene("MapSelection");
     }
 
     public void Pause()
@@ -47,7 +30,6 @@ public class PauseManager : MonoBehaviour
         panelControles.SetActive(false);
 
         Time.timeScale = 0f;
-        isPaused = true;
     }
 
     public void OpenOptions()
@@ -79,12 +61,17 @@ public class PauseManager : MonoBehaviour
         panelOpciones.SetActive(true);
     }
 
+    public void BackToOptionsMenuFromControls()
+    {
+        panelControles.SetActive(false);
+        panelOpciones.SetActive(true);
+    }
+
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        isPaused = false; 
-        SceneManager.LoadScene(menuSceneName);
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()
