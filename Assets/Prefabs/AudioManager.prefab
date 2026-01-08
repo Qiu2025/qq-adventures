@@ -150,6 +150,7 @@ MonoBehaviour:
   coin: {fileID: 8300000, guid: 15ee52bb479c69c4bb697abed2b62f5b, type: 3}
   powerUp: {fileID: 8300000, guid: 3b96c9d8c5ff64342985dbb1f420934a, type: 3}
   dash: {fileID: 8300000, guid: 8cde3ec9f80995e43a9c4e4c400e6624, type: 3}
+  volumen: 1
 --- !u!82 &5100184961954372107
 AudioSource:
   m_ObjectHideFlags: 0
