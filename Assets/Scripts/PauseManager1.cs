@@ -9,6 +9,7 @@ public class PauseManager1 : MonoBehaviour
     public GameObject panelOpciones;
     public GameObject panelSonido;
     public GameObject panelControles;
+    public GameObject panelCreditos;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class PauseManager1 : MonoBehaviour
         panelOpciones.SetActive(false);
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
-
+        panelCreditos.SetActive(false);
         Time.timeScale = 0f;
     }
 
@@ -49,6 +50,12 @@ public class PauseManager1 : MonoBehaviour
         panelControles.SetActive(true);
     }
 
+    public void OpenCredits()
+    {
+        panelMenu.SetActive(false);
+        panelCreditos.SetActive(true);
+    }
+
     public void BackToMenu()
     {
         panelOpciones.SetActive(false);
@@ -61,12 +68,20 @@ public class PauseManager1 : MonoBehaviour
         panelOpciones.SetActive(true);
     }
 
+    public void BackToMenuFromCredits()
+    {
+        panelCreditos.SetActive(false);
+        panelMenu.SetActive(true);
+    }
+
+
     public void BackToOptionsMenuFromControls()
     {
         panelControles.SetActive(false);
         panelOpciones.SetActive(true);
     }
 
+  
 
     public void GoToMainMenu()
     {
