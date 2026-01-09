@@ -15,7 +15,7 @@ public class CreditsScript : MonoBehaviour
     void Update()
     {
         rectTransform.anchoredPosition +=
-            Vector2.up * scrollSpeed * Time.unscaledDeltaTime;
+            Vector2.up * scrollSpeed * Time.deltaTime;
     }
 
     void OnDisable()
