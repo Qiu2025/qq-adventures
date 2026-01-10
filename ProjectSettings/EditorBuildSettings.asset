@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Menu_principal.unity
     guid: 7d7446847b2bdb64f9abfc47d6527bd6
+  - enabled: 1
+    path: Assets/Scenes/InMapLevellSelector.unity
+    guid: 54529474fd90a7945b8932c940980bad
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
