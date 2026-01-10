@@ -55,6 +55,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
 
     // --------------------------------------------- //
+    
+    [Header("Dust FX (Landing)")]
+    [SerializeField] private GameObject landingDustPrefab;
+    [SerializeField] private Vector3 landingDustPoint;
+    
+    // --------------------------------------------- //
 
     void Start()
     {
@@ -111,6 +117,10 @@ public class PlayerMovement : MonoBehaviour
         // Reinicia saltos solo cuando acaba de tocar el suelo
         if (grounded && !wasGrounded)
         {
+            // Crear el efecto de polvo al caer
+            Vector3 pos = transform.position + landingDustPoint;
+            var dust = Instantiate(landingDustPrefab, pos, Quaternion.identity);
+            
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
             animator.SetBool("isDoubleJumping", false);

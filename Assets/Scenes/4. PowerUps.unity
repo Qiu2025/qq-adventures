@@ -107709,7 +107709,7 @@ Transform:
   m_GameObject: {fileID: 4867031403691952683}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.854905, y: 39.920002, z: -10}
+  m_LocalPosition: {x: 12.635558, y: 39.920002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -107752,6 +107752,8 @@ MonoBehaviour:
   dashingTime: 0.2
   dashingCoolDown: 0.8
   tr: {fileID: 4724456705919533392}
+  landingDustPrefab: {fileID: 1756747668684756535, guid: 82a653b74edcdae40b99c51864faa396, type: 3}
+  landingDustPoint: {x: 0, y: -0.2, z: 0}
 --- !u!114 &2360203362839574014
 MonoBehaviour:
   m_ObjectHideFlags: 3
