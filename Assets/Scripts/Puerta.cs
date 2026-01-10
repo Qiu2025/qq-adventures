@@ -29,7 +29,16 @@ public class Puerta : MonoBehaviour
         animator.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
-
+        
+        //  para guardar el TIEMPO DE LA ZONA 
+        CronometroUI cronometro = FindObjectOfType<CronometroUI>();
+        if (cronometro != null)
+        {
+            string nombreZona = SceneManager.GetActiveScene().name;
+            GameManager.zoneTimes[nombreZona] = cronometro.GetTiempo();
+        }
+        // ----------------------------------- // 
+        
         SceneManager.LoadScene(levelIndex);
     }
 }
