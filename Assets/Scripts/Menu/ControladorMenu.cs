@@ -30,7 +30,7 @@ public class ControladorMenu : MonoBehaviour
     
     public void Play()
     {
-        SceneManager.LoadScene("MapSelection");
+        SceneManager.LoadScene("InMapLevellSelector");
     }
 
     public IEnumerator OpenMenu()
