@@ -19,6 +19,7 @@ public class Checkpoint : MonoBehaviour
         {
             activated = true;
             animator.SetTrigger("Activate");
+            AudioManager.Instance.PlayCheckpointSound();
             GameManager.SetCheckpoint(transform.position);
             MostrarTiempo();
         }

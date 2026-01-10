@@ -12,6 +12,8 @@ public class Key : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             GetComponent<Collider2D>().enabled = false;
+            
+            AudioManager.Instance.PlayKeySound();
 
             transform.SetParent(GameObject.FindGameObjectWithTag("PlayerContainer").transform);
 

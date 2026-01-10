@@ -20,6 +20,7 @@ public class Door : MonoBehaviour
                 Debug.Log("Door opened!");
                 Destroy(key.gameObject);
                 gameObject.SetActive(false);
+                AudioManager.Instance.PlayDoorSound();
             }
             else
             {

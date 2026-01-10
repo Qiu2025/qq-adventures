@@ -14,6 +14,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip coin;
     [SerializeField] private AudioClip powerUp;
     [SerializeField] private AudioClip dash;
+    [SerializeField] private AudioClip checkpoint;
+    [SerializeField] private AudioClip key;
+    [SerializeField] private AudioClip door;
+    
+    
     public float volumen; 
     void Awake()
     {
@@ -51,4 +56,22 @@ public class AudioManager : MonoBehaviour
     {
         sfx.PlayOneShot(dash,volumen);
     }
+    
+    public void PlayCheckpointSound()
+    {
+        sfx.PlayOneShot(checkpoint, volumen);
+    }
+    
+    public void PlayKeySound()
+    {
+        sfx.PlayOneShot(key, volumen);
+    }
+    
+    public void PlayDoorSound()
+    {
+        sfx.PlayOneShot(door, volumen);
+    }
+
+    
+
 }
