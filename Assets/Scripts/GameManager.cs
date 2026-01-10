@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement; 
+using System.Collections.Generic;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class GameManager : MonoBehaviour
     private static bool slowmo = false;
     
     [HideInInspector] public static int score = 0;
+    // -------- PARA GUARDAR TIEMPOS POR ZONA -------- //
+    public static Dictionary<string, float> zoneTimes =
+        new Dictionary<string, float>();
 
     private static Vector2 lastCheckpointPos;
     private static GameObject player;
@@ -36,6 +41,9 @@ public class GameManager : MonoBehaviour
     private static Animator powerFxAnimator; 
     private static GameObject powerFx;
     
+    
+
+    
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -44,6 +52,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
                 
         RefreshReferences(); 
         
@@ -64,7 +73,11 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         RefreshReferences();
+        
+        
+        /* voy a guardar el score para cada escena, necesario para enseñarlo en la escena final, cambiar si no os convence 
         score = 0;
+        */
     }
 
     void RefreshReferences()
@@ -95,6 +108,32 @@ public class GameManager : MonoBehaviour
             powerFxAnimator = powerFx.GetComponent<Animator>();
             powerFx.SetActive(false);
         }
+    }
+    
+    public static void ResetRun()
+    {
+        score = 0;
+        gameOver = false;
+        slowmo = false;
+        zoneTimes.Clear();
+    }
+    
+    // TIEMPO TOTAL
+    public static float GetTotalTime()
+    {
+        float total = 0f;
+
+        foreach (float t in zoneTimes.Values)
+        {
+            total += t;
+        }
+
+        return total;
+    }
+    
+    public static Dictionary<string, float> GetZoneTimes()
+    {
+        return zoneTimes;
     }
 
     void Update()
@@ -260,3 +299,6 @@ public class GameManager : MonoBehaviour
        if(powerFx != null) powerFx.SetActive(false);
    }
 }
+
+
+
