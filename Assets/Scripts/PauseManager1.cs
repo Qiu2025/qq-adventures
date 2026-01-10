@@ -18,7 +18,6 @@ public class PauseManager1 : MonoBehaviour
     }
     public void Play()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("MapSelection");
     }
 
@@ -30,7 +29,6 @@ public class PauseManager1 : MonoBehaviour
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
         panelCreditos.SetActive(false);
-        Time.timeScale = 0f;
     }
 
     public void OpenOptions()
