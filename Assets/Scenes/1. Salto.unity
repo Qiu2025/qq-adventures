@@ -1540,15 +1540,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Size.y
-      value: 0.05242939
+      value: 0.04916115
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Offset.x
-      value: 0.0043490604
+      value: 0.004349053
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Offset.y
-      value: -0.002855314
+      value: -0.004489434
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_IsTrigger
@@ -4803,7 +4803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Size.y
-      value: 0.053308483
+      value: 0.048587795
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Offset.x
@@ -4811,7 +4811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0032088365
+      value: -0.0055691805
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_IsTrigger
@@ -44537,7 +44537,7 @@ Transform:
   m_GameObject: {fileID: 4924318273730110416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.022222325, y: 6, z: -10}
+  m_LocalPosition: {x: 0.1817377, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45689,7 +45689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Size.y
-      value: 0.053308297
+      value: 0.050732993
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Offset.x
@@ -45697,7 +45697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0037025567
+      value: -0.004990208
       objectReference: {fileID: 0}
     - target: {fileID: 2974005577567246440, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
