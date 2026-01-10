@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             slowmo = !slowmo;
-            Time.timeScale = slowmo ? 0.2f : 1f;
+            Time.timeScale = slowmo ? 0.4f : 1f;
         }
     }
     

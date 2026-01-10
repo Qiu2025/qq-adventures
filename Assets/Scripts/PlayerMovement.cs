@@ -120,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
             // Crear el efecto de polvo al caer
             Vector3 pos = transform.position + landingDustPoint;
             var dust = Instantiate(landingDustPrefab, pos, Quaternion.identity);
+            Destroy(dust, 0.267f);
             
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);

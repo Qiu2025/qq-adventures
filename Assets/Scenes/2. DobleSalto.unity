@@ -2616,7 +2616,7 @@ Transform:
   m_GameObject: {fileID: 715194098}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.1817307, y: -0.56999, z: -10}
+  m_LocalPosition: {x: 5.022222, y: -0.56999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3264,6 +3264,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 8300000, guid: 31b2de53bacff4b6fbf88f716535db38, type: 3}
+    - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 8300000, guid: a2585e1c9a56c4859be2aaaab548c2cd, type: 3}
+    - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
+      propertyPath: checkpoint
+      value: 
+      objectReference: {fileID: 8300000, guid: 56edf30e228bc4baf9c7a1307b77ddb3, type: 3}
     - target: {fileID: 7664610175762013230, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.39514
@@ -42116,6 +42128,8 @@ MonoBehaviour:
   dashingTime: 0.2
   dashingCoolDown: 1
   tr: {fileID: 6493723876185900979}
+  landingDustPrefab: {fileID: 1756747668684756535, guid: 82a653b74edcdae40b99c51864faa396, type: 3}
+  landingDustPoint: {x: 0, y: 0, z: 0}
 --- !u!50 &7522170687705258207
 Rigidbody2D:
   serializedVersion: 5

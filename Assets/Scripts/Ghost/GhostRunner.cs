@@ -94,8 +94,7 @@ public class GhostRunner : MonoBehaviour
         return ghost;
     }
 
-    // --- MÉTODOS AÑADIDOS PARA AUTOPILOTO ---
-
+    //  Metodos para autopiloto
     public bool PlayRunOnExistingTarget(string runName, GameObject target)
     {
         return _system.PlayRecording(runName, target, false);

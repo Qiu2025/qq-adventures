@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5564861389753675405}
   - component: {fileID: 1720619871624670368}
   - component: {fileID: 3337321966225782372}
-  - component: {fileID: 7528455541942717550}
   m_Layer: 0
   m_Name: Dust
   m_TagString: Untagged
@@ -131,15 +130,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7528455541942717550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756747668684756535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 175433e32f0ec2044b8b0739d605a009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
