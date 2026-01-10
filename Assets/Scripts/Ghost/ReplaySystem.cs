@@ -258,7 +258,9 @@ public class ReplaySystem
     /// </summary>
     public bool PlayRecording(string runName, GameObject ghostObj, bool destroyOnCompletion = true)
     {
-        if (_ghostObj != null) Object.Destroy(_ghostObj);
+        //  Protección para no destruir al Player en Autopiloto
+        if (_ghostObj != null && (_destroyOnComplete || !_ghostObj.CompareTag("Player"))) 
+            Object.Destroy(_ghostObj);
 
         // 1) Si ya está en memoria, reproducir inmediatamente
         if (GetRun(runName, out _currentReplay))
@@ -307,11 +309,13 @@ public class ReplaySystem
             // trail.emitting = true;
         }
 
-        // Aseguramos que el ghost no interfiera físicamente
+        // Aseguramos que el ghost no interfiera físicamente (Solo si NO es player)
+        bool isPlayer = _ghostObj.CompareTag("Player");
+
         var col = _ghostObj.GetComponent<Collider>();
-        if (col) col.enabled = false;
+        if (col && !isPlayer) col.enabled = false;
         var col2 = _ghostObj.GetComponent<Collider2D>();
-        if (col2) col2.enabled = false;
+        if (col2 && !isPlayer) col2.enabled = false;
         var rb = _ghostObj.GetComponent<Rigidbody>();
         if (rb) rb.isKinematic = true;
         var rb2 = _ghostObj.GetComponent<Rigidbody2D>();
@@ -338,7 +342,8 @@ public class ReplaySystem
         if (!success)
         {
             Debug.LogWarning($"PlayRecording: run '{runName}' not found in memory, persistentDataPath or StreamingAssets.");
-            if (destroyOnCompletion && ghostObj != null) Object.Destroy(ghostObj);
+            //  Protección destrucción segura
+            if (destroyOnCompletion && ghostObj != null && !ghostObj.CompareTag("Player")) Object.Destroy(ghostObj);
             yield break;
         }
 
@@ -346,7 +351,8 @@ public class ReplaySystem
         if (!GetRun(runName, out _currentReplay))
         {
             Debug.LogWarning($"PlayRecording: loaded run '{runName}' but failed to retrieve it from memory.");
-            if (destroyOnCompletion && ghostObj != null) Object.Destroy(ghostObj);
+            //  Protección destrucción segura
+            if (destroyOnCompletion && ghostObj != null && !ghostObj.CompareTag("Player")) Object.Destroy(ghostObj);
             yield break;
         }
 
@@ -363,37 +369,12 @@ public class ReplaySystem
         // Aplicar parámetros del Animator (si existen)
         if (_ghostAnimator != null)
         {
-            // Aplicar floats
-            // Los nombres de parámetros disponibles están dentro de _currentReplay (si se grabaron)
-            // Para simplicidad, iteramos sobre las curvas almacenadas por reflection-like (Recording no expone listas),
-            // pero como Recording no expone sus nombres, añadimos dos métodos TryEvaluate... que ya están implementadas.
-            // Como no tenemos la lista de nombres aquí, podemos mantener una copia en memoria:
-            // -> solución: cuando se cargue la run (en LoadRunFromFile o LoadRunFromStreamingAssets),
-            //    guardamos la parameter lists asociadas en un diccionario. Para no complicar, aprovechamos que Recording
-            //    mantiene internamente las curvas y hemos expuesto TryEvaluate* APIs que necesitan el nombre.
-            // -> Por simplicidad práctica aquí, asumimos que el ghost Animator tiene los mismos parámetros y
-            //    que el usuario conoce qué parámetros quiere reproducir: fallback: si Recording contiene curves,
-            //    necesitamos exponer las names. Para no romper muchas cosas, vamos a intentar aplicar los parámetros
-            //    guardados iterando sobre a lista de parámetros que existan en el Animator itself:
-            var paramsInfo = _ghostAnimator.parameters;
-            foreach (var p in paramsInfo)
+            foreach (var p in _ghostAnimator.parameters)
             {
-                string paramName = p.name;
-                if (p.type == AnimatorControllerParameterType.Float)
-                {
-                    if (_currentReplay.TryEvaluateFloatParam(paramName, _replaySmoothedTime, out float fv))
-                    {
-                        _ghostAnimator.SetFloat(paramName, fv);
-                    }
-                }
-                else if (p.type == AnimatorControllerParameterType.Bool)
-                {
-                    if (_currentReplay.TryEvaluateBoolParam(paramName, _replaySmoothedTime, out bool bv))
-                    {
-                        _ghostAnimator.SetBool(paramName, bv);
-                    }
-                }
-                // Triggers not handled here (would need edge detection)
+                if (p.type == AnimatorControllerParameterType.Float && _currentReplay.TryEvaluateFloatParam(p.name, _replaySmoothedTime, out float fv))
+                    _ghostAnimator.SetFloat(p.name, fv);
+                else if (p.type == AnimatorControllerParameterType.Bool && _currentReplay.TryEvaluateBoolParam(p.name, _replaySmoothedTime, out bool bv))
+                    _ghostAnimator.SetBool(p.name, bv);
             }
         }
 
@@ -405,7 +386,16 @@ public class ReplaySystem
         if (_replaySmoothedTime > _currentReplay.Duration)
         {
             _currentReplay = null;
-            if (_destroyOnComplete && _ghostObj != null) Object.Destroy(_ghostObj);
+            //  Lógica robusta para destruir fantasmas pero salvar al Player en Autopiloto
+            if (_destroyOnComplete && _ghostObj != null) 
+            {
+                Object.Destroy(_ghostObj);
+            }
+            else if (_ghostObj != null && !_ghostObj.CompareTag("Player")) 
+            {
+                Object.Destroy(_ghostObj);
+            }
+            
             _ghostObj = null;
             _ghostAnimator = null;
         }
@@ -417,7 +407,12 @@ public class ReplaySystem
     /// </summary>
     public void StopReplay()
     {
-        if (_ghostObj != null) Object.Destroy(_ghostObj);
+        //  Si es un fantasma (_destroyOnComplete) se destruye siempre. Si es Autopiloto, solo si NO es Player.
+        if (_ghostObj != null && (_destroyOnComplete || !_ghostObj.CompareTag("Player"))) 
+        {
+            Object.Destroy(_ghostObj);
+        }
+        
         _ghostObj = null;
         _currentReplay = null;
     }

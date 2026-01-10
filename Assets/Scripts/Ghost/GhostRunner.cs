@@ -48,10 +48,7 @@ public class GhostRunner : MonoBehaviour
 
     void Update()
     {
-        if (!_developerMode)
-        {
-            return; // No se permite el acceso a la funcionalidad ghost si no se está accediendo desde unity
-        }
+        if (!_developerMode) return;
 
         // Controles de desarrollo / prueba
         if (Input.GetKeyDown(KeyCode.V))
@@ -74,7 +71,7 @@ public class GhostRunner : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.M))
         {
             // Parar el run manualmente
-            _system.StopReplay();
+            StopReplayManual();
             Debug.Log("Record stopped manually");
         }
     }
@@ -95,5 +92,23 @@ public class GhostRunner : MonoBehaviour
 
         Debug.Log("Playing record: " + runName);
         return ghost;
+    }
+
+    // --- MÉTODOS AÑADIDOS PARA AUTOPILOTO ---
+
+    public bool PlayRunOnExistingTarget(string runName, GameObject target)
+    {
+        return _system.PlayRecording(runName, target, false);
+    }
+
+    public void StopReplayManual()
+    {
+        _system.StopReplay();
+    }
+
+    public float GetRunDuration(string runName)
+    {
+        if (_system.GetRun(runName, out var run)) return run.Duration;
+        return 0f;
     }
 }
