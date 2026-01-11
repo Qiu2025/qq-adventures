@@ -123,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
             var dust = Instantiate(landingDustPrefab, pos, Quaternion.identity);
             Destroy(dust, 0.267f);
             
+            AudioManager.Instance.PlayLandSound();
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
             animator.SetBool("isDoubleJumping", false);

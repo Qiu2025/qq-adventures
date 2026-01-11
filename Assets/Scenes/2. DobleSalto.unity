@@ -1317,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8478703926706914714, guid: c9c93cd0a69fb3c408f3a21f14c020b6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.9765587
+      value: 5.3683543
       objectReference: {fileID: 0}
     - target: {fileID: 8478703926706914714, guid: c9c93cd0a69fb3c408f3a21f14c020b6, type: 3}
       propertyPath: m_LocalScale.z
@@ -3272,6 +3272,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 8300000, guid: a2585e1c9a56c4859be2aaaab548c2cd, type: 3}
+    - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
+      propertyPath: land
+      value: 
+      objectReference: {fileID: 8300000, guid: e85b4eda76926cf42824cd8f34580cd2, type: 3}
     - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
       propertyPath: checkpoint
       value: 
@@ -6214,7 +6218,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

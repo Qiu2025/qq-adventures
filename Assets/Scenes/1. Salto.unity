@@ -44894,6 +44894,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: a2585e1c9a56c4859be2aaaab548c2cd, type: 3}
     - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
+      propertyPath: land
+      value: 
+      objectReference: {fileID: 8300000, guid: e85b4eda76926cf42824cd8f34580cd2, type: 3}
+    - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 8300000, guid: 56edf30e228bc4baf9c7a1307b77ddb3, type: 3}
