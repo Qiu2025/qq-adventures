@@ -107765,7 +107765,7 @@ MonoBehaviour:
   dashingCoolDown: 0.8
   tr: {fileID: 4724456705919533392}
   landingDustPrefab: {fileID: 1756747668684756535, guid: 82a653b74edcdae40b99c51864faa396, type: 3}
-  landingDustPoint: {x: 0, y: -0.2, z: 0}
+  jumpingDustPrefab: {fileID: 1396104788838001041, guid: 391f781fadfb7e048992877537d73e83, type: 3}
 --- !u!114 &2360203362839574014
 MonoBehaviour:
   m_ObjectHideFlags: 3

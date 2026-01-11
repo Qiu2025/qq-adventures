@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfx;
     
     [SerializeField] private AudioClip jump;
+    [SerializeField] private AudioClip land;
     [SerializeField] private AudioClip die;
     [SerializeField] private AudioClip coin;
     [SerializeField] private AudioClip powerUp;
@@ -35,6 +36,11 @@ public class AudioManager : MonoBehaviour
     public void PlayJumpSound()
     {
         sfx.PlayOneShot(jump,volumen);
+    }
+
+    public void PlayLandSound()
+    {
+        sfx.PlayOneShot(land,volumen);
     }
 
     public void PlayDieSound()
