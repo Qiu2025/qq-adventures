@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53435eef9c709e54ca0bead6909b50ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  keySprite: {fileID: 0}
+  keySprite: {fileID: -6665356834582444394, guid: 9fd61f149555ccb40bf4f4c927f934e5, type: 3}
 --- !u!1 &608756404882333101
 GameObject:
   m_ObjectHideFlags: 0
