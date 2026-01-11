@@ -20,16 +20,20 @@ public class ControladorMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.anyKeyDown && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) 
-            && !Input.GetMouseButton(2) && !Input.GetMouseButton(3) && !Input.GetMouseButton(4) 
+        if (Input.anyKeyDown && !Input.GetMouseButton(0) && !Input.GetMouseButton(1)
+            && !Input.GetMouseButton(2) && !Input.GetMouseButton(3) && !Input.GetMouseButton(4)
             && !Input.GetMouseButton(5) && !Input.GetMouseButton(6))
         {
             StartCoroutine(OpenMenu());
         }
     }
-    
+
     public void Play()
     {
+        // Marcamos que hemos venido desde el botón Play
+        SessionFlags.cameFromPlay = true;
+
+        // Vamos al selector
         SceneManager.LoadScene("InMapLevellSelector");
     }
 
@@ -43,7 +47,7 @@ public class ControladorMenu : MonoBehaviour
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
         panelCreditos.SetActive(false);
-        
+
     }
 
     public void OpenOptions()
