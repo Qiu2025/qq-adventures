@@ -334,7 +334,7 @@ MonoBehaviour:
   dashingCoolDown: 0.6
   tr: {fileID: 51650495}
   landingDustPrefab: {fileID: 1756747668684756535, guid: 82a653b74edcdae40b99c51864faa396, type: 3}
-  landingDustPoint: {x: 0, y: 0, z: 0}
+  jumpingDustPrefab: {fileID: 1396104788838001041, guid: 391f781fadfb7e048992877537d73e83, type: 3}
 --- !u!61 &51650498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -499,6 +499,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 8300000, guid: a2585e1c9a56c4859be2aaaab548c2cd, type: 3}
+    - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
+      propertyPath: land
+      value: 
+      objectReference: {fileID: 8300000, guid: e85b4eda76926cf42824cd8f34580cd2, type: 3}
     - target: {fileID: 4297955829605159352, guid: de7e1c77fe52f8341bb5be7ee395bb36, type: 3}
       propertyPath: volumen
       value: 1

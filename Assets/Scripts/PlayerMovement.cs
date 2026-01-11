@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -58,8 +59,8 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Dust FX (Landing)")]
     [SerializeField] private GameObject landingDustPrefab;
-    [SerializeField] private Vector3 landingDustPoint;
-
+    [SerializeField] private GameObject jumpingDustPrefab;
+    
     // --------------------------------------------- //
 
     private bool subscribed = false;
@@ -120,10 +121,11 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && !wasGrounded)
         {
             // Crear el efecto de polvo al caer
-            Vector3 pos = transform.position + landingDustPoint;
+            Vector3 pos = transform.position + new Vector3(0,-0.1f,0);
             var dust = Instantiate(landingDustPrefab, pos, Quaternion.identity);
             Destroy(dust, 0.267f);
             
+            AudioManager.Instance.PlayLandSound();
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
             animator.SetBool("isDoubleJumping", false);
@@ -166,6 +168,8 @@ public class PlayerMovement : MonoBehaviour
         // Primer salto (desde el suelo)
         if (currentlyGrounded)
         {
+            var dust = Instantiate(jumpingDustPrefab, transform.position + new Vector3(0,-0.1f,0), Quaternion.identity);
+            Destroy(dust, 0.350f);
             AudioManager.Instance.PlayJumpSound();
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpingPower);
             usedJumps = 1; // hemos usado el primer salto
@@ -193,6 +197,8 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Segundo salto
+            var dust = Instantiate(jumpingDustPrefab, transform.position + new Vector3(0,-0.1f,0), Quaternion.identity);
+            Destroy(dust, 0.350f);
             AudioManager.Instance.PlayJumpSound();
             rb.linearVelocity = new Vector2(rb.linearVelocityX, secondJumpingPower);
             usedJumps++;
