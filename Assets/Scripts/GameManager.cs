@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     // --------------------------------------------- //
     private static bool gameOver = false;
     private static bool slowmo = false;
-    
+    private static bool isSlowMoActivated = false;
+
     [HideInInspector] public static int score = 0;
     // -------- PARA GUARDAR TIEMPOS POR ZONA -------- //
     public static Dictionary<string, float> zoneTimes =
@@ -53,9 +54,9 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-                
-        RefreshReferences(); 
-        
+
+        RefreshReferences();
+
         Application.targetFrameRate = 144;
         powerFx.SetActive(true);
     }
@@ -63,11 +64,15 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        if (AccessibilityManager.Instance != null)
+            AccessibilityManager.Instance.OnChangedSlowMo += Apply;
     }
 
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (AccessibilityManager.Instance != null)
+            AccessibilityManager.Instance.OnChangedSlowMo -= Apply;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -149,10 +154,10 @@ public class GameManager : MonoBehaviour
             StartCoroutine(TeleportWithTransition());
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && isSlowMoActivated)
         {
             slowmo = !slowmo;
-            Time.timeScale = slowmo ? 0.4f : 1f;
+            Time.timeScale = slowmo ? 0.6f : 1f;
         }
     }
     
@@ -298,6 +303,16 @@ public class GameManager : MonoBehaviour
 
        if(powerFx != null) powerFx.SetActive(false);
    }
+
+    void Apply()
+    {
+        var acc = AccessibilityManager.Instance;
+        if (acc == null) return;
+
+        isSlowMoActivated = !isSlowMoActivated;
+        if(!isSlowMoActivated)
+            Time.timeScale = 1f;
+    }
 }
 
 

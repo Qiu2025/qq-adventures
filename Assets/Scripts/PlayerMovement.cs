@@ -59,12 +59,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dust FX (Landing)")]
     [SerializeField] private GameObject landingDustPrefab;
     [SerializeField] private Vector3 landingDustPoint;
-    
+
     // --------------------------------------------- //
+
+    private bool subscribed = false;
 
     void Start()
     {
-        maxJumps = 2;
+        ApplyAccessibility();
         usedJumps = 0;
         normalGravity = 5f;
         coyoteTime = 0.12f;
@@ -285,5 +287,47 @@ public class PlayerMovement : MonoBehaviour
             var col = other.GetComponent<Collider2D>();
             if (col) col.enabled = false;
         }
+    }
+
+    void OnEnable()
+    {
+        StartCoroutine(SubscribeWhenReady());
+    }
+
+    void OnDisable()
+    {
+        Unsubscribe();
+    }
+
+    IEnumerator SubscribeWhenReady()
+    {
+        while (AccessibilityManager.Instance == null)
+            yield return null;
+
+        if (!subscribed)
+        {
+            AccessibilityManager.Instance.OnChanged += ApplyAccessibility;
+            subscribed = true;
+        }
+        ApplyAccessibility();
+    }
+
+    void Unsubscribe()
+    {
+        if (AccessibilityManager.Instance != null && subscribed)
+        {
+            AccessibilityManager.Instance.OnChanged -= ApplyAccessibility;
+            subscribed = false;
+        }
+    }
+
+    void ApplyAccessibility()
+    {
+        Debug.Log("PLAYER recibió OnChanged y aplica settings");
+        var acc = AccessibilityManager.Instance;
+        if (acc == null) return;
+
+        this.maxJumps = acc.GetMaxJumps();
+        Debug.Log("maxJumps ahora = " + maxJumps);
     }
 }

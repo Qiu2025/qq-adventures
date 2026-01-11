@@ -23,6 +23,8 @@ public class GhostTrigger : MonoBehaviour
     private GameObject player;
     private Coroutine pilotInstance;
 
+    private bool isAutoPilotActivated = false;
+
     // ----------------------------------------------------------------------
 
     void Start()
@@ -39,7 +41,7 @@ public class GhostTrigger : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
                 StartCoroutine(PlayGhostRun());
-            else if (Input.GetKeyDown(KeyCode.Return))
+            else if (Input.GetKeyDown(KeyCode.Return) && isAutoPilotActivated)
                 pilotInstance = StartCoroutine(PlayPlayerAutoPilot());
         }
 
@@ -178,5 +180,25 @@ public class GhostTrigger : MonoBehaviour
             isPlayerNearby = false;
             floatingPrompt.SetActive(false);
         }
+    }
+
+    void Apply()
+    {
+        var acc = AccessibilityManager.Instance;
+        if (acc == null) return;
+
+        isAutoPilotActivated = !isAutoPilotActivated;
+    }
+
+    private void OnEnable()
+    {
+        if (AccessibilityManager.Instance != null)
+            AccessibilityManager.Instance.OnChangedAutopilot += Apply;
+    }
+
+    private void OnDisable()
+    {
+        if (AccessibilityManager.Instance != null)
+            AccessibilityManager.Instance.OnChangedAutopilot -= Apply;
     }
 }

@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     public GameObject panelOpciones;
     public GameObject panelSonido;
     public GameObject panelControles;
+    public GameObject panelAccesibilidad;
 
     public string menuSceneName = "Menu";
 
@@ -45,6 +46,7 @@ public class PauseManager : MonoBehaviour
         panelOpciones.SetActive(false);
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
+        panelAccesibilidad.SetActive(false);
 
         Time.timeScale = 0f;
         isPaused = true;
@@ -66,6 +68,11 @@ public class PauseManager : MonoBehaviour
         panelOpciones.SetActive(false);
         panelControles.SetActive(true);
     }
+    public void OpenAccesibilityOptions()
+    {
+        panelOpciones.SetActive(false);
+        panelAccesibilidad.SetActive(true);
+    }
 
     public void BackToMenu()
     {
@@ -79,6 +86,17 @@ public class PauseManager : MonoBehaviour
         panelOpciones.SetActive(true);
     }
 
+    public void BackToOptionsMenuFromControls()
+    {
+        panelControles.SetActive(false);
+        panelOpciones.SetActive(true);
+    }
+
+    public void BackToOptionsMenuFromAccesibilityMenu()
+    {
+        panelAccesibilidad.SetActive(false);
+        panelOpciones.SetActive(true);
+    }
 
     public void GoToMainMenu()
     {
