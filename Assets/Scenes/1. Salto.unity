@@ -44464,7 +44464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24348d0a25e25ff45b5d5033f2f5b9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::AccessibilityManager
-  jumpsNormal: 1
+  jumpsNormal: 2
   jumpsAccesibilidad: 4
 --- !u!4 &2134646389
 Transform:
@@ -45899,7 +45899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd922751cf42b124b9ac37ebc50ae7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::GameManager
-  allowDoubleJump: 1
+  allowDoubleJump: 0
   allowDash: 0
 --- !u!1001 &8373833503904598045
 PrefabInstance:
