@@ -1052,6 +1052,7 @@ MonoBehaviour:
   dashingTime: 0.2
   dashingCoolDown: 1
   tr: {fileID: 51650495}
+  dashBar: {fileID: 0}
   landingDustPrefab: {fileID: 1756747668684756535, guid: 82a653b74edcdae40b99c51864faa396, type: 3}
   jumpingDustPrefab: {fileID: 1396104788838001041, guid: 391f781fadfb7e048992877537d73e83, type: 3}
 --- !u!61 &51650498
@@ -44463,7 +44464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24348d0a25e25ff45b5d5033f2f5b9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::AccessibilityManager
-  jumpsNormal: 2
+  jumpsNormal: 1
   jumpsAccesibilidad: 4
 --- !u!4 &2134646389
 Transform:

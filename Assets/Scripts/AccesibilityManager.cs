@@ -9,7 +9,7 @@ public class AccessibilityManager : MonoBehaviour
     public event Action OnChangedSlowMo;
     public event Action OnChangedAutopilot;
     [Header("Jump max")]
-    [SerializeField] private int jumpsNormal = 2;
+    [SerializeField] private int jumpsNormal = 1;
     [SerializeField] private int jumpsAccesibilidad = 4;
     public bool MasSaltos { get; private set; }
 
