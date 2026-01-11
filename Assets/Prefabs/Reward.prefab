@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 5188788099242290744, guid: be78436d5cec3c74dbca5da94a9e31ca, type: 3}
   m_Color: {r: 0.99215686, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -105,6 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ac1399bda4e0a49b4c7c9e6bac6593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  flyTime: 0.5
+  uiScale: 2
+  targetUIOffset: {x: -200, y: -10}
 --- !u!58 &9163971610356053381
 CircleCollider2D:
   m_ObjectHideFlags: 0
