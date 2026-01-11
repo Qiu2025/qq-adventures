@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashingTime;
     [SerializeField] private float dashingCoolDown;
     [SerializeField] private TrailRenderer tr;
+    [SerializeField] private DashCooldownBar dashBar;
+    private bool cancelDashCooldown = false;
 
     // --------------------------------------------- //
     
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         lastGroundedTime = wasGrounded ? Time.time : -999f;
         isFacingRight = true;
         canMove = true;
+        if (dashBar) dashBar.OnReady();
     }
 
     void Update()
@@ -249,6 +252,8 @@ public class PlayerMovement : MonoBehaviour
     
     private IEnumerator Dash()
     {
+        cancelDashCooldown = false;
+        if (dashBar) dashBar.OnDashUsed();
         AudioManager.Instance.PlayDashSound();
         canDash = false;
         isDashing = true;
@@ -263,16 +268,26 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = originalGravity;
         transform.rotation = originalRotation;
         isDashing = false;
-        yield return new WaitForSeconds(dashingCoolDown);
+        // Esperar cooldown
+        float t = 0f;
+        while (t < dashingCoolDown && !cancelDashCooldown)
+        {
+            t += Time.deltaTime;
+            if (dashBar) dashBar.SetReady01(t / dashingCoolDown);
+            yield return null;
+        }
         canDash = true;
+        if (dashBar) dashBar.OnReady();
     }
 
     public void PowerUp()
     {
+        cancelDashCooldown = true;
         canDash = true;
         dashedInAir = false;
         usedJumps = 1;
         secondJumpingPower = jumpingPower;
+        if (dashBar) dashBar.OnReady();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

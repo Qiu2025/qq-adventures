@@ -27,7 +27,6 @@ public class Door : MonoBehaviour
                 Debug.Log("Door opened!");
                 Destroy(key.gameObject);
                 isOpening = true;
-                // GetComponent<Collider2D>().enabled = false;  // optional but recommended
                 StartCoroutine(OpenAndDisappear());
                 AudioManager.Instance.PlayDoorSound();
             }
