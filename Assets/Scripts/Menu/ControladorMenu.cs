@@ -47,8 +47,7 @@ public class ControladorMenu : MonoBehaviour
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
         panelCreditos.SetActive(false);
-
-    }
+}
 
     public void OpenOptions()
     {
@@ -65,6 +64,11 @@ public class ControladorMenu : MonoBehaviour
     {
         panelOpciones.SetActive(false);
         panelControles.SetActive(true);
+    }
+
+    public void OpenAccesibilityOptions()
+    {
+        panelOpciones.SetActive(false);
     }
 
     public void OpenCredits()
@@ -98,7 +102,10 @@ public class ControladorMenu : MonoBehaviour
         panelOpciones.SetActive(true);
     }
 
-
+    public void BackToOptionsMenuFromAccesibilityMenu()
+    {
+        panelOpciones.SetActive(true);
+    }
 
     public void GoToMainMenu()
     {

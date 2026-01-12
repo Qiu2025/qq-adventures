@@ -24,6 +24,7 @@ public class GhostTrigger : MonoBehaviour
     private Coroutine pilotInstance;
 
     private bool isAutoPilotActivated = false;
+    private bool subscribed = false;
 
     // ----------------------------------------------------------------------
 
@@ -187,18 +188,40 @@ public class GhostTrigger : MonoBehaviour
         var acc = AccessibilityManager.Instance;
         if (acc == null) return;
 
+        Debug.Log("PLAYER recibió OnChangedAutopilot y aplica settings");
+        Debug.Log(isAutoPilotActivated);
         isAutoPilotActivated = !isAutoPilotActivated;
+        Debug.Log(isAutoPilotActivated);
     }
 
     private void OnEnable()
     {
-        if (AccessibilityManager.Instance != null)
-            AccessibilityManager.Instance.OnChangedAutopilot += Apply;
+        StartCoroutine(SubscribeWhenReady());
     }
 
     private void OnDisable()
     {
-        if (AccessibilityManager.Instance != null)
+        Unsubscribe();
+    }
+
+    IEnumerator SubscribeWhenReady()
+    {
+        while (AccessibilityManager.Instance == null)
+            yield return null;
+
+        if (!subscribed)
+        {
+            AccessibilityManager.Instance.OnChangedAutopilot += Apply;
+            subscribed = true;
+        }
+    }
+
+    void Unsubscribe()
+    {
+        if (AccessibilityManager.Instance != null && subscribed)
+        {
             AccessibilityManager.Instance.OnChangedAutopilot -= Apply;
+            subscribed = false;
+        }
     }
 }

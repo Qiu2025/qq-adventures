@@ -961,7 +961,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CR\xC9DITOS\nCR\xC9DITOSCR\xC9DITO\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOSCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOSCR\xC9DITOSCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nv\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS\nCR\xC9DITOS"
+  m_text: "\U0001F3AE Proyecto\nNombre del juego: QQ\n\nRepositorio: https://github.com/Qiu2025/FdV\n\nDesarrolladores
+    principales:\n\nZhiwei Zhang (@javizhangg)\nXiaolei Zhu (@MiiNeLoC0)\nJiade Zheng
+    (@jiade-git)\nYixiao Yao (@MASKYX)\nSiyuan Qiu (@Qiu2025)\nShuhang Pan (@Shuhang)\n\n\U0001F3A8
+    Arte y tilesets\nJugador (sprite principal)\nAutor: duckhive\nAsset: FREE Animated
+    Pixel Art Penguin\n\nTileset de desierto (plataformas/objetos)\nAutor: pzuh\nAsset:
+    Free Desert Platformer Tileset\n\nTilesets estacionales \n(grassland/oto\xF1o/tr\xF3pico/invierno)\nAutor:
+    GrafxKid\nAsset: Seasonal Tilesets\n\nMoneda\nAutor: brackeysgames\nAsset: Coin\n\nFeather\nAutor:
+    Ignite Marketplace\nAsset: Feather\n\n2D Casual UI HD\nAutor: MiMU STUDIO\nAsset:
+    2D Casual UI HD\n\n\U0001F305 Fondos y parallax\nFondo parallax de desierto\nAutor:
+    Cryptogene\nAsset: Free Parallax Desert Background\n\nFondo \u201CDesert landscape
+    with dunes\u201D\nAutor: v.rozenfeld\n\n\U0001F50A Sonidos y m\xFAsica\nSonido
+    de salto\nAutor: LloydEvans09\nSound: jump2\n\nSonido de dash\nAutor: qubodup\nSound:
+    Cloud Poof\n\nSonido de powerup\nAutor: jens.enk\nSound: Powerup.ogg\n\nDesert
+    wind blowing\nAutor: felix.blume\nSound: Wind blowing and howling in a \nplastic
+    bottle, \nin the desert of Chile. by felix.blume\n\nSonido de recibir da\xF1o\nAutor:
+    brackeysgames\nSound: Hurt\n\nSonido de recibir da\xF1o\nAutor: brackeysgames\nSound:
+    Hurt\n\nSonido del menu\nAutor: BackgroundMusicMaster\nSound: 8-Bit Rush"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1004,7 +1020,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

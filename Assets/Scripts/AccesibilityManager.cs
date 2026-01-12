@@ -32,7 +32,7 @@ public class AccessibilityManager : MonoBehaviour
 
     public void SetMasSaltos(bool activo)
     {
-        Debug.Log("TOGGLE MasSaltos -> " + activo);
+        Debug.Log("TOGGLE Autopilot -> " + activo);
         MasSaltos = activo;
         PlayerPrefs.SetInt("max_saltos", activo ? 1 : 0);
 
@@ -47,6 +47,8 @@ public class AccessibilityManager : MonoBehaviour
 
     public void SetAutopilot(bool activo)
     {
+        Debug.Log("TOGGLE MasSaltos -> " + activo);
         OnChangedAutopilot?.Invoke();
+        Debug.Log("Lanzando evento OnChangedAutopilot");
     }
 }

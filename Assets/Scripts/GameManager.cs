@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
 
     private static Animator powerFxAnimator; 
     private static GameObject powerFx;
-    
-    
 
-    
+    private bool subscribed = false;
+
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -63,15 +63,13 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        if (AccessibilityManager.Instance != null)
-            AccessibilityManager.Instance.OnChangedSlowMo += Apply;
+        StartCoroutine(SubscribeWhenReady());
     }
 
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        if (AccessibilityManager.Instance != null)
-            AccessibilityManager.Instance.OnChangedSlowMo -= Apply;
+        Unsubscribe();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -311,6 +309,27 @@ public class GameManager : MonoBehaviour
         isSlowMoActivated = !isSlowMoActivated;
         if(!isSlowMoActivated)
             Time.timeScale = 1f;
+    }
+
+    IEnumerator SubscribeWhenReady()
+    {
+        while (AccessibilityManager.Instance == null)
+            yield return null;
+
+        if (!subscribed)
+        {
+            AccessibilityManager.Instance.OnChangedSlowMo += Apply;
+            subscribed = true;
+        }
+    }
+
+    void Unsubscribe()
+    {
+        if (AccessibilityManager.Instance != null && subscribed)
+        {
+            AccessibilityManager.Instance.OnChangedSlowMo -= Apply;
+            subscribed = false;
+        }
     }
 }
 

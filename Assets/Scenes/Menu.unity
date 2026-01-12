@@ -219,8 +219,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11a06b35a7187934ca9c45cf424d9110, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: NewAssembly::creditsScript
-  scrollSpeed: 30
+  m_EditorClassIdentifier: NewAssembly::CreditsScript
+  scrollSpeed: 10
   rectTransform: {fileID: 1088316233}
 --- !u!224 &227487953 stripped
 RectTransform:
@@ -913,14 +913,14 @@ RectTransform:
   m_GameObject: {fileID: 1088316232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19571, y: 0.19571, z: 0.19571}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.19571}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 215823076}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: -48.1}
+  m_AnchoredPosition: {x: 12.6, y: -45.1}
   m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1088316235
@@ -943,10 +943,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CREDITOS\n\xC7\n\n\n\n\nCREDITOS\n\n\n\n\nCREDITOS\n\n\n\n\nCREDITOS\nCREDITOS\n\xC7\n\n\n\n\nCREDITOS\n\n\n\n\nCREDITOS\n\n\n\n\nCREDITOS\n\xC7\n\n\n\n\nCREDITOS\n\n\n\n\nCREDITOS\n\n\n\n"
+  m_text: "\U0001F3AE Proyecto\r\nNombre del juego: QQ\r\n\r\nRepositorio: https://github.com/Qiu2025/FdV\r\n\r\nDesarrolladores
+    principales:\r\n\r\nZhiwei Zhang (@javizhangg)\r\nXiaolei Zhu (@MiiNeLoC0)\r\nJiade
+    Zheng (@jiade-git)\r\nYixiao Yao (@MASKYX)\r\nSiyuan Qiu (@Qiu2025)\r\nShuhang
+    Pan (@Shuhang)\n\r\n\U0001F3A8 Arte y tilesets\r\nJugador (sprite principal)\r\nAutor:
+    duckhive\r\nAsset: FREE Animated Pixel Art Penguin\r\n\r\nTileset de desierto
+    (plataformas/objetos)\r\nAutor: pzuh\r\nAsset: Free Desert Platformer Tileset\r\n\r\nTilesets
+    estacionales \n(grassland/oto\xF1o/tr\xF3pico/invierno)\r\nAutor: GrafxKid\r\nAsset:
+    Seasonal Tilesets\r\n\r\nMoneda\r\nAutor: brackeysgames\r\nAsset: Coin\r\n\r\nFeather\r\nAutor:
+    Ignite Marketplace\r\nAsset: Feather\r\n\r\n2D Casual UI HD\r\nAutor: MiMU STUDIO\r\nAsset:
+    2D Casual UI HD\r\n\r\n\U0001F305 Fondos y parallax\r\nFondo parallax de desierto\r\nAutor:
+    Cryptogene\r\nAsset: Free Parallax Desert Background\r\n\r\nFondo \u201CDesert
+    landscape with dunes\u201D\r\nAutor: v.rozenfeld\r\n\r\n\U0001F50A Sonidos y
+    m\xFAsica\r\nSonido de salto\r\nAutor: LloydEvans09\r\nSound: jump2\r\n\r\nSonido
+    de dash\r\nAutor: qubodup\r\nSound: Cloud Poof\r\n\r\nSonido de powerup\r\nAutor:
+    jens.enk\r\nSound: Powerup.ogg\r\n\r\nDesert wind blowing\r\nAutor: felix.blume\r\nSound:
+    Wind blowing and howling in a \nplastic bottle, \nin the desert of Chile. by
+    felix.blume\r\n\r\nSonido de recibir da\xF1o\r\nAutor: brackeysgames\r\nSound:
+    Hurt\r\n\r\nSonido de recibir da\xF1o\r\nAutor: brackeysgames\r\nSound: Hurt\r\n\r\nSonido
+    del menu\r\nAutor: BackgroundMusicMaster\r\nSound: 8-Bit Rush"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -976,7 +994,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -986,7 +1004,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1635,6 +1653,26 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4480845978574542478, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4646249027693008644, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 793801574}
+    - target: {fileID: 4646249027693008644, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToOptionsMenuFromAccesibilityMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4646249027693008644, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorMenu, NewAssembly
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010292363554318019, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -38.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5352203223511318114, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1718,6 +1756,26 @@ PrefabInstance:
     - target: {fileID: 7403352650796288535, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       propertyPath: m_Color.a
       value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843383057481732103, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843383057481732103, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843383057481732103, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 793801573}
+    - target: {fileID: 7843383057481732103, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843383057481732103, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7899920535756158122, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1804,6 +1862,8 @@ PrefabInstance:
     - {fileID: 6332976626893795312, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
     - {fileID: 2123632501430666339, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
     - {fileID: 5674805400047260408, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+    - {fileID: 701064146225502280, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+    - {fileID: 340109009344118088, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4216048832822524922, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       insertIndex: 0

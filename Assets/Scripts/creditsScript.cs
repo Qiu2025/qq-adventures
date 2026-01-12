@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CreditsScript : MonoBehaviour
 {
-    public float scrollSpeed = 40f;
+    public float scrollSpeed = 10f;
 
     public RectTransform rectTransform;
     private Vector2 startPosition;
