@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 // Script para el prefab "Door"
 public class Door : MonoBehaviour
@@ -7,15 +8,13 @@ public class Door : MonoBehaviour
 
     private bool canShowChat = true;   // evita spam del mensaje
     
-    
     private float moveUpDistance = 5f;
     private float moveUpTime = 0.1f;
-    private bool isOpening = false;
+    [HideInInspector] public bool abierta = false; // para que el trigger lo sepa
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!canShowChat) return;  // evita parpadeo
-        if (isOpening) return;
+        if (abierta) return; // si ya está abierta, no hace nada
 
         if (collision.collider.CompareTag("Player"))
         {
@@ -24,18 +23,24 @@ public class Door : MonoBehaviour
 
             if (key != null)
             {
+                // SI TIENE LA LLAVE: Abrimos directamente sin mostrar el chat
                 Debug.Log("Door opened!");
                 Destroy(key.gameObject);
-                isOpening = true;
+                abierta = true;
+                StopAllCoroutines(); 
                 StartCoroutine(OpenAndDisappear());
                 AudioManager.Instance.PlayDoorSound();
             }
             else
             {
-                canShowChat = false; // bloquear nuevas llamadas
-                GameManager.ShowChat(keySprite,0.2f,2f,0.2f, 5f, 0.1f, 0.25f );
-                StartCoroutine(UnlockChat());  // reactivar después
-                Debug.Log("Door is locked!");
+                // SI NO TIENE LA LLAVE: Mostramos el chat 
+                if (canShowChat)
+                {
+                    canShowChat = false; 
+                    GameManager.ShowChat(keySprite, 0.2f, 2f, 0.2f, 5f, 0.1f, 0.25f);
+                    StartCoroutine(UnlockChat()); 
+                    Debug.Log("Door is locked!");
+                }
             }
         }
     }
@@ -43,10 +48,9 @@ public class Door : MonoBehaviour
     private System.Collections.IEnumerator UnlockChat()
     {
         yield return new WaitForSeconds(2.5f);
-        canShowChat = true;
+        if (!abierta) canShowChat = true;
     }
     
-    // Método para animar a la puerta
     private System.Collections.IEnumerator OpenAndDisappear()
     {
         Vector3 start = transform.position;
@@ -61,7 +65,6 @@ public class Door : MonoBehaviour
             yield return null;
         }
 
-        gameObject.SetActive(false); // or Destroy(gameObject);
+        gameObject.SetActive(false); 
     }
-
 }
