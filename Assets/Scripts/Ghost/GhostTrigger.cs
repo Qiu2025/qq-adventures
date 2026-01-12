@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class GhostTrigger : MonoBehaviour
 {
     [Header("Configuración")]
     [SerializeField] private string runName;
-    [SerializeField] private GameObject floatingPrompt;
+    [SerializeField] private HorizontalLayoutGroup PlayPromt;
+    [SerializeField] private HorizontalLayoutGroup AutoPilotPromt;
 
     [Header("Referencias")]
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -34,6 +36,8 @@ public class GhostTrigger : MonoBehaviour
             rb = player.GetComponent<Rigidbody2D>();
             pm = player.GetComponent<PlayerMovement>();
             playerAnim = player.GetComponent<Animator>();
+            PlayPromt.gameObject.SetActive(false);
+            AutoPilotPromt.gameObject.SetActive(false);
     }
 
     void Update()
@@ -57,7 +61,8 @@ public class GhostTrigger : MonoBehaviour
             
             ghostCamera.Priority = 5;
             ghostCamera.Follow = null;
-            floatingPrompt.SetActive(isPlayerNearby);
+            PlayPromt.gameObject.SetActive(isPlayerNearby);
+            AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
             isPlayingPlayer = false;
             animator.SetTrigger("isFinished");
         }
@@ -89,8 +94,8 @@ public class GhostTrigger : MonoBehaviour
     {
         if(animator) animator.SetTrigger("isPressed");
         isPlayingGhost = true;
-        floatingPrompt.SetActive(false);
-
+        PlayPromt.gameObject.SetActive(false);
+        AutoPilotPromt.gameObject.SetActive(false);
         // Bloquear jugador
         pm.canMove = false;
         rb.simulated = false;
@@ -124,7 +129,8 @@ public class GhostTrigger : MonoBehaviour
         rb.simulated = true;
         
         playerAnim.Play("Player Idle");
-        floatingPrompt.SetActive(isPlayerNearby);
+        PlayPromt.gameObject.SetActive(isPlayerNearby);
+        AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
         isPlayingGhost = false;
         animator.SetTrigger("isFinished");
     }
@@ -134,7 +140,8 @@ public class GhostTrigger : MonoBehaviour
     {
         animator.SetTrigger("isPressed");
         isPlayingPlayer = true;
-        floatingPrompt.SetActive(false);
+        PlayPromt.gameObject.SetActive(false);
+        AutoPilotPromt.gameObject.SetActive(false);
 
         // Lógica para que no se bloquee internamente
         pm.canMove = true;
@@ -158,7 +165,8 @@ public class GhostTrigger : MonoBehaviour
 
         ghostCamera.Priority = 5;
         ghostCamera.Follow = null;
-        floatingPrompt.SetActive(isPlayerNearby);
+        PlayPromt.gameObject.SetActive(isPlayerNearby);
+        AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
         isPlayingPlayer = false;
         animator.SetTrigger("isFinished");
     }
@@ -170,7 +178,12 @@ public class GhostTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            if(!isPlayingGhost && !isPlayingPlayer) floatingPrompt.SetActive(true);
+            if (!isPlayingGhost && !isPlayingPlayer)
+            {
+                PlayPromt.gameObject.SetActive(isPlayerNearby);
+                if (isAutoPilotActivated)
+                    AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
+            }
         }
     }
 
@@ -179,8 +192,9 @@ public class GhostTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            floatingPrompt.SetActive(false);
-        }
+                PlayPromt.gameObject.SetActive(isPlayerNearby);
+                AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
+            }
     }
 
     void Apply()
