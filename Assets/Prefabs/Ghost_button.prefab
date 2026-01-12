@@ -106,10 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b287fc25ed7a71d47aab8e140ee467f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::GhostTrigger
-  runName: salto1
-  floatingPrompt: {fileID: 8122471659860175096}
-  PlayPromt: {fileID: 0}
-  AutoPilotPromt: {fileID: 0}
+  runName: powerups1
+  PlayPromt: {fileID: 8428876037802819249}
+  AutoPilotPromt: {fileID: 2859290845304354105}
   virtualCamera: {fileID: 0}
   ghostCamera: {fileID: 0}
   animator: {fileID: 2363050269901435257}
@@ -626,7 +625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6959312842378537144
 RectTransform:
   m_ObjectHideFlags: 0
