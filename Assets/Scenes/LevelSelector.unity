@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 11949139}
   - component: {fileID: 11949138}
   - component: {fileID: 11949141}
-  - component: {fileID: 11949143}
   m_Layer: 5
   m_Name: MapDesierto
   m_TagString: Untagged
@@ -252,20 +251,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &11949143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11949136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2edc749002b96458da69d69107ceb937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NewAssembly::PulseAnimation
-  speed: 2
-  strength: 0.05
 --- !u!1 &20003960
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::PulseAnimation
   speed: 2
-  strength: 0.05
+  strength: 0.03
 --- !u!850595691 &97600903
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -804,7 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::PulseAnimation
   speed: 2
-  strength: 0.05
+  strength: 0.03
 --- !u!1 &359707261
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,8 +928,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.7, y: 35.4}
-  m_SizeDelta: {x: 18, y: 7}
+  m_AnchoredPosition: {x: 31.601467, y: 35.749}
+  m_SizeDelta: {x: 22.86248, y: 8.6971}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409833399
 MonoBehaviour:
@@ -1130,8 +1115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -26.3, y: 34.9}
-  m_SizeDelta: {x: 15, y: 7}
+  m_AnchoredPosition: {x: -28.89792, y: 35.74857}
+  m_SizeDelta: {x: 24.0609, y: 8.69713}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426882929
 MonoBehaviour:
@@ -1431,14 +1416,13 @@ GameObject:
   - component: {fileID: 585874702}
   - component: {fileID: 585874701}
   - component: {fileID: 585874700}
-  - component: {fileID: 585874699}
   m_Layer: 5
   m_Name: MapPlaya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &585874698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1458,20 +1442,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.26660156, y: -4.4066772}
   m_SizeDelta: {x: 720, y: 475}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &585874699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585874697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2edc749002b96458da69d69107ceb937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NewAssembly::PulseAnimation
-  speed: 2
-  strength: 0.05
 --- !u!114 &585874700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1578,14 +1548,13 @@ GameObject:
   - component: {fileID: 648581746}
   - component: {fileID: 648581745}
   - component: {fileID: 648581744}
-  - component: {fileID: 648581743}
   m_Layer: 5
   m_Name: MapArtico
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &648581742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1605,20 +1574,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.26660156, y: -4.4066772}
   m_SizeDelta: {x: 720, y: 475}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &648581743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648581741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2edc749002b96458da69d69107ceb937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NewAssembly::PulseAnimation
-  speed: 2
-  strength: 0.05
 --- !u!114 &648581744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1816,8 +1771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: 35.2}
-  m_SizeDelta: {x: 17, y: 7}
+  m_AnchoredPosition: {x: 10.535607, y: 35.050003}
+  m_SizeDelta: {x: 17.92879, y: 7.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &730359290
 MonoBehaviour:
@@ -2003,8 +1958,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.1, y: 35.5}
-  m_SizeDelta: {x: 15, y: 7}
+  m_AnchoredPosition: {x: -7.362436, y: 35.199997}
+  m_SizeDelta: {x: 16.47513, y: 7.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795980589
 MonoBehaviour:
@@ -2029,7 +1984,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.0037735105, g: 0.0037735105, b: 0.0037735105, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2248,7 +2203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::PulseAnimation
   speed: 2
-  strength: 0.05
+  strength: 0.03
 --- !u!1 &842351593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2399,10 @@ PrefabInstance:
       propertyPath: m_Maskable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2983541032976626711, guid: 800263676eda16b4db2dd8897d315200, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3620368552954986513, guid: 800263676eda16b4db2dd8897d315200, type: 3}
       propertyPath: m_Name
       value: Locked Panel Variant
@@ -2557,14 +2516,13 @@ GameObject:
   - component: {fileID: 1043403498}
   - component: {fileID: 1043403497}
   - component: {fileID: 1043403496}
-  - component: {fileID: 1043403495}
   m_Layer: 5
   m_Name: MapBosque
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1043403494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2584,20 +2542,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.26660156, y: -4.4066772}
   m_SizeDelta: {x: 720, y: 475}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1043403495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043403493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2edc749002b96458da69d69107ceb937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NewAssembly::PulseAnimation
-  speed: 2
-  strength: 0.05
 --- !u!114 &1043403496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3156,7 +3100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NewAssembly::PulseAnimation
   speed: 2
-  strength: 0.05
+  strength: 0.03
 --- !u!1 &1801771824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801771825}
   m_Layer: 0
-  m_Name: Menu cambiador_0
+  m_Name: Menu cambiador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

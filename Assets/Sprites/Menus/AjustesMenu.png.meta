@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: b2f37472c97e5cb46be8baaae74f8964
+guid: 2bc9a1ee67468b14ea528ed0d61ce4ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1634486797385343570
-    second: desert_level_5_0
+      213: -5223196532099172456
+    second: AjustesMenu_0
+  - first:
+      213: 966555207117769451
+    second: AjustesMenu_1
+  - first:
+      213: 1182187627142432735
+    second: AjustesMenu_2
+  - first:
+      213: -5998832996148712413
+    second: AjustesMenu_3
+  - first:
+      213: -518569609771583031
+    second: AjustesMenu_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desert_level_5_0
+      name: AjustesMenu_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 23
-        width: 285
-        height: 432
+        x: 84
+        y: 38
+        width: 1021
+        height: 1471
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2522834151ddea610800000000000000
-      internalID: 1634486797385343570
+      spriteID: 8973d208d6a7387b0800000000000000
+      internalID: -5223196532099172456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AjustesMenu_1
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 879
+        width: 415
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea0f0007d4e96d00800000000000000
+      internalID: 966555207117769451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AjustesMenu_2
+      rect:
+        serializedVersion: 2
+        x: 2054
+        y: 881
+        width: 405
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7cfa52269f76010800000000000000
+      internalID: 1182187627142432735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AjustesMenu_3
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 274
+        width: 404
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ce9a55c2ddfbca0800000000000000
+      internalID: -5998832996148712413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AjustesMenu_4
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 273
+        width: 394
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9704affabadc8f0800000000000000
+      internalID: -518569609771583031
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      desert_level_5_0: 1634486797385343570
+      AjustesMenu_0: -5223196532099172456
+      AjustesMenu_1: 966555207117769451
+      AjustesMenu_2: 1182187627142432735
+      AjustesMenu_3: -5998832996148712413
+      AjustesMenu_4: -518569609771583031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

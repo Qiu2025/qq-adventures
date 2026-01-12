@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 03ea20ac82a09a34e899296f2e05e196
+guid: 3b4424bbc9e61ea48b67f839cf09d9fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6107941565599910058
-    second: desert_level_9_0
+      213: 6402042854244983109
+    second: TextoYHandle_0
   - first:
-      213: 2092938765086039363
-    second: desert_level_9_1
+      213: 1117541648669592968
+    second: TextoYHandle_1
+  - first:
+      213: 2491117073838754386
+    second: TextoYHandle_2
+  - first:
+      213: -3129413497603845735
+    second: TextoYHandle_3
+  - first:
+      213: -8524087126934476227
+    second: TextoYHandle_4
+  - first:
+      213: 5906470283181330393
+    second: TextoYHandle_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,45 +128,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desert_level_9_0
+      name: TextoYHandle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 296
-        height: 512
+        x: 60
+        y: 758
+        width: 1400
+        height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa80d6e1e74c3c450800000000000000
-      internalID: 6107941565599910058
+      spriteID: 541a9147e00a8d850800000000000000
+      internalID: 6402042854244983109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: desert_level_9_1
+      name: TextoYHandle_1
       rect:
         serializedVersion: 2
-        x: 282
-        y: 274
-        width: 25
-        height: 237
+        x: 208
+        y: 884
+        width: 11
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34d199dc7bc9b0d10800000000000000
-      internalID: 2092938765086039363
+      spriteID: 88dc7ae553e428f00800000000000000
+      internalID: 1117541648669592968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextoYHandle_3
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 506
+        width: 547
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 991920811071294d0800000000000000
+      internalID: -3129413497603845735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextoYHandle_4
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 432
+        width: 216
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3a279cabeb54b980800000000000000
+      internalID: -8524087126934476227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextoYHandle_5
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 264
+        width: 270
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df8c61cd6ff7f150800000000000000
+      internalID: 5906470283181330393
       vertices: []
       indices: 
       edges: []
@@ -163,7 +241,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cea494d9cd300cd4f98ac748e0b8a3c3
     internalID: 0
     vertices: []
     indices: 
@@ -171,10 +249,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      desert_level_9_0: 6107941565599910058
-      desert_level_9_1: 2092938765086039363
+      TextoYHandle_0: 6402042854244983109
+      TextoYHandle_1: 1117541648669592968
+      TextoYHandle_2: 2491117073838754386
+      TextoYHandle_3: -3129413497603845735
+      TextoYHandle_4: -8524087126934476227
+      TextoYHandle_5: 5906470283181330393
+      TextoYHandle_6: -1919004465
+      TextoYHandle_7: -475406216
+      TextoYHandle_8: -1730071452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

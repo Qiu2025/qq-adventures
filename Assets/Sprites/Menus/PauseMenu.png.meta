@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: b2f37472c97e5cb46be8baaae74f8964
+guid: d4e8338ee6c1537489b397c51012f862
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1634486797385343570
-    second: desert_level_5_0
+      213: -1869492064128092055
+    second: PauseMenu_0
+  - first:
+      213: 6370572803633710929
+    second: PauseMenu_1
+  - first:
+      213: 5750796289876646855
+    second: PauseMenu_2
+  - first:
+      213: -7802549915261431277
+    second: PauseMenu_3
+  - first:
+      213: -4910731951273865786
+    second: PauseMenu_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desert_level_5_0
+      name: PauseMenu_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 23
-        width: 285
-        height: 432
+        x: 181
+        y: 105
+        width: 919
+        height: 1325
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2522834151ddea610800000000000000
-      internalID: 1634486797385343570
+      spriteID: 968bb376fda3e06e0800000000000000
+      internalID: -1869492064128092055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_1
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 879
+        width: 377
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1570a505632d86850800000000000000
+      internalID: 6370572803633710929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_2
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 879
+        width: 379
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb5bb1b1ceeecf40800000000000000
+      internalID: 5750796289876646855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_3
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 330
+        width: 375
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31296961136c7b390800000000000000
+      internalID: -7802549915261431277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_4
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 330
+        width: 374
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd0929fe4399dbb0800000000000000
+      internalID: -4910731951273865786
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      desert_level_5_0: 1634486797385343570
+      PauseMenu_0: -1869492064128092055
+      PauseMenu_1: 6370572803633710929
+      PauseMenu_2: 5750796289876646855
+      PauseMenu_3: -7802549915261431277
+      PauseMenu_4: -4910731951273865786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

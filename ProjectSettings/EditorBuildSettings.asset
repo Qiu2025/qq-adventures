@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 6e2219a1587e040418dd3eef35ccd767
   - enabled: 1
-    path: Assets/Scenes/MapSelection.unity
+    path: Assets/Scenes/LevelSelector.unity
+    guid: 65f5a08c36ff0454fa3153ea8c0e2e36
+  - enabled: 0
+    path: Assets/Scenes/DEPRECATED/MapSelection.unity
     guid: c1831682a76a543aab39b449cd693244
   - enabled: 1
     path: Assets/Scenes/1. Salto.unity
@@ -29,9 +32,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Menu_principal.unity
     guid: 7d7446847b2bdb64f9abfc47d6527bd6
-  - enabled: 1
-    path: Assets/Scenes/InMapLevellSelector.unity
-    guid: 65f5a08c36ff0454fa3153ea8c0e2e36
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

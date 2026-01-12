@@ -34,7 +34,7 @@ public class ControladorMenu : MonoBehaviour
         SessionFlags.cameFromPlay = true;
 
         // Vamos al selector
-        SceneManager.LoadScene("InMapLevellSelector");
+        SceneManager.LoadScene("LevelSelector");
     }
 
     public IEnumerator OpenMenu()
