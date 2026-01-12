@@ -83,7 +83,7 @@ La mecánica complementaria a la del movimiento es el uso de powerups. Estos pow
 
 ## 🧩 Enlaces adicionales
 - 🎥 [Cinemática inicial – Storyboard](https://drive.google.com/file/d/1Te-6krGhnXz3SqRmLgXNlxqP2L8sbe1r/view?usp=sharing)
-- 💻 [Repositorio del proyecto en GitHub]([https://github.com/...](https://github.com/Qiu2025/FdV.git)) 
+- 💻 [Repositorio del proyecto en GitHub](https://github.com/Qiu2025/FdV.git) 
 - 🕹️ [Versión jugable en Unity Play](https://play.unity.com/mg/other/...) *(añadir enlace real)*
 
 ---
