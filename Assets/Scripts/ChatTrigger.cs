@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ChatTrigger : MonoBehaviour
 {
+    [Header("Referencia Externa")]
+    public Door puerta;
+
     [Header("Configuración de la Imagen")]
     public Sprite imagenAMostrar;
     public float tiempoAparicion = 0.5f;
@@ -19,16 +22,18 @@ public class ChatTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // SI LA PUERTA YA SE ABRIÓ, NO HACEMOS NADA
+        if (puerta != null && puerta.abierta) return;
+
         // Verificamos si lo que entró en la zona es el Jugador
         if (collision.CompareTag("Player") && !activado)
         {
-            // Llamamos a la función estática de GameManager
+            // Llamamos a la función con TODOS tus parámetros originales
             GameManager.ShowChat(imagenAMostrar, tiempoAparicion, tiempoEspera, tiempoDesaparicion, escala, desplazamientoX, desplazamientoY);
 
             if (soloUnaVez)
             {
                 activado = true;
-                
             }
         }
     }
