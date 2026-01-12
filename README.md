@@ -66,16 +66,16 @@ La mecánica complementaria a la del movimiento es el uso de powerups. Estos pow
 
 ---
 
-### 1.7 Organización del equipo (tercera iteración)
+### 1.7 Organización del equipo (Cuarta iteración)
 
 | Miembro | Rol / Tareas | Descripción |
 |----------|---------------|--------------|
-| **Zhiwei Zhang** | Programador | Realización de *ice cream mealing* e implementación con temporizador |
-| **Xiaolei Zhu** | Programador | Encargado del temporizador para el primer nivel |
-| **Siyuan Qiu** | Programador / Level Designer | Diseño y plataformas del primer nivel, animación del personaje, movimiento principal y *bug fixing* |
-| **Yixiao Yao** | Programador | Implementación del *dash*, animación del personaje y *bug fixing* |
-| **Jiade Zheng** | Programador | Mecánicas de doble salto y caída lenta |
-| **Shuhang Pan** | Designer | Animación del juego principal |
+| **Zhiwei Zhang** | Programador | Encargado de mejorar el diseño de la escena del selector de niveles y actualización de documentación en github. |
+| **Xiaolei Zhu** | Programador | Encargado de meter en el menú principal, un menú con botones funcionales. Además de mejorar y añadir los apartados de opciones, sonido, controles y accesibilidad en el menú de pausa. |
+| **Siyuan Qiu** | Programador | Encargado de crear nuevas animaciones (animación para la transición del nivel, animación de muerte), mejora del Ghost Replay, rediseño del HUD, implementación de algunos audios y efectos y del rediseño de los menús (principal y de pausa).  |
+| **Yixiao Yao** | Programador QA (User Testing) | Encargado del C# testing, de la creación del efecto del viendo en los niveles, creación de animaciones, barra de cooldown para indicar el dash y otros efectos como el polvo al caer el suelo y al saltar. |
+| **Jiade Zheng** | Programador QA (User Testing) | Encargado de integrar las medidas de accesibilidad (omitir mecánicas y recordatorios contextuales) y de realizar la auditoria de accesibilidad. |
+| **Shuhang Pan** | Programador | Encargado de realizar la escena final en la que se enseña las estadísticas y créditos y creación de las distintas imágenes del pingüino (imagen promocional para el tráiler e imagen utilizada para el selector del nivel), además de la implementación de algunos audios y efectos. |
 
 > 💬 *Durante esta iteración algunos roles no se cumplieron completamente debido a exámenes y otros proyectos. Se espera una mejor organización en la siguiente iteración.*
 
@@ -83,7 +83,7 @@ La mecánica complementaria a la del movimiento es el uso de powerups. Estos pow
 
 ## 🧩 Enlaces adicionales
 - 🎥 [Cinemática inicial – Storyboard](https://drive.google.com/file/d/1Te-6krGhnXz3SqRmLgXNlxqP2L8sbe1r/view?usp=sharing)
-- 💻 [Repositorio del proyecto en GitHub](https://github.com/...) *(añadir enlace real)*
+- 💻 [Repositorio del proyecto en GitHub]([https://github.com/...](https://github.com/Qiu2025/FdV.git)) 
 - 🕹️ [Versión jugable en Unity Play](https://play.unity.com/mg/other/...) *(añadir enlace real)*
 
 ---
