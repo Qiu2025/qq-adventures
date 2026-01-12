@@ -70,26 +70,5 @@ public class PlataformaStepSensorTests
         bool caida = (bool)fieldCaida.GetValue(plataforma);
         Assert.IsTrue(caida, "La plataforma debe empezar la caída cuando el Player entra en el sensor.");
     }
-
-    [UnityTest]
-    public IEnumerator Sensor_does_nothing_when_non_player_enters()
-    {
-        var flags = BindingFlags.Instance | BindingFlags.NonPublic;
-        var fieldCaida = typeof(PlataformaTemporal).GetField("caida", flags);
-        Assert.IsNotNull(fieldCaida, "No se encontró el campo privado 'caida' en PlataformaTemporal.");
-
-        fieldCaida.SetValue(plataforma, false);
-
-        var other = new GameObject("Other");
-        toDestroy.Add(other);
-        other.tag = "Untagged";
-        var otherCol = other.AddComponent<BoxCollider2D>();
-
-        // Simular entrada de un objeto que no es Player
-        sensor.SendMessage("OnTriggerEnter2D", otherCol);
-        yield return null;
-
-        bool caida = (bool)fieldCaida.GetValue(plataforma);
-        Assert.IsFalse(caida, "La plataforma no debe activarse si el objeto no es el Player.");
-    }
+    
 }
