@@ -10,7 +10,7 @@ public class DeathZone : MonoBehaviour
         if(collision.CompareTag("Player"))
         {   
             Instantiate(prefabExplosionPlumas, collision.transform.position, Quaternion.identity);
-            AudioManager.Instance.PlayDieSound();
+            AudioManager.Instance?.PlayDieSound();
             GameManager.Instance.StartCoroutine(GameManager.Instance.RespawnPlayerWithTransition());        
         }
     }

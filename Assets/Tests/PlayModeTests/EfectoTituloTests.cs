@@ -28,17 +28,22 @@ public class EfectoTituloTests
         var canvasGroup = go.AddComponent<CanvasGroup>();
         var effect = go.AddComponent<EfectoTitulo>();
         effect.canvasGroup = canvasGroup;
+
+        effect.espera = 0f;                 // 👈 CLAVE
         effect.tiempoAparicion = 0.05f;
         effect.tiempoEspera = 0.05f;
         effect.tiempoDesaparicion = 0.05f;
 
-        yield return new WaitForSeconds(0.06f); // fade in
+        yield return null;                  // deja que corra Start()
+
+        yield return new WaitForSeconds(0.03f); // a mitad del fade-in aprox
         Assert.Greater(canvasGroup.alpha, 0f, "Durante el fade in el alpha debe incrementarse.");
 
         yield return new WaitForSeconds(0.2f);
         Assert.AreEqual(0f, canvasGroup.alpha, 0.001f, "Tras la secuencia el alpha debe volver a 0.");
         Assert.IsFalse(go.activeSelf, "El objeto debe desactivarse al finalizar la secuencia.");
     }
+
 
     [UnityTest]
     public IEnumerator Start_sin_canvasGroup_registra_error()

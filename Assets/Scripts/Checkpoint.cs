@@ -19,7 +19,7 @@ public class Checkpoint : MonoBehaviour
         {
             activated = true;
             animator.SetTrigger("Activate");
-            AudioManager.Instance.PlayCheckpointSound();
+            AudioManager.Instance?.PlayCheckpointSound();
             GameManager.SetCheckpoint(transform.position);
             MostrarTiempo();
         }
@@ -27,6 +27,7 @@ public class Checkpoint : MonoBehaviour
 
     void MostrarTiempo()
     {
+        if (canvasTextoFlotante == null) return;
         Vector3 posicion = transform.position + Vector3.up * 1.5f;
         GameObject canvasTexto = Instantiate(canvasTextoFlotante, posicion, Quaternion.identity);
 

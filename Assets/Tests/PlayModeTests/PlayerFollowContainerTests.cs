@@ -22,6 +22,8 @@ public class PlayerFollowContainerTests
         toDestroy.Add(container);
         container.AddComponent<PlayerFollowContainer>();
 
+        // 1 frame para que corra Start, 1 frame extra para asegurar Update
+        yield return null;
         yield return null;
     }
 
@@ -39,18 +41,20 @@ public class PlayerFollowContainerTests
     [UnityTest]
     public IEnumerator Start_busca_al_jugador_y_alinea_posicion()
     {
-        yield return null;
         Assert.AreEqual(player.transform.position, container.transform.position,
-            "Al iniciar debe colocarse exactamente en la posición del jugador.");
+            "Tras Start/primer Update, debe colocarse en la posición del jugador.");
+        yield break;
     }
 
     [UnityTest]
     public IEnumerator Update_sigue_al_jugador_cada_frame()
     {
         player.transform.position = new Vector3(8f, -3f, 0f);
+
+        // Espera un frame para que Update copie la nueva posición
         yield return null;
+
         Assert.AreEqual(player.transform.position, container.transform.position,
-            "El contenedor debe actualizar su posición para seguir al jugador.");
+            "Debe actualizar su posición para seguir al jugador.");
     }
 }
-

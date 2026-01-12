@@ -13,7 +13,7 @@ public class Key : MonoBehaviour
         {
             GetComponent<Collider2D>().enabled = false;
             
-            AudioManager.Instance.PlayKeySound();
+            AudioManager.Instance?.PlayKeySound();
 
             transform.SetParent(GameObject.FindGameObjectWithTag("PlayerContainer").transform);
 

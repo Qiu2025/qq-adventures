@@ -29,7 +29,7 @@ public class Door : MonoBehaviour
                 abierta = true;
                 StopAllCoroutines(); 
                 StartCoroutine(OpenAndDisappear());
-                AudioManager.Instance.PlayDoorSound();
+                AudioManager.Instance?.PlayDoorSound();
             }
             else
             {

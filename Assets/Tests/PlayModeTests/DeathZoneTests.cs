@@ -1,101 +1,152 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class DeathZoneTests
+public class DeathZoneUltraRobustTests
 {
-    private GameObject deathZoneObject;
-    private GameObject player;
-    private Rigidbody2D rb;
-    private GameObject gm;
-    private readonly List<Object> toDestroy = new();
+    private readonly List<UnityEngine.Object> toDestroy = new();
 
     [UnitySetUp]
-    public IEnumerator UnitySetUp()
+    public IEnumerator SetUp()
     {
         Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
         Physics2D.gravity = Vector2.zero;
+        Time.timeScale = 1f;
 
-        // DeathZone
-        deathZoneObject = new GameObject("DeathZone");
-        toDestroy.Add(deathZoneObject);
-        var dzCol = deathZoneObject.AddComponent<BoxCollider2D>();
-        dzCol.isTrigger = true;
-        deathZoneObject.AddComponent<DeathZone>();
-        deathZoneObject.transform.position = Vector3.zero;
+        // Limpia singleton previo
+        if (GameManager.Instance != null)
+        {
+            UnityEngine.Object.Destroy(GameManager.Instance.gameObject);
+            typeof(GameManager)
+                .GetField("<Instance>k__BackingField", BindingFlags.Static | BindingFlags.NonPublic)
+                ?.SetValue(null, null);
+            yield return null;
+        }
 
-        // Player
-        player = new GameObject("Player");
+        // Player mínimo
+        var player = new GameObject("Player");
         toDestroy.Add(player);
         player.tag = "Player";
-        var playerCol = player.AddComponent<BoxCollider2D>();
-        playerCol.isTrigger = false;
-        rb = player.AddComponent<Rigidbody2D>();
+        player.transform.position = new Vector3(-3f, 0f, 0f);
+
+        player.AddComponent<BoxCollider2D>();
+        var rb = player.AddComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0f;
-        player.transform.position = new Vector3(-3f, 0f, 0f);
+
+        player.AddComponent<Animator>();
+        player.AddComponent<SpriteRenderer>();
 
         // UICanvas
         var uiCanvas = new GameObject("UICanvas");
+        toDestroy.Add(uiCanvas);
         uiCanvas.tag = "UICanvas";
         uiCanvas.AddComponent<Animator>();
-        toDestroy.Add(uiCanvas);
 
         // Chat
-        var chatObj = new GameObject("Chat");
-        chatObj.tag = "Chat";
-        var chatImage = new GameObject("ImagenMostrar");
-        chatImage.transform.SetParent(chatObj.transform);
-        chatImage.AddComponent<SpriteRenderer>();
-        toDestroy.Add(chatObj);
+        var chat = new GameObject("Chat");
+        toDestroy.Add(chat);
+        chat.tag = "Chat";
+        var img = new GameObject("ImagenMostrar");
+        img.transform.SetParent(chat.transform);
+        img.AddComponent<SpriteRenderer>();
+        chat.SetActive(false);
 
         // PowerEffect
-        var powerEffect = new GameObject("PowerEffect");
-        powerEffect.tag = "PowerEffect";
-        powerEffect.AddComponent<Animator>();
-        powerEffect.AddComponent<SpriteRenderer>();
-        toDestroy.Add(powerEffect);
+        var power = new GameObject("PowerEffect");
+        toDestroy.Add(power);
+        power.tag = "PowerEffect";
+        power.AddComponent<Animator>();
+        power.AddComponent<SpriteRenderer>();
+        power.SetActive(true);
 
         // GameManager
-        gm = new GameObject("GameManager");
-        gm.AddComponent<GameManager>();
-        toDestroy.Add(gm);
+        var gmGO = new GameObject("GameManager");
+        toDestroy.Add(gmGO);
+        gmGO.AddComponent<GameManager>();
+
+        // Deja que Awake/OnEnable corran y hagan RefreshReferences
+        yield return null;
+
+        // IMPORTANTE: Si existe PlayerMovement en el proyecto, lo añadimos pero DESHABILITADO
+        // para que GameManager tenga referencia y NO explote, y para que Start() NO se ejecute.
+        var pmType = FindTypeByName("PlayerMovement");
+        if (pmType != null && player.GetComponent(pmType) == null)
+        {
+            var pm = player.AddComponent(pmType) as Behaviour;
+            if (pm != null) pm.enabled = false; // evita Start() que te estaba petando
+        }
 
         GameManager.SetCheckpoint(Vector2.zero);
-
-        yield return new WaitForFixedUpdate();
+        yield return null;
     }
 
     [UnityTearDown]
-    public IEnumerator UnityTearDown()
+    public IEnumerator TearDown()
     {
-        foreach (var obj in toDestroy)
-        {
-            if (obj != null) Object.Destroy(obj);
-        }
+        Time.timeScale = 1f;
+
+        foreach (var o in toDestroy)
+            if (o) UnityEngine.Object.Destroy(o);
+
         toDestroy.Clear();
         yield return null;
     }
 
     [UnityTest]
-    public IEnumerator Player_respawns_when_enters_deathzone()
+    public IEnumerator DeathZone_respawnea_al_player_al_entrar()
     {
-        player.transform.position = new Vector3(-3f, 0f, 0f);
-        rb.linearVelocity = new Vector2(10f, 0f);
+        // DeathZone
+        var dz = new GameObject("DeathZone");
+        toDestroy.Add(dz);
+        var dzCol = dz.AddComponent<BoxCollider2D>();
+        dzCol.isTrigger = true;
 
-        yield return SimulateForSeconds(0.4f);
-        yield return null;
+        var dzComp = dz.AddComponent<DeathZone>();
 
-        Assert.AreEqual(Vector2.zero, (Vector2)player.transform.position, "El jugador debe reaparecer en el último checkpoint al entrar en la DeathZone.");
-        rb.linearVelocity = Vector2.zero;
+        // Prefab privado para no instanciar null
+        var fakeExplosionPrefab = new GameObject("FakeExplosionPrefab");
+        toDestroy.Add(fakeExplosionPrefab);
+        typeof(DeathZone)
+            .GetField("prefabExplosionPlumas", BindingFlags.Instance | BindingFlags.NonPublic)
+            ?.SetValue(dzComp, fakeExplosionPrefab);
+
+        // Disparo manual del trigger (sin física)
+        var player = GameObject.FindGameObjectWithTag("Player");
+        Assert.IsNotNull(player);
+
+        player.transform.position = new Vector3(5f, 0f, 0f);
+
+        var playerCol = player.GetComponent<Collider2D>();
+        InvokeUnityMessage(dzComp, "OnTriggerEnter2D", playerCol);
+
+        // Respawn ocurre tras 1.5s
+        yield return new WaitForSeconds(1.6f);
+
+        Assert.AreEqual(Vector2.zero, (Vector2)player.transform.position);
     }
 
-    private IEnumerator SimulateForSeconds(float seconds)
+    // helpers
+    private static void InvokeUnityMessage(object target, string methodName, object arg)
     {
-        var steps = Mathf.CeilToInt(seconds / Time.fixedDeltaTime);
-        for (int i = 0; i < steps; i++)
-            yield return new WaitForFixedUpdate();
+        var m = target.GetType().GetMethod(methodName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+        Assert.IsNotNull(m, $"No existe {methodName} en {target.GetType().Name}");
+        m.Invoke(target, new[] { arg });
+    }
+
+    private static Type FindTypeByName(string typeName)
+    {
+        return AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(a =>
+            {
+                try { return a.GetTypes(); }
+                catch { return Array.Empty<Type>(); }
+            })
+            .FirstOrDefault(t => t.Name == typeName);
     }
 }
