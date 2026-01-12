@@ -199,6 +199,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator RespawnPlayerWithTransition()
     {
+        if (player == null || UI_animator == null || player_animator == null || player_script == null || player_rb == null || player_sr == null)
+        {
+            RespawnPlayer();
+            yield break;
+        }
         player_animator.Play("Player Turn");
         player_sr.enabled = false;
         player_script.canMove = false;

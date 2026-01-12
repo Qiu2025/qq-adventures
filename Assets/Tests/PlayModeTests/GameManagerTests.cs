@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using System.Reflection;
 
 public class GameManagerTests
 {
@@ -16,23 +17,36 @@ public class GameManagerTests
     [UnitySetUp]
     public IEnumerator UnitySetUp()
     {
-        Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
+        // --- LIMPIEZA DE SINGLETON/ESTÁTICOS ENTRE TESTS ---
+        if (GameManager.Instance != null)
+        {
+            Object.Destroy(GameManager.Instance.gameObject);
+            // fuerza a null el backing field de la auto-property Instance
+            typeof(GameManager)
+                .GetField("<Instance>k__BackingField", BindingFlags.Static | BindingFlags.NonPublic)
+                ?.SetValue(null, null);
+
+            yield return null; // deja que Unity destruya el GO
+        }
+
+        GameManager.ResetRun();
+        GameManager.SetGameOver(false);
         Time.timeScale = 1f;
 
-        // Player mínimo para GameManager
+        // --- tu setup actual ---
+        Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
+
         player = new GameObject("Player");
         toDestroy.Add(player);
         player.tag = "Player";
         player.AddComponent<BoxCollider2D>();
         player.transform.position = new Vector2(3f, 4f);
 
-        // UICanvas que GameManager espera en Awake
         uiCanvas = new GameObject("UICanvas");
         toDestroy.Add(uiCanvas);
         uiCanvas.tag = "UICanvas";
         uiCanvas.AddComponent<Animator>();
 
-        // Chat (debe estar activo mientras se ejecuta Awake)
         chatObj = new GameObject("Chat");
         toDestroy.Add(chatObj);
         chatObj.tag = "Chat";
@@ -41,7 +55,6 @@ public class GameManagerTests
         chatImage.AddComponent<SpriteRenderer>();
         chatObj.SetActive(true);
 
-        // PowerEffect (activo durante Awake)
         powerEffect = new GameObject("PowerEffect");
         toDestroy.Add(powerEffect);
         powerEffect.tag = "PowerEffect";
@@ -49,15 +62,15 @@ public class GameManagerTests
         powerEffect.AddComponent<SpriteRenderer>();
         powerEffect.SetActive(true);
 
-        // GameManager
         gmGO = new GameObject("GameManager");
         toDestroy.Add(gmGO);
         gmGO.AddComponent<GameManager>();
 
         chatObj.SetActive(false);
-        
+
         yield return null;
     }
+
 
     [UnityTearDown]
     public IEnumerator UnityTearDown()

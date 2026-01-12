@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 // Script del prefab PowerUp, que habilita un dash y un salto
-public class DashPowerUp : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
     private float respawnTime = 2f;
 

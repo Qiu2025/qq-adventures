@@ -45,7 +45,7 @@ public class Reward : MonoBehaviour
         collected = true;
 
         // Actualizar score y feedback
-        AudioManager.Instance.PlayCoinSound();
+        AudioManager.Instance?.PlayCoinSound();
         GameManager.score += 1;
         if (scoreText) scoreText.text = "  " + GameManager.score + " / ?";
 

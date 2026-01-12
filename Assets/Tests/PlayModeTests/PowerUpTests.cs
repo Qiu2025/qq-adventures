@@ -4,10 +4,10 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class DashPowerUpTests
+public class PowerUpTests
 {
     private GameObject dashObject;
-    private DashPowerUp dashPowerUp;
+    private PowerUp _powerUp;
     private SpriteRenderer sr;
     private CircleCollider2D col;
     private readonly List<Object> toDestroy = new();
@@ -21,7 +21,7 @@ public class DashPowerUpTests
         sr = dashObject.AddComponent<SpriteRenderer>();
         col = dashObject.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
-        dashPowerUp = dashObject.AddComponent<DashPowerUp>();
+        _powerUp = dashObject.AddComponent<PowerUp>();
 
         yield return null;
     }
@@ -46,7 +46,7 @@ public class DashPowerUpTests
         bool initialSr = sr.enabled;
         bool initialCol = col.enabled;
 
-        dashPowerUp.SendMessage("OnTriggerEnter2D", otherCol);
+        _powerUp.SendMessage("OnTriggerEnter2D", otherCol);
         yield return null;
 
         Assert.AreEqual(initialSr, sr.enabled, "El SpriteRenderer no debe cambiar si no entra el Player.");
@@ -60,7 +60,7 @@ public class DashPowerUpTests
         Assert.IsTrue(col.enabled, "El Collider debe empezar habilitado.");
 
         // Lanzamos directamente la corrutina de respawn
-        dashPowerUp.StartCoroutine("RespawnRoutine");
+        _powerUp.StartCoroutine("RespawnRoutine");
 
         // Primer frame: desactivado
         yield return null;

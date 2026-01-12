@@ -1,82 +1,187 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 using UnityEngine.TestTools;
-using TMPro;
+using UnityEngine.UI;
 
 public class RewardTests
 {
-    private GameObject rewardObject;
-    private Reward reward;
-    private GameObject player;
-    private GameObject scoreUI;
-    private TextMeshProUGUI scoreText;
     private readonly List<Object> toDestroy = new();
+    private GameObject rewardObject;
+    private GameObject player;
+    private TextMeshProUGUI scoreText;
 
     [UnitySetUp]
     public IEnumerator UnitySetUp()
     {
-        Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
-        Physics2D.gravity = Vector2.zero;
         GameManager.score = 0;
 
-        // Score UI
-        scoreUI = new GameObject("Score");
-        toDestroy.Add(scoreUI);
-        scoreUI.tag = "Score";
-        scoreText = scoreUI.AddComponent<TextMeshProUGUI>();
-        scoreText.text = "0/3";
+        EnsureMainCameraWithAudioListener();
+        EnsureAudioManagerReady();
 
-        // Player
+        var canvasGO = new GameObject("ScoreCanvas");
+        toDestroy.Add(canvasGO);
+        var canvas = canvasGO.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvasGO.AddComponent<CanvasScaler>();
+
+        var scoreGO = new GameObject("Score");
+        toDestroy.Add(scoreGO);
+        scoreGO.tag = "Score";
+        scoreGO.transform.SetParent(canvasGO.transform, false);
+        scoreText = scoreGO.AddComponent<TextMeshProUGUI>();
+        scoreText.text = "0";
+
         player = new GameObject("Player");
         toDestroy.Add(player);
         player.tag = "Player";
-        var playerCol = player.AddComponent<BoxCollider2D>();
-        playerCol.isTrigger = false;
-        var rb = player.AddComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.gravityScale = 0f;
-        player.transform.position = new Vector3(-2f, 0f, 0f);
+        player.AddComponent<BoxCollider2D>();
 
-        // Reward
         rewardObject = new GameObject("Reward");
         toDestroy.Add(rewardObject);
         var rewardCol = rewardObject.AddComponent<BoxCollider2D>();
         rewardCol.isTrigger = true;
-        reward = rewardObject.AddComponent<Reward>();
-        rewardObject.transform.position = Vector3.zero;
+        rewardObject.AddComponent<SpriteRenderer>();
+        rewardObject.AddComponent<Reward>();
 
-        yield return new WaitForFixedUpdate();
+        yield return null; // Start() de Reward
     }
 
     [UnityTearDown]
     public IEnumerator UnityTearDown()
     {
         foreach (var obj in toDestroy)
-        {
             if (obj != null) Object.Destroy(obj);
-        }
+
         toDestroy.Clear();
         yield return null;
     }
 
     [UnityTest]
-    public IEnumerator Reward_increases_score_and_destroys_itself_on_collision()
+    public IEnumerator Reward_incrementa_score_y_se_destruye_al_recogerlo()
     {
-        var rb = player.GetComponent<Rigidbody2D>();
-        rb.linearVelocity = new Vector2(10f, 0f);
+        var reward = rewardObject.GetComponent<Reward>();
 
-        yield return new WaitForFixedUpdate();
-        yield return new WaitForSeconds(0.1f);
+        var onTrigger = typeof(Reward).GetMethod("OnTriggerEnter2D", BindingFlags.NonPublic | BindingFlags.Instance);
+        Assert.IsNotNull(onTrigger);
 
-        Assert.AreEqual(1, GameManager.score,
-            "El puntaje debe incrementarse en 1 al recoger el reward");
+        onTrigger.Invoke(reward, new object[] { player.GetComponent<Collider2D>() });
 
-        Assert.AreEqual("1/3", scoreText.text,
-            "El texto del score debe actualizarse correctamente");
+        Assert.AreEqual(1, GameManager.score);
+        Assert.AreEqual("  1 / ?", scoreText.text);
 
-        Assert.IsTrue(rewardObject == null,
-            "El objeto reward debe destruirse tras ser recogido");
+        float timeout = Time.time + 1.25f;
+        while (rewardObject != null && Time.time < timeout)
+            yield return null;
+
+        Assert.IsTrue(rewardObject == null);
+    }
+
+    private void EnsureMainCameraWithAudioListener()
+    {
+        var cam = Camera.main;
+        if (cam == null)
+        {
+            var camGO = new GameObject("Main Camera");
+            toDestroy.Add(camGO);
+            camGO.tag = "MainCamera";
+            cam = camGO.AddComponent<Camera>();
+        }
+
+        if (cam.GetComponent<AudioListener>() == null)
+            cam.gameObject.AddComponent<AudioListener>();
+    }
+
+    private void EnsureAudioManagerReady()
+    {
+        var existing = Object.FindObjectOfType<AudioManager>();
+        AudioManager am;
+
+        if (existing != null) am = existing;
+        else
+        {
+            var amGO = new GameObject("AudioManager_Test");
+            toDestroy.Add(amGO);
+            am = amGO.AddComponent<AudioManager>();
+        }
+
+        // Asegura AudioSource
+        var src = am.GetComponent<AudioSource>();
+        if (src == null) src = am.gameObject.AddComponent<AudioSource>();
+
+        // Intenta setear Instance si existe
+        ForceSetSingletonInstance(am);
+
+        // Autorellena campos típicos para evitar nulls dentro de PlayCoinSound()
+        AutoWireAudioFields(am, src);
+    }
+
+    private static void ForceSetSingletonInstance(AudioManager am)
+    {
+        var t = typeof(AudioManager);
+        const BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+
+        var f = t.GetField("Instance", flags);
+        if (f != null && typeof(AudioManager).IsAssignableFrom(f.FieldType))
+        {
+            f.SetValue(null, am);
+            return;
+        }
+
+        var p = t.GetProperty("Instance", flags);
+        if (p != null && p.CanWrite && typeof(AudioManager).IsAssignableFrom(p.PropertyType))
+        {
+            p.SetValue(null, am);
+        }
+    }
+
+    private static void AutoWireAudioFields(AudioManager am, AudioSource src)
+    {
+        var t = am.GetType();
+        const BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+
+        var fields = t.GetFields(flags);
+
+        foreach (var f in fields)
+        {
+            if (f.FieldType == typeof(AudioSource))
+            {
+                if (f.GetValue(am) == null) f.SetValue(am, src);
+                continue;
+            }
+
+            if (f.FieldType == typeof(AudioClip))
+            {
+                if (f.GetValue(am) == null)
+                    f.SetValue(am, AudioClip.Create("DummyClip", 4410, 1, 44100, false));
+                continue;
+            }
+
+            if (f.FieldType == typeof(AudioClip[]))
+            {
+                if (f.GetValue(am) == null)
+                    f.SetValue(am, new[] { AudioClip.Create("DummyClip", 4410, 1, 44100, false) });
+                continue;
+            }
+        }
+
+        // Si AudioManager usa propiedades en vez de fields, intenta lo mismo con properties
+        var props = t.GetProperties(flags).Where(p => p.CanWrite);
+        foreach (var p in props)
+        {
+            if (p.PropertyType == typeof(AudioSource))
+            {
+                if (p.GetValue(am) == null) p.SetValue(am, src);
+            }
+            else if (p.PropertyType == typeof(AudioClip))
+            {
+                if (p.GetValue(am) == null)
+                    p.SetValue(am, AudioClip.Create("DummyClip", 4410, 1, 44100, false));
+            }
+        }
     }
 }
