@@ -112,16 +112,13 @@ Este archivo contiene información sobre los autores y licencias de los assets u
   Licencia/uso: Gratuita.  
 ---
 
-## 🧩 Fuentes tipográficas
-*Actualmente no implementados*
----
-
 
 ## 🧑‍⚖️ Nota legal
 
 Todos los assets pertenecen a sus respectivos autores y se utilizan conforme a sus licencias.  
 En caso de distribuir el juego, incluye este archivo y los avisos/licencias correspondientes.  
 Si algún autor solicita un cambio en la atribución, actualizaremos este documento.
+
 
 
 
