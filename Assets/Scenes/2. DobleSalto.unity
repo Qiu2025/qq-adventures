@@ -8443,11 +8443,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 770cc618b62f19f4b85a72f85b5f8297, type: 3}
---- !u!1 &1067568443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8122471659860175096, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-  m_PrefabInstance: {fileID: 1941949403}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1080010140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2469488986852571155, guid: 031aef1667b488349997f23ff7fe5a00, type: 3}
@@ -10753,30 +10748,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_button
       objectReference: {fileID: 0}
-    - target: {fileID: 420790523101540248, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3621666808300051774, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: runName
-      value: doblesalto1
-      objectReference: {fileID: 0}
     - target: {fileID: 3621666808300051774, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
       propertyPath: ghostCamera
       value: 
       objectReference: {fileID: 2115831361}
     - target: {fileID: 3621666808300051774, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: runDuration
-      value: 2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3621666808300051774, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 780844120}
-    - target: {fileID: 3621666808300051774, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: floatingPrompt
-      value: 
-      objectReference: {fileID: 1067568443}
     - target: {fileID: 6157176140553820922, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.78540754
@@ -10815,42 +10794,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6157176140553820922, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7798230615552513541, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7798230615552513541, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7798230615552513541, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7798230615552513541, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8122471659860175096, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053086436680106837, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053086436680106837, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053086436680106837, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053086436680106837, guid: b21684af0a2c9054cb78cbe06984004e, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

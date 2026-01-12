@@ -12,6 +12,7 @@ public class AccessibilityManager : MonoBehaviour
     [SerializeField] private int jumpsNormal = 2;
     [SerializeField] private int jumpsAccesibilidad = 4;
     public bool MasSaltos { get; private set; }
+    public bool AutoPilotActivado = false;
 
     void Awake()
     {
@@ -49,6 +50,7 @@ public class AccessibilityManager : MonoBehaviour
     {
         Debug.Log("TOGGLE MasSaltos -> " + activo);
         OnChangedAutopilot?.Invoke();
+        AutoPilotActivado = !AutoPilotActivado;
         Debug.Log("Lanzando evento OnChangedAutopilot");
     }
 }

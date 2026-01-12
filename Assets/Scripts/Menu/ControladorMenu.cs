@@ -11,7 +11,6 @@ public class ControladorMenu : MonoBehaviour
     public GameObject panelOpciones;
     public GameObject panelSonido;
     public GameObject panelControles;
-    public GameObject panelCreditos;
     public GameObject texto;
 
     void Start()
@@ -46,7 +45,6 @@ public class ControladorMenu : MonoBehaviour
         panelOpciones.SetActive(false);
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
-        panelCreditos.SetActive(false);
 }
 
     public void OpenOptions()
@@ -71,12 +69,6 @@ public class ControladorMenu : MonoBehaviour
         panelOpciones.SetActive(false);
     }
 
-    public void OpenCredits()
-    {
-        panelMenu.SetActive(false);
-        panelCreditos.SetActive(true);
-    }
-
     public void BackToMenu()
     {
         panelOpciones.SetActive(false);
@@ -88,13 +80,6 @@ public class ControladorMenu : MonoBehaviour
         panelSonido.SetActive(false);
         panelOpciones.SetActive(true);
     }
-
-    public void BackToMenuFromCredits()
-    {
-        panelCreditos.SetActive(false);
-        panelMenu.SetActive(true);
-    }
-
 
     public void BackToOptionsMenuFromControls()
     {
@@ -114,7 +99,6 @@ public class ControladorMenu : MonoBehaviour
         panelOpciones.SetActive(false);
         panelSonido.SetActive(false);
         panelControles.SetActive(false);
-        panelCreditos.SetActive(false);
     }
 
     public void QuitGame()
