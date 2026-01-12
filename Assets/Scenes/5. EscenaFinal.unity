@@ -858,6 +858,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 657844496}
     m_Modifications:
+    - target: {fileID: 2530507231740618046, guid: da622ad1a3b9637419d799de6c5062d4, type: 3}
+      propertyPath: m_text
+      value: "<size=180%><color=#FFD200>Desarrolladores principales:</color></size>\r\n\r\n<color=#8FD3FF>Zhiwei
+        Zhang</color> (@javizhangg)\r\n<color=#8FD3FF>Xiaolei Zhu</color> (@MiiNeLoC0)\r\n<color=#8FD3FF>Jiade
+        Zheng</color> (@jiade-git)\r\n<color=#8FD3FF>Yixiao Yao</color> (@MASKYX)\r\n<color=#8FD3FF>Siyuan
+        Qiu</color> (@Qiu2025)\r\n<color=#8FD3FF>Shuhang Pan</color> (@Shuhang)\r\n\r\n\r\n<size=150%><color=#FFD200>Arte
+        y tilesets:</color></size>\r\n\r\nJugador (sprite principal)\r\n<color=#FFB000>Autor:</color>
+        Duckhive\r\n<color=#FFB000>Asset:</color> FREE Animated Pixel Art Penguin\r\n\r\nTileset
+        de desierto (plataformas / objetos)\r\n<color=#FFB000>Autor:</color> Pzuh\r\n<color=#FFB000>Asset:</color>
+        Free Desert Platformer Tileset\r\n\r\nTilesets estacionales (grassland /
+        oto\xF1o / tropico / invierno)\r\n<color=#FFB000>Autor:</color> GrafxKid\r\n<color=#FFB000>Asset:</color>
+        Seasonal Tilesets\r\n\r\nMoneda\r\n<color=#FFB000>Autor:</color> Brackeysgames\r\n<color=#FFB000>Asset:</color>
+        Coin\r\n\r\nFeather\r\n<color=#FFB000>Autor:</color> Ignite Marketplace\r\n<color=#FFB000>Asset:</color>
+        Feather\r\n\r\n2D Casual UI HD\r\n<color=#FFB000>Autor:</color> MiMU STUDIO\r\n<color=#FFB000>Asset:</color>
+        2D Casual UI HD\r\n\r\n\r\n<size=150%><color=#FFD200>Fondos y parallax:</color></size>\r\n\r\nFondo
+        parallax de desierto\r\n<color=#FFB000>Autor:</color> Cryptogene\r\n<color=#FFB000>Asset:</color>
+        Free Parallax Desert Background\r\n\r\nFondo \u201CDesert landscape with
+        dunes\u201D\r\n<color=#FFB000>Autor:</color> v.rozenfeld\r\n\r\n\r\n<size=150%><color=#FFD200>Sonidos
+        y musica:</color></size>\r\n\r\nSonido de salto\r\n<color=#FFB000>Autor:</color>
+        LloydEvans09\r\n<color=#FFB000>Sound:</color> jump2\r\n\r\nSonido de dash\r\n<color=#FFB000>Autor:</color>
+        qubodup\r\n<color=#FFB000>Sound:</color> Cloud Poof\r\n\r\nSonido de powerup\r\n<color=#FFB000>Autor:</color>
+        jens.enk\r\n<color=#FFB000>Sound:</color> Powerup.ogg\r\n\r\nDesert wind
+        blowing\r\n<color=#FFB000>Autor:</color> felix.blume\r\n<color=#FFB000>Sound:</color>
+        Wind blowing and howling in a plastic bottle, in the desert of Chile\r\n\r\nSonido
+        de recibir da\xF1o\r\n<color=#FFB000>Autor:</color> Brackeysgames\r\n<color=#FFB000>Sound:</color>
+        Hurt\r\n\r\nSonido del menu\r\n<color=#FFB000>Autor:</color> BackgroundMusicMaster\r\n<color=#FFB000>Sound:</color>
+        8-Bit Rush\n\nSonido de los creditos\n<color=#FFB000>Autor:</color> GLBML
+        GeoffreyBurch\n<color=#FFB000>Sound:</color> Resonant Victory\n\r\nSonido
+        clicks los menus\n<color=#FFB000>Autor:</color> Breviceps\n<color=#FFB000>Sound:</color>
+        Normal click"
+      objectReference: {fileID: 0}
     - target: {fileID: 2556861528546523687, guid: da622ad1a3b9637419d799de6c5062d4, type: 3}
       propertyPath: m_Name
       value: CreditsPanel
