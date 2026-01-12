@@ -182,7 +182,38 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // Si se ha seleccionado no permitir la mecánica de doble salto en la escena actual
+        // Si se ha seleccionado no permitir la mecánica de doble salto en la escena actual pero se ha activado la opción +2 salto
+        if(maxJumps == 4 && !GameManager.Instance.allowDoubleJump)
+        {
+            // Si no estamos en suelo, permitir el doble salto si queda (usedJumps < maxJumps)
+            if (usedJumps < maxJumps-1)
+            {
+                if (usedJumps == 0)
+                {
+                    // Entrar aqui = no ha realizado el primer salto y esta en el aire
+                    // en ese caso impedimos que haga dos saltos en el aire
+                    usedJumps = 1;
+                    animator.SetBool("isDoingSecondJump", true);
+                }
+                else
+                {
+                    animator.SetBool("isDoubleJumping", true);
+                }
+
+                // Segundo salto
+                var dust = Instantiate(jumpingDustPrefab, transform.position + new Vector3(0, -0.1f, 0), Quaternion.identity);
+                Destroy(dust, 0.350f);
+                AudioManager.Instance.PlayJumpSound();
+                rb.linearVelocity = new Vector2(rb.linearVelocityX, secondJumpingPower);
+                usedJumps++;
+                animator.SetBool("isFalling", false);
+                animator.SetBool("isJumping", false);
+            }
+
+            // Estar aqui = no quedan saltos disponibles
+        }
+
+        // Si se ha seleccionado no permitir la mecánica de doble salto en la escena actual y no se ha activado la opción +2 salto
         if (!GameManager.Instance.allowDoubleJump) return;
 
         // Si no estamos en suelo, permitir el doble salto si queda (usedJumps < maxJumps)

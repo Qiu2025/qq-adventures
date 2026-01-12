@@ -307,7 +307,7 @@ public class GameManager : MonoBehaviour
         if (acc == null) return;
 
         isSlowMoActivated = !isSlowMoActivated;
-        if(!isSlowMoActivated)
+        if(!isSlowMoActivated && Time.timeScale != 0)
             Time.timeScale = 1f;
     }
 

@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip checkpoint;
     [SerializeField] private AudioClip key;
     [SerializeField] private AudioClip door;
+    [SerializeField] private AudioClip UI;
     
     
     public float volumen; 
@@ -78,6 +79,8 @@ public class AudioManager : MonoBehaviour
         sfx.PlayOneShot(door, volumen);
     }
 
-    
-
+    public void PlayUISound()
+    {
+        sfx.PlayOneShot(UI, volumen);
+    }
 }
