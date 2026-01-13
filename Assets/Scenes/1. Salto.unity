@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 643731061}
+    - target: {fileID: 404706495792293174, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 937889490320880283, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1161370068845733518, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -171,6 +179,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1422461742}
+    - target: {fileID: 3961953942056873283, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3979431109163321488, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -45097,7 +45109,7 @@ MonoBehaviour:
   _captureEveryNFrames: 2
   _runName: 
   _ghostPrefab: {fileID: 1547775306856727610, guid: b7babdf8dcf69824ebcdc73a2c1ef91c, type: 3}
-  _developerMode: 1
+  _developerMode: 0
 --- !u!60 &3851375273372248468
 PolygonCollider2D:
   m_ObjectHideFlags: 0

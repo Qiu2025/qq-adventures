@@ -23,15 +23,6 @@ public class GhostRunner : MonoBehaviour
 
     // --------------------------------------------- //
 
-    [Header("Mode")]
-#if UNITY_EDITOR
-    [SerializeField] private bool _developerMode = true;
-#else
-    [SerializeField] private bool _developerMode = false;
-#endif
-
-    // --------------------------------------------- //
-
     private ReplaySystem _system;
 
     // Variables reales y booleanos del animator para ser grabado
@@ -48,8 +39,7 @@ public class GhostRunner : MonoBehaviour
 
     void Update()
     {
-        if (!_developerMode) return;
-
+#if UNITY_EDITOR
         // Controles de desarrollo / prueba
         if (Input.GetKeyDown(KeyCode.V))
         {
@@ -74,6 +64,7 @@ public class GhostRunner : MonoBehaviour
             StopReplayManual();
             Debug.Log("Record stopped manually");
         }
+#endif
     }
 
     // Reproduce una run concreta

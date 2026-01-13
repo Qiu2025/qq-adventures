@@ -16,8 +16,8 @@ public class GhostTrigger : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private bool isPlayerNearby = false;
-    private bool isPlayingGhost = false;
-    private bool isPlayingPlayer = false;
+    private bool isPlayingGhost = false;    // MODO MIRAR (No interrumpible)
+    private bool isPlayingPlayer = false;   // MODO AUTOPILOTO (Interrumpible)
     private GameObject ghostInstance;
     private Rigidbody2D rb;
     private PlayerMovement pm;
@@ -45,9 +45,9 @@ public class GhostTrigger : MonoBehaviour
         if (isPlayerNearby && !isPlayingGhost && !isPlayingPlayer)
         {
             if (Input.GetKeyDown(KeyCode.E))
-                StartCoroutine(PlayGhostRun());
+                StartCoroutine(PlayGhostRun()); // Modo ver
             else if (Input.GetKeyDown(KeyCode.Return) && isAutoPilotActivated)
-                pilotInstance = StartCoroutine(PlayPlayerAutoPilot());
+                pilotInstance = StartCoroutine(PlayPlayerAutoPilot());  // Modo autopiloto
         }
 
         // Detección de cancelación
@@ -74,7 +74,7 @@ public class GhostTrigger : MonoBehaviour
     {
         return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || 
                Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || 
-               Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f;
+               Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.2f;
     }
 
     void RestorePlayerPhysics()
@@ -92,15 +92,18 @@ public class GhostTrigger : MonoBehaviour
 
     IEnumerator PlayGhostRun()
     {
-        if(animator) animator.SetTrigger("isPressed");
+        animator.SetTrigger("isPressed");
         isPlayingGhost = true;
         PlayPromt.gameObject.SetActive(false);
         AutoPilotPromt.gameObject.SetActive(false);
+
         // Bloquear jugador
         pm.canMove = false;
-        rb.simulated = false;
+        rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero;
         playerAnim.Play("Player Turn");
+
+        yield return null;
 
         // Logica de cambio de camaras
         ghostInstance = GhostRunner.Instance.PlayRunByName(runName);  // Obtener el ghost
@@ -125,8 +128,8 @@ public class GhostTrigger : MonoBehaviour
 
         // Devolver el control tras tener terminar el blend camara ghost -> camara original
         yield return new WaitForSeconds(2f);
-        pm.canMove = true;
-        rb.simulated = true;
+        
+        RestorePlayerPhysics();
         
         playerAnim.Play("Player Idle");
         PlayPromt.gameObject.SetActive(isPlayerNearby);
@@ -144,8 +147,9 @@ public class GhostTrigger : MonoBehaviour
         AutoPilotPromt.gameObject.SetActive(false);
 
         // Lógica para que no se bloquee internamente
-        pm.canMove = true;
+        pm.canMove = false;
         rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Kinematic;
 
         GhostRunner.Instance.PlayRunOnExistingTarget(runName, player);
         ghostCamera.Follow = player.transform;

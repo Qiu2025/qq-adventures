@@ -5801,7 +5801,7 @@ MonoBehaviour:
   _captureEveryNFrames: 2
   _runName: doblesalto1
   _ghostPrefab: {fileID: 1547775306856727610, guid: b7babdf8dcf69824ebcdc73a2c1ef91c, type: 3}
-  _developerMode: 1
+  _developerMode: 0
 --- !u!114 &490455795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7655,6 +7655,10 @@ PrefabInstance:
     - target: {fileID: 3387720589560228081, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961953942056873283, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.4
       objectReference: {fileID: 0}
     - target: {fileID: 3979431109163321488, guid: e6274d225d9ee49c8a2d8161b6968ba3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
