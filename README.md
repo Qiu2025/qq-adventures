@@ -6,7 +6,7 @@
 - Jiade Zheng (230264)  - [@jiade-git](https://github.com/jiade-git)
 - Yixiao Yao (230041)  - [@MASKYX](https://github.com/MASKYX)
 - Siyuan Qiu (230260)  - [@Qiu2025](https://github.com/Qiu2025)
-- Shuhang Pan (230257)  - [usshng](https://github.com/usshng)
+- Shuhang Pan (230257)  - [@usshng](https://github.com/usshng)
 
 ---
 
