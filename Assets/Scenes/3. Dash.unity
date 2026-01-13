@@ -487,7 +487,7 @@ Transform:
   m_GameObject: {fileID: 51650494}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.57, y: -5.57, z: 0}
+  m_LocalPosition: {x: 13.3, y: 53.8, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -63489,7 +63489,7 @@ Transform:
   m_GameObject: {fileID: 5764014261923669105}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.7699995, y: -5.57, z: -10}
+  m_LocalPosition: {x: 13.1, y: 53.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63521,7 +63521,7 @@ Transform:
   m_GameObject: {fileID: 4924318273730110416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2222202, y: -0.099999905, z: -10}
+  m_LocalPosition: {x: 13.1, y: 53.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -64265,7 +64265,6 @@ MonoBehaviour:
   _captureEveryNFrames: 2
   _runName: run3
   _ghostPrefab: {fileID: 1547775306856727610, guid: b7babdf8dcf69824ebcdc73a2c1ef91c, type: 3}
-  _developerMode: 1
 --- !u!1 &7426987541419611671
 GameObject:
   m_ObjectHideFlags: 0

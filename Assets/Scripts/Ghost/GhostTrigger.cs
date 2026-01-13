@@ -94,7 +94,11 @@ public class GhostTrigger : MonoBehaviour
     {
         animator.SetTrigger("isPressed");
         isPlayingGhost = true;
+        
+        bool promptWasActive = PlayPromt.IsActive();
         PlayPromt.gameObject.SetActive(false);
+
+        bool autoPilotWasActive = AutoPilotPromt.IsActive();
         AutoPilotPromt.gameObject.SetActive(false);
 
         // Bloquear jugador
@@ -132,8 +136,8 @@ public class GhostTrigger : MonoBehaviour
         RestorePlayerPhysics();
         
         playerAnim.Play("Player Idle");
-        PlayPromt.gameObject.SetActive(isPlayerNearby);
-        AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
+        if (promptWasActive) PlayPromt.gameObject.SetActive(isPlayerNearby);
+        if (autoPilotWasActive) AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
         isPlayingGhost = false;
         animator.SetTrigger("isFinished");
     }
@@ -143,7 +147,11 @@ public class GhostTrigger : MonoBehaviour
     {
         animator.SetTrigger("isPressed");
         isPlayingPlayer = true;
+        
+        bool promptWasActive = PlayPromt.IsActive();
         PlayPromt.gameObject.SetActive(false);
+
+        bool autoPilotWasActive = AutoPilotPromt.IsActive();
         AutoPilotPromt.gameObject.SetActive(false);
 
         // Lógica para que no se bloquee internamente
@@ -169,8 +177,8 @@ public class GhostTrigger : MonoBehaviour
 
         ghostCamera.Priority = 5;
         ghostCamera.Follow = null;
-        PlayPromt.gameObject.SetActive(isPlayerNearby);
-        AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
+        if (promptWasActive) PlayPromt.gameObject.SetActive(isPlayerNearby);
+        if (autoPilotWasActive) AutoPilotPromt.gameObject.SetActive(isPlayerNearby);
         isPlayingPlayer = false;
         animator.SetTrigger("isFinished");
     }

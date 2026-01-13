@@ -109058,7 +109058,7 @@ Transform:
   m_GameObject: {fileID: 5197292826263670154}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1899998, y: 37.440002, z: -10}
+  m_LocalPosition: {x: -84.59, y: 84.740005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -109141,7 +109141,7 @@ Transform:
   m_GameObject: {fileID: 4867031403691952683}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.635558, y: 39.920002, z: -10}
+  m_LocalPosition: {x: -74.444435, y: 86.999985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -109523,7 +109523,6 @@ MonoBehaviour:
   _captureEveryNFrames: 2
   _runName: powerups3
   _ghostPrefab: {fileID: 1547775306856727610, guid: b7babdf8dcf69824ebcdc73a2c1ef91c, type: 3}
-  _developerMode: 1
 --- !u!1 &4037285373881906304
 GameObject:
   m_ObjectHideFlags: 0
@@ -109630,7 +109629,7 @@ Transform:
   m_GameObject: {fileID: 4044353794347617323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: -0.6, z: 0}
+  m_LocalPosition: {x: -87.1, y: 46.7, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
