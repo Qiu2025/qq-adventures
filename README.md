@@ -8,6 +8,9 @@
 - Siyuan Qiu (230260)  - [@Qiu2025](https://github.com/Qiu2025)
 - Shuhang Pan (230257)  - [@usshng](https://github.com/usshng)
 
+> ℹ️ **Estado del Proyecto (Vertical Slice):**
+> Debido al marco temporal de la asignatura, el desarrollo actual se centra exclusivamente en el **bioma del desierto**. Esta versión representa una **Vertical Slice** funcional que demuestra las mecánicas, el arte y el ciclo de juego completo en este primer entorno, sirviendo como demostración de la visión final del proyecto.
+
 ---
 
 ## 📖 1. GDD
