@@ -1,5 +1,5 @@
-# QQ Adventures
-Juego de plataformas 2D desarrollado por un grupo de 6 estudiantes siguiendo una metodología agíl (Kanban — Trello)
+# 🎮 QQ Adventures
+Videojuego de plataformas 2D desarrollado con el motor Unity por un equipo de 6 estudiantes bajo la metodología ágil Kanban (Trello).
 
 > [!Note]
 > Debido al marco temporal de la asignatura, el desarrollo actual se centra exclusivamente en un bioma (el desierto) de las cuatro pensadas que formarían parte de la narrativa. Esta versión representa una **Vertical Slice** funcional que demuestra las mecánicas, el arte y el ciclo de juego completo en este primer entorno, sirviendo como demostración de la visión final del proyecto.
@@ -22,6 +22,7 @@ Durante su travesía, el pingüino tendrá que enfrentarse a diferentes entornos
 - 🕹️ [Versión jugable en Unity Play - Iteración 2 Pistola de agua](https://play.unity.com/en/games/faf8b156-aa96-4577-bdd4-7e7252b4397b/fdv-iteracion-2-branch-pistola)
 - 🕹️ [Versión jugable en Unity Play - Iteración 3](https://play.unity.com/en/games/bbaeee3d-c3a0-42b5-ae20-8f8a27410c10/fdv-iteracion-3)
 - 🕹️ [Versión jugable en Unity Play - Iteración 4](https://play.unity.com/en/games/61f7ce15-57b0-4d72-8a5c-8a8d63848fd1/fdv-iteracion-4)
+- 📄 [Presentación final en Canva](https://www.canva.com/design/DAG-hO0wS5E/J_OwAj-No-vjVLxI8RPAlw/view?utm_content=DAG-hO0wS5E&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd125434f20)
 
 ## 🧠 Licencia
 Este proyecto está licenciado bajo la **Apache 2.0**. Consulta el archivo [`LICENSE`](./LICENSE) para más detalles.
