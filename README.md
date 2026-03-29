@@ -24,6 +24,9 @@ Durante su travesía, el pingüino tendrá que enfrentarse a diferentes entornos
 - 🕹️ [Versión jugable en Unity Play - Iteración 4](https://play.unity.com/en/games/61f7ce15-57b0-4d72-8a5c-8a8d63848fd1/fdv-iteracion-4)
 - 📄 [Presentación final en Canva](https://www.canva.com/design/DAG-hO0wS5E/J_OwAj-No-vjVLxI8RPAlw/view?utm_content=DAG-hO0wS5E&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd125434f20)
 
+## ⚠️ Limitaciones
+El proyecto cuenta con varios bugs pendientes de resolución. Las incidencias detectadas están detalladas en la sección de issues.
+
 ## 🧠 Licencia
 Este proyecto está licenciado bajo la **Apache 2.0**. Consulta el archivo [`LICENSE`](./LICENSE) para más detalles.
 
